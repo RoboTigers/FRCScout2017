@@ -81,7 +81,8 @@ class MatchesViewController: UIViewController, UITableViewDataSource, UITableVie
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MatchReportCell", for: indexPath)
         let match = matches[indexPath.row]
-        cell.textLabel?.text = match.uniqueIdentifier
+        cell.textLabel?.text = "Match# \(match.matchNumber!)"
+        cell.detailTextLabel?.text = "Team # \(match.teamNumber!)"
         return cell
     }
     
