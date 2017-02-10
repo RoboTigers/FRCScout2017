@@ -56,10 +56,6 @@ class AddMatchViewController: UIViewController {
         print("AddMatchViewController - view loaded with selectedTourname = \(selectedTournament)")
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     func displayErrorAlertWithOk(_ msg: String) {
         let refreshAlert = UIAlertController(title: "Error", message: msg, preferredStyle: UIAlertControllerStyle.alert)
         
