@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mdm-BS-4Gr">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mdm-BS-4Gr">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -226,6 +226,9 @@
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="I5x-Iu-h4q">
                                 <rect key="frame" x="632" y="358" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="teleFuelHighStepper:" destination="gNr-S9-kRc" eventType="valueChanged" id="xBr-K7-1oE"/>
+                                </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crosses Line" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXt-HX-Y87">
                                 <rect key="frame" x="106" y="193" width="99" height="24"/>
@@ -248,6 +251,9 @@
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="qlO-Q9-pZR">
                                 <rect key="frame" x="644" y="230" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="autoFuelLowStepper:" destination="gNr-S9-kRc" eventType="valueChanged" id="iOO-41-M1Q"/>
+                                </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scores Gear" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqu-Dn-eFD">
                                 <rect key="frame" x="106" y="233" width="99" height="24"/>
@@ -273,6 +279,9 @@
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="d8P-Sh-WGQ">
                                 <rect key="frame" x="632" y="409" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="teleFuelLowStepper:" destination="gNr-S9-kRc" eventType="valueChanged" id="v6O-q8-rRy"/>
+                                </connections>
                             </stepper>
                             <segmentedControl opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sc3-PM-O5R">
                                 <rect key="frame" x="177" y="411" width="179" height="29"/>
@@ -490,10 +499,18 @@
                     <connections>
                         <outlet property="autoCrosses" destination="ngn-01-kfU" id="lDH-Cd-gWt"/>
                         <outlet property="autoFuelHighLabel" destination="fay-OM-JZX" id="xvZ-qR-SMk"/>
+                        <outlet property="autoFuelLowLabel" destination="oHz-64-tl7" id="gnS-tV-mjb"/>
                         <outlet property="autoScoresGear" destination="1pK-fw-IRw" id="4QU-46-6U8"/>
+                        <outlet property="fuelFromFeeder" destination="hAZ-9d-hmZ" id="3wY-Gc-eGc"/>
+                        <outlet property="fuelFromFloor" destination="uUj-Yp-THg" id="iI6-ZJ-x3B"/>
+                        <outlet property="fuelFromHopper" destination="ggh-IA-Wwy" id="Xji-tW-w9P"/>
                         <outlet property="gearCycle" destination="sc3-PM-O5R" id="S62-Qn-nSO"/>
+                        <outlet property="hangSpeed" destination="dwE-y8-6Fh" id="jKk-T2-2sW"/>
                         <outlet property="match" destination="uZK-7L-mUb" id="bB4-ow-RhG"/>
+                        <outlet property="shotsLocation" destination="OE8-rK-xrI" id="KIn-Je-Fng"/>
                         <outlet property="team" destination="KIW-1R-tPC" id="lsa-hj-VVN"/>
+                        <outlet property="teleFuelHighLabel" destination="Hl5-kJ-oc7" id="OwH-3o-4b4"/>
+                        <outlet property="teleFuelLowLabel" destination="bXF-wq-7v5" id="M01-vR-i9d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8D-Gn-M9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
