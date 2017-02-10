@@ -22,6 +22,15 @@ class AddMatchViewController: UIViewController {
     @IBOutlet weak var autoScoresGear: UISwitch!
     @IBOutlet weak var autoFuelHighLabel: UILabel!
     @IBOutlet weak var gearCycle: UISegmentedControl!
+    @IBOutlet weak var autoFuelLowLabel: UILabel!
+    @IBOutlet weak var teleFuelHighLabel: UILabel!
+    @IBOutlet weak var teleFuelLowLabel: UILabel!
+    @IBOutlet weak var shotsLocation: UISegmentedControl!
+    @IBOutlet weak var fuelFromFloor: UISwitch!
+    @IBOutlet weak var fuelFromFeeder: UISwitch!
+    @IBOutlet weak var fuelFromHopper: UISwitch!
+    @IBOutlet weak var hangSpeed: UISegmentedControl!
+    
     // SABRINA: Plesae continue here wiring up all the outlets
     
     // SABRINA: Please continue here wiring up all the actions
@@ -29,13 +38,24 @@ class AddMatchViewController: UIViewController {
         autoFuelHighLabel.text = String((Int(sender.value).description))
     }
     
+    @IBAction func autoFuelLowStepper(_ sender: UIStepper) {
+        autoFuelLowLabel.text = String((Int(sender.value).description))
+    }
+    @IBAction func teleFuelHighStepper(_ sender: UIStepper) {
+        teleFuelHighLabel.text = String((Int(sender.value).description))
+    }
+    @IBAction func teleFuelLowStepper(_ sender: UIStepper) {
+        teleFuelLowLabel.text = String((Int(sender.value).description))
+    }
+    
+    
     // MARK: - View functions
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("AddMatchViewController - view loaded with selectedTourname = \(selectedTournament)")
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -71,7 +91,7 @@ class AddMatchViewController: UIViewController {
         present(refreshAlert, animated: true, completion: nil)
     }
     
-
+    
     // MARK: - Save action
     
     /*
@@ -99,6 +119,15 @@ class AddMatchViewController: UIViewController {
             matchReport.autoCrossedLine = autoCrosses.isOn
             matchReport.autoFuelHigh = (Int16(autoFuelHighLabel.text!))!
             matchReport.gearCycle = Int16(gearCycle.selectedSegmentIndex)
+            matchReport.autoFuelLow = (Int16(autoFuelLowLabel.text!))!
+            matchReport.teleFuelHigh = (Int16(teleFuelHighLabel.text!))!
+            matchReport.teleFuelLow = (Int16(teleFuelLowLabel.text!))!
+            matchReport.shotsLocation = Int16(shotsLocation.selectedSegmentIndex)
+            matchReport.fuelFromFloor = fuelFromFloor.isOn
+            matchReport.fuelFromFeeder = fuelFromFeeder.isOn
+            matchReport.fuelFromHopper = fuelFromHopper.isOn
+            matchReport.hangSpeed = Int16(hangSpeed.selectedSegmentIndex)
+            
             // SABRINA: Keep going from here please add the entity attributes to matchReport so it can be stored to data store
             do {
                 print("Save match record: \(matchReport)")
@@ -110,5 +139,5 @@ class AddMatchViewController: UIViewController {
         }
     }
     
-
+    
 }
