@@ -120,8 +120,8 @@ class AddMatchViewController: UIViewController {
             matchReport.autoFuelHigh = (Int16(autoFuelHighLabel.text!))!
             matchReport.gearCycle = Int16(gearCycle.selectedSegmentIndex)
             matchReport.autoFuelLow = (Int16(autoFuelLowLabel.text!))!
-            matchReport.teleFuelHigh = (Int16(teleFuelHighLabel.text!))!
-            matchReport.teleFuelLow = (Int16(teleFuelLowLabel.text!))!
+            matchReport.fuelHigh = (Int16(teleFuelHighLabel.text!))!
+            matchReport.fuelLow = (Int16(teleFuelLowLabel.text!))!
             matchReport.shotsLocation = Int16(shotsLocation.selectedSegmentIndex)
             matchReport.fuelFromFloor = fuelFromFloor.isOn
             matchReport.fuelFromFeeder = fuelFromFeeder.isOn
