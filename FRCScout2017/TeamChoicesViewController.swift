@@ -13,18 +13,19 @@ class TeamChoicesViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
     @IBOutlet weak var teamPicker: UIPickerView!
     
-    var teams = ["abc", "def", "New Team"]
+    var teams: [String] = []
     var selectedTeam = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         teamPicker.dataSource = self
         teamPicker.delegate = self
+        title = "Teams"
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        refreshTeams()
+        teamPicker.reloadAllComponents()
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -40,13 +41,45 @@ class TeamChoicesViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // If the user selects "New Team" from the picker then let him add a new team member to the list.
+        // The UIPickerView is asyncrhonous so we must do any actions in confirmAction() rather than relying
+        // on the calling code to wait.
+        if (teams[row] == "New Team") {
+            let alertController = UIAlertController(title: "Team Number?", message: "Please input team number:", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
+                if let field = alertController.textFields![0] as UITextField? {
+                    print(field.text!)
+                    self.teams[row] = field.text!
+                    self.selectedTeam = self.teams[row]
+                    self.title = self.teams[row]
+                    pickerView.reloadAllComponents()
+                } else {
+                    print("User did not enter anything")
+                }
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+            alertController.addTextField { (textField) in
+                textField.placeholder = "Team Number"
+            }
+            alertController.addAction(confirmAction)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
         selectedTeam = teams[row]
         title = teams[row]
     }
     
 
-    /* ShowPitReport */
     // MARK: - Navigation
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if (selectedTeam == "New Team") {
+            displayErrorAlertWithOk("Please select a team")
+            print("Do not perform segue since no team is selected")
+            return false
+        }
+        return true
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var destination = segue.destination
@@ -69,5 +102,36 @@ class TeamChoicesViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
     }
     
+    func displayErrorAlertWithOk(_ msg: String) {
+        let refreshAlert = UIAlertController(title: "Error", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            print("Notify user of error")
+            return
+        }))
+        
+        DispatchQueue.main.async(execute: {
+            self.present(refreshAlert, animated: true, completion: nil)
+        })
+    }
+    private func refreshTeams() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<PitReport>(entityName: "PitReport")
+        var pitReports: [PitReport] = []
+        do {
+            pitReports = try context.fetch(fetchRequest)
+            print("Retrieved \(pitReports.count) pitReports")
+            teams.removeAll()
+            for report in pitReports {
+                teams.append(report.teamNumber!)
+            }
+            teams.append("New Team")
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
 
 }
