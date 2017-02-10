@@ -30,7 +30,11 @@ class AddMatchViewController: UIViewController {
     @IBOutlet weak var fuelFromFeeder: UISwitch!
     @IBOutlet weak var fuelFromHopper: UISwitch!
     @IBOutlet weak var hangSpeed: UISegmentedControl!
-    
+    @IBOutlet weak var penalty: UISwitch!
+    @IBOutlet weak var hang: UISwitch!
+    @IBOutlet weak var gearsLabel: UILabel!
+    @IBOutlet weak var defenseFaced: UISegmentedControl!
+   
     // SABRINA: Plesae continue here wiring up all the outlets
     
     // SABRINA: Please continue here wiring up all the actions
@@ -47,6 +51,9 @@ class AddMatchViewController: UIViewController {
     @IBAction func teleFuelLowStepper(_ sender: UIStepper) {
         teleFuelLowLabel.text = String((Int(sender.value).description))
     }
+    @IBAction func gearsStepper(_ sender: UIStepper) {
+    }
+
     
     
     // MARK: - View functions
@@ -127,7 +134,12 @@ class AddMatchViewController: UIViewController {
             matchReport.fuelFromFeeder = fuelFromFeeder.isOn
             matchReport.fuelFromHopper = fuelFromHopper.isOn
             matchReport.hangSpeed = Int16(hangSpeed.selectedSegmentIndex)
-            
+            matchReport.hang =
+                hang.isOn
+            matchReport.penalty =
+            penalty.isOn
+            matchReport.gears = (Int16(gearsLabel.text!))!
+            matchReport.defenseFaced = Int16(defenseFaced.selectedSegmentIndex)
             // SABRINA: Keep going from here please add the entity attributes to matchReport so it can be stored to data store
             do {
                 print("Save match record: \(matchReport)")
