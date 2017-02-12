@@ -22,7 +22,6 @@ class AddMatchViewController: UIViewController {
     @IBOutlet weak var autoScoresGear: UISwitch!
     @IBOutlet weak var autoFuelHighLabel: UILabel!
     @IBOutlet weak var gearCycle: UISegmentedControl!
-    @IBOutlet weak var autoFuelLowLabel: UILabel!
     @IBOutlet weak var teleFuelHighLabel: UILabel!
     @IBOutlet weak var teleFuelLowLabel: UILabel!
     @IBOutlet weak var shotsLocation: UISegmentedControl!
@@ -32,12 +31,13 @@ class AddMatchViewController: UIViewController {
     @IBOutlet weak var hangSpeed: UISegmentedControl!
     @IBOutlet weak var penalty: UISwitch!
     @IBOutlet weak var hang: UISwitch!
-    @IBOutlet weak var gearsLabel: UILabel!
     @IBOutlet weak var defenseFaced: UISegmentedControl!
-   
-    // SABRINA: Plesae continue here wiring up all the outlets
+    @IBOutlet weak var gearsPickedFromFloor: UISwitch!
+    @IBOutlet weak var gearsPickedFromFeeder: UISwitch!
+    @IBOutlet weak var autoFuelLowLabel: UILabel!
+    @IBOutlet weak var comments: UITextView!
+    @IBOutlet weak var gearsLabel: UILabel!
     
-    // SABRINA: Please continue here wiring up all the actions
     @IBAction func autoHighFuelStepper(_ sender: UIStepper) {
         autoFuelHighLabel.text = String((Int(sender.value).description))
     }
@@ -51,14 +51,16 @@ class AddMatchViewController: UIViewController {
     @IBAction func teleFuelLowStepper(_ sender: UIStepper) {
         teleFuelLowLabel.text = String((Int(sender.value).description))
     }
-    @IBAction func gearsStepper(_ sender: UIStepper) {
-    }
 
+    @IBAction func gearStepper(_ sender: UIStepper) {
+        gearsLabel.text = String((Int(sender.value).description))
+    }
     
     
     // MARK: - View functions
     
     override func viewDidLoad() {
+        print("in viewDidLoad")
         super.viewDidLoad()
         print("AddMatchViewController - view loaded with selectedTourname = \(selectedTournament)")
     }
@@ -120,23 +122,24 @@ class AddMatchViewController: UIViewController {
             matchReport.teamNumber = team.text!
             matchReport.uniqueIdentifier = uniqueIdentifier
             matchReport.autoCrossedLine = autoCrosses.isOn
+            matchReport.autoScoresGear = autoScoresGear.isOn
             matchReport.autoFuelHigh = (Int16(autoFuelHighLabel.text!))!
-            matchReport.gearCycle = Int16(gearCycle.selectedSegmentIndex)
             matchReport.autoFuelLow = (Int16(autoFuelLowLabel.text!))!
+            matchReport.gears = (Int16(gearsLabel.text!))!
+            matchReport.gearCycle = Int16(gearCycle.selectedSegmentIndex)
             matchReport.fuelHigh = (Int16(teleFuelHighLabel.text!))!
             matchReport.fuelLow = (Int16(teleFuelLowLabel.text!))!
+            matchReport.gearsFromFloor = gearsPickedFromFloor.isOn
+            matchReport.gearsFromFeeder = gearsPickedFromFeeder.isOn
             matchReport.shotsLocation = Int16(shotsLocation.selectedSegmentIndex)
             matchReport.fuelFromFloor = fuelFromFloor.isOn
             matchReport.fuelFromFeeder = fuelFromFeeder.isOn
             matchReport.fuelFromHopper = fuelFromHopper.isOn
             matchReport.hangSpeed = Int16(hangSpeed.selectedSegmentIndex)
-            matchReport.hang =
-                hang.isOn
-            matchReport.penalty =
-            penalty.isOn
-            matchReport.gears = (Int16(gearsLabel.text!))!
+            matchReport.hang = hang.isOn
+            matchReport.penalty = penalty.isOn
             matchReport.defenseFaced = Int16(defenseFaced.selectedSegmentIndex)
-            // SABRINA: Keep going from here please add the entity attributes to matchReport so it can be stored to data store
+            matchReport.comments = comments.text!
             do {
                 print("Save match record: \(matchReport)")
                 try context.save()
