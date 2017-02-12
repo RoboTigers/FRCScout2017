@@ -13,7 +13,7 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     var selectedTeam = ""
     var selectedDriveTrainType = "Type 1"
     
-    let driveTrainTypes = ["Type 1", "Type 2", "Type 3", "Type 4", "Type 5"]
+    let driveTrainTypes = ["Tank", "H Drive", "Omni", "Halo", "Arcade"]
 
     // MARK: - Outlets and Actions for screen widgets
     
