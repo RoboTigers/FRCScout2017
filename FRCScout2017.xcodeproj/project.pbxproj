@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		047F0B391E50D48D00CE89F8 /* PItReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F0B381E50D48D00CE89F8 /* PItReportTableViewController.swift */; };
 		806D5ABF1E4DE39600EC1EDC /* TeamChoicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806D5ABE1E4DE39600EC1EDC /* TeamChoicesViewController.swift */; };
 		806D5AC11E4DE75100EC1EDC /* PitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806D5AC01E4DE75100EC1EDC /* PitViewController.swift */; };
 		80854B661E4767F300C52877 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80854B651E4767F300C52877 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		047F0B381E50D48D00CE89F8 /* PItReportTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PItReportTableViewController.swift; sourceTree = "<group>"; };
 		806D5ABE1E4DE39600EC1EDC /* TeamChoicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamChoicesViewController.swift; sourceTree = "<group>"; };
 		806D5AC01E4DE75100EC1EDC /* PitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitViewController.swift; sourceTree = "<group>"; };
 		80854B621E4767F300C52877 /* FRCScout2017.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FRCScout2017.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +69,7 @@
 				80854B651E4767F300C52877 /* AppDelegate.swift */,
 				80854B671E4767F300C52877 /* ViewController.swift */,
 				80854B691E4767F300C52877 /* Main.storyboard */,
+				047F0B381E50D48D00CE89F8 /* PItReportTableViewController.swift */,
 				806D5AC01E4DE75100EC1EDC /* PitViewController.swift */,
 				806D5ABE1E4DE39600EC1EDC /* TeamChoicesViewController.swift */,
 				80854B7E1E477E2500C52877 /* AddMatchViewController.swift */,
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				806D5AC11E4DE75100EC1EDC /* PitViewController.swift in Sources */,
+				047F0B391E50D48D00CE89F8 /* PItReportTableViewController.swift in Sources */,
 				80854B7F1E477E2500C52877 /* AddMatchViewController.swift in Sources */,
 				80854B6E1E4767F300C52877 /* FRCScout2017.xcdatamodeld in Sources */,
 				806D5ABF1E4DE39600EC1EDC /* TeamChoicesViewController.swift in Sources */,
