@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mdm-BS-4Gr">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mdm-BS-4Gr">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -222,7 +222,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lrR-Si-LkI">
-                                <rect key="frame" x="268" y="210" width="132" height="112"/>
+                                <rect key="frame" x="268" y="210" width="168" height="112"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Motor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0d-Xd-1WN">
@@ -652,7 +652,6 @@
         <!--Add Match Report-->
         <scene sceneID="nUy-r6-e1t">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="t8D-Gn-M9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="gNr-S9-kRc" customClass="AddMatchViewController" customModule="FRCScout2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xgy-kT-X29"/>
@@ -708,19 +707,11 @@
                                     <action selector="autoHighFuelStepper:" destination="gNr-S9-kRc" eventType="valueChanged" id="ctn-w1-Ixh"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gears" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m71-6h-PGZ">
-                                <rect key="frame" x="71" y="361" width="79" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="jJK-ZS-JOn">
                                 <rect key="frame" x="262" y="359" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="gears:" destination="gNr-S9-kRc" eventType="valueChanged" id="bnq-nU-ecf"/>
-                                    <action selector="gearsStepper:" destination="gNr-S9-kRc" eventType="valueChanged" id="WIu-4q-3wd"/>
+                                    <action selector="gearStepper:" destination="gNr-S9-kRc" eventType="valueChanged" id="bw1-oi-w7O"/>
                                 </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="High Fuel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAI-gP-SeH">
@@ -988,6 +979,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gears" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5t3-SB-VhV">
+                                <rect key="frame" x="71" y="360" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1006,16 +1004,17 @@
                     <connections>
                         <outlet property="autoCrosses" destination="ngn-01-kfU" id="lDH-Cd-gWt"/>
                         <outlet property="autoFuelHighLabel" destination="fay-OM-JZX" id="xvZ-qR-SMk"/>
-                        <outlet property="autoFuelLowLabel" destination="oHz-64-tl7" id="gnS-tV-mjb"/>
+                        <outlet property="autoFuelLowLabel" destination="oHz-64-tl7" id="eRI-Yh-lgi"/>
                         <outlet property="autoScoresGear" destination="1pK-fw-IRw" id="4QU-46-6U8"/>
+                        <outlet property="comments" destination="GeX-fz-ENA" id="TNj-O1-7md"/>
                         <outlet property="defenseFaced" destination="miM-mh-9fZ" id="dDm-o4-nmU"/>
                         <outlet property="fuelFromFeeder" destination="hAZ-9d-hmZ" id="3wY-Gc-eGc"/>
                         <outlet property="fuelFromFloor" destination="uUj-Yp-THg" id="iI6-ZJ-x3B"/>
                         <outlet property="fuelFromHopper" destination="ggh-IA-Wwy" id="Xji-tW-w9P"/>
                         <outlet property="gearCycle" destination="sc3-PM-O5R" id="S62-Qn-nSO"/>
-                        <outlet property="gears" destination="Jza-oH-bug" id="qZl-28-PhE"/>
-                        <outlet property="gearsCycle" destination="sc3-PM-O5R" id="k4i-UG-nbw"/>
-                        <outlet property="gearsLabel" destination="Jza-oH-bug" id="Y9o-ML-vW8"/>
+                        <outlet property="gearsLabel" destination="Jza-oH-bug" id="VHH-Mg-uZM"/>
+                        <outlet property="gearsPickedFromFeeder" destination="8gO-GN-I0Y" id="RT1-bu-Az2"/>
+                        <outlet property="gearsPickedFromFloor" destination="FFs-fd-ar0" id="1sh-o4-w4E"/>
                         <outlet property="hang" destination="Vmc-ol-syv" id="BIV-Hi-ehQ"/>
                         <outlet property="hangSpeed" destination="dwE-y8-6Fh" id="jKk-T2-2sW"/>
                         <outlet property="match" destination="uZK-7L-mUb" id="bB4-ow-RhG"/>
@@ -1026,6 +1025,7 @@
                         <outlet property="teleFuelLowLabel" destination="bXF-wq-7v5" id="M01-vR-i9d"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t8D-Gn-M9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3313" y="-114"/>
         </scene>
