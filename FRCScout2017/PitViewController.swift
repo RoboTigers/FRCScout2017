@@ -24,48 +24,8 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var driveTrainMotorType: UISegmentedControl!
     @IBOutlet weak var driveTrainMotorNum: UITextField!
     @IBOutlet weak var crossesLineSwitch: UISwitch!
-    
-    @IBAction func save(_ sender: UIBarButtonItem) {
-        // save the report to the data store either using a new object to updating an existing object
-        var pitRecord : PitReport? = nil
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        let context = appDelegate.persistentContainer.viewContext
-        if (existingPitReport != nil) {
-            pitRecord = existingPitReport
-        } else {
-            pitRecord = PitReport(context: context)
-        }
-        pitRecord?.teamNumber = selectedTeamNumber
-        pitRecord?.contactName = contactName.text!
-        pitRecord?.driveTrainType = selectedDriveTrainType
-        pitRecord?.driveTrainMotorType = Int16(driveTrainMotorType.selectedSegmentIndex)
-        pitRecord?.autoCross = crossesLineSwitch.isOn
-        print("Pit Record is: \(pitRecord)")
-        do {
-            print("Save pit record: \(pitRecord))")
-            try context.save()
-        } catch let error as NSError {
-            print("Could not save the pit report. \(error), \(error.userInfo)")
-        }
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
-        let refreshAlert = UIAlertController(title: "Are you sure?", message: "Any changes you made on this screen will be lost if you do not save first.", preferredStyle: UIAlertControllerStyle.alert)
-        
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-            print("Cancel from add-pit scene")
-            self.dismiss(animated: true, completion: nil)
-        }))
-        
-        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-            print("Cancel the cancel, stay on the screen")
-        }))
-        
-        present(refreshAlert, animated: true, completion: nil)
-    }
+    //SABRINA: STEP 1: Add the remaining outlets here (you won't need any actions, just
+    // outlets for the text fields and switches and segmented controls
     
     // MARK: - View Controller
     
@@ -92,14 +52,25 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             fetchRequest.predicate = NSPredicate(format: "teamNumber == \(selectedTeamNumber)")
             do {
                 pitReports = try context.fetch(fetchRequest)
-                print("SHARON: Found \(pitReports.count) pitReports in data store")
                 if pitReports.count > 0 {
                     // There should only be one pit report for a team but if more are found
                     // then just ignore them - we take the first (0th position) array element
                     existingPitReport = pitReports[0]
-                    print("Existig pit report found: \(existingPitReport)")
-                    print("And its contact is \(existingPitReport?.contactName)")
                     contactName.text = existingPitReport?.contactName
+                    driveTrainTypePicker.reloadAllComponents()
+                    var typeRow = 0
+                    for (typeIndex, typeString) in driveTrainTypes.enumerated() {
+                        if typeString == existingPitReport?.driveTrainType {
+                            typeRow = typeIndex
+                            break
+                        }
+                    }
+                    driveTrainTypePicker.selectRow(typeRow, inComponent: 0, animated: false)
+                    driveTrainMotorType.selectedSegmentIndex = Int((existingPitReport?.driveTrainMotorType)!)
+                    driveTrainMotorNum.text = NSNumber(value: (existingPitReport?.driveTrainMotorNum)!).stringValue
+                    crossesLineSwitch.isOn = (existingPitReport?.autoCross)!
+                    //SABRINA: STEP 2: Pre=populate each screen widget with the value 
+                    // from the existing data record in the store
                 }
             } catch let error as NSError {
                 print("Could not fetch. \(error), \(error.userInfo)")
@@ -108,6 +79,51 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         
         
     }
+    
+    @IBAction func save(_ sender: UIBarButtonItem) {
+        // save the report to the data store either using a new object to updating an existing object
+        var pitRecord : PitReport? = nil
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let context = appDelegate.persistentContainer.viewContext
+        if (existingPitReport != nil) {
+            pitRecord = existingPitReport
+        } else {
+            pitRecord = PitReport(context: context)
+        }
+        pitRecord?.teamNumber = selectedTeamNumber
+        pitRecord?.contactName = contactName.text!
+        pitRecord?.driveTrainType = selectedDriveTrainType
+        pitRecord?.driveTrainMotorType = Int16(driveTrainMotorType.selectedSegmentIndex)
+        pitRecord?.driveTrainMotorNum = Int16(driveTrainMotorNum.text!)!
+        pitRecord?.autoCross = crossesLineSwitch.isOn
+        //SABRINA: STEP 3: Save the value of each widget you wire
+        print("Pit Record is: \(pitRecord)")
+        do {
+            print("Save pit record: \(pitRecord))")
+            try context.save()
+        } catch let error as NSError {
+            print("Could not save the pit report. \(error), \(error.userInfo)")
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        let refreshAlert = UIAlertController(title: "Are you sure?", message: "Any changes you made on this screen will be lost if you do not save first.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            print("Cancel from add-pit scene")
+            self.dismiss(animated: true, completion: nil)
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Cancel the cancel, stay on the screen")
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
+    
     
     // MARK: - Picker
     
