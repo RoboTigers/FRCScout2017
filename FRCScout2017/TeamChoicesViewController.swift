@@ -93,7 +93,7 @@ class TeamChoicesViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 // Send the selected team into the Pit Report scene
                 if let pitReportViewController = destination as? PitViewController {
                     print ("ShowPitReportSegue segue")
-                    pitReportViewController.selectedTeam = selectedTeam
+                    pitReportViewController.selectedTeamNumber = selectedTeam
                 }
             default:
                 print ("Unknown segueIdentifier: \(segueIdentifier)")
@@ -114,6 +114,7 @@ class TeamChoicesViewController: UIViewController, UIPickerViewDelegate, UIPicke
             self.present(refreshAlert, animated: true, completion: nil)
         })
     }
+    
     private func refreshTeams() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -123,7 +124,7 @@ class TeamChoicesViewController: UIViewController, UIPickerViewDelegate, UIPicke
         var pitReports: [PitReport] = []
         do {
             pitReports = try context.fetch(fetchRequest)
-            print("Retrieved \(pitReports.count) pitReports")
+            print("Retrieved \(pitReports.count) pitReports for picker")
             teams.removeAll()
             for report in pitReports {
                 teams.append(report.teamNumber!)
