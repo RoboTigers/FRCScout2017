@@ -85,7 +85,7 @@
                                 <rect key="frame" x="0.0" y="28" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sW2-QW-wMr" id="2f5-yr-UDB">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -136,7 +136,7 @@
                                     <color key="titleColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="qBI-fU-bYS" kind="show" identifier="ShowPitReportSegue" id="LNi-xh-vMH"/>
+                                    <segue destination="B7O-a4-MWs" kind="show" identifier="ShowPitReportSegue" id="LNi-xh-vMH"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select a Team or Add a New Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fn6-VX-zLy">
@@ -573,6 +573,11 @@
                         <barButtonItem title="Item" id="76e-bh-e8c"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="HvS-9t-ppw">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="AWf-X5-ryg">
+                            <connections>
+                                <action selector="cancel:" destination="qBI-fU-bYS" id="XPQ-kx-iKh"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="01b-Q3-nqg">
                             <connections>
                                 <action selector="save:" destination="qBI-fU-bYS" id="OEb-2R-uaW"/>
@@ -590,7 +595,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfF-ym-3JA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2574" y="819"/>
+            <point key="canvasLocation" x="3224" y="819"/>
         </scene>
         <!--Matches-->
         <scene sceneID="pmj-NO-2bG">
@@ -1095,6 +1100,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jkU-IL-apR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2590" y="-114"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xjF-Jp-1f8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B7O-a4-MWs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zso-m3-QPx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qBI-fU-bYS" kind="relationship" relationship="rootViewController" id="2Ef-Im-gDF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cmI-Bb-CJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2535" y="819"/>
         </scene>
     </scenes>
 </document>
