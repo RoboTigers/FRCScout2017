@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mdm-BS-4Gr">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mdm-BS-4Gr">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -85,7 +85,7 @@
                                 <rect key="frame" x="0.0" y="28" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sW2-QW-wMr" id="2f5-yr-UDB">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -586,11 +586,21 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="autoFuelHigh" destination="BaQ-6j-EsT" id="X7B-KL-glV"/>
+                        <outlet property="autoFuelLow" destination="vPN-9H-7EJ" id="ngm-ad-hot"/>
+                        <outlet property="autoScoreGear" destination="EGr-Oy-fSf" id="fib-q0-MCu"/>
+                        <outlet property="autoScoresGear" destination="EGr-Oy-fSf" id="df2-Qm-UBW"/>
                         <outlet property="contactName" destination="UJf-Bw-aHv" id="yXB-BW-soT"/>
                         <outlet property="crossesLineSwitch" destination="Wvl-Kb-Hhl" id="F4v-l7-tWD"/>
                         <outlet property="driveTrainMotorNum" destination="7TY-Tf-wNq" id="wbn-HQ-tbv"/>
                         <outlet property="driveTrainMotorType" destination="KpC-Cn-jcF" id="FVd-ij-QDk"/>
                         <outlet property="driveTrainTypePicker" destination="lrR-Si-LkI" id="6H8-IP-PA6"/>
+                        <outlet property="gearsFeederPickupSpeed" destination="r2h-UP-efJ" id="ScG-wN-114"/>
+                        <outlet property="gearsFloorPickupSpeed" destination="C6D-MZ-GSR" id="hg7-vF-Lvq"/>
+                        <outlet property="gearsPickupFromFeeder" destination="c4H-Jh-BW6" id="u7F-UG-DdV"/>
+                        <outlet property="gearsPickupFromFloor" destination="xcv-vK-fTY" id="DNj-Fg-PH2"/>
+                        <outlet property="preferedStarLocation" destination="3zP-T3-ycQ" id="i11-Vh-lkn"/>
+                        <outlet property="shotLocation" destination="BBA-gr-g8C" id="dWA-VT-Mfe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfF-ym-3JA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -628,18 +638,18 @@
                                         <rect key="frame" x="0.0" y="28" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i3E-Mj-PA8" id="Kbv-Mj-kss">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wyA-2A-5FB">
-                                                    <rect key="frame" x="48" y="5" width="33.5" height="20.5"/>
+                                                    <rect key="frame" x="48" y="4" width="34" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UiH-GI-BxS">
-                                                    <rect key="frame" x="48" y="25.5" width="44" height="14.5"/>
+                                                    <rect key="frame" x="48" y="25" width="44" height="15"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>

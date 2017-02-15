@@ -25,10 +25,19 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var driveTrainMotorNum: UITextField!
     @IBOutlet weak var crossesLineSwitch: UISwitch!
     //SABRINA: STEP 1: Add the remaining outlets here (you won't need any actions, just
+    @IBOutlet weak var gearsPickupFromFloor: UISwitch!
     // outlets for the text fields and switches and segmented controls
+    @IBOutlet weak var gearsPickupFromFeeder: UISwitch!
     
+    @IBOutlet weak var shotLocation: UISegmentedControl!
+    @IBOutlet weak var gearsFeederPickupSpeed: UISegmentedControl!
+    @IBOutlet weak var gearsFloorPickupSpeed: UISegmentedControl!
     // MARK: - View Controller
     
+    @IBOutlet weak var autoFuelLow: UITextField!
+    @IBOutlet weak var autoFuelHigh: UITextField!
+    @IBOutlet weak var preferedStarLocation: UISegmentedControl!
+    @IBOutlet weak var autoScoresGear: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
         driveTrainTypePicker.dataSource = self
@@ -98,7 +107,16 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         pitRecord?.driveTrainMotorType = Int16(driveTrainMotorType.selectedSegmentIndex)
         pitRecord?.driveTrainMotorNum = Int16(driveTrainMotorNum.text!)!
         pitRecord?.autoCross = crossesLineSwitch.isOn
-        //SABRINA: STEP 3: Save the value of each widget you wire
+        pitRecord?.gearsPickupFromFloor = gearsPickupFromFloor.isOn
+        pitRecord?.gearsPickupFromFeeder = gearsPickupFromFeeder.isOn
+        pitRecord?.gearsFloorPickupSpeed = Int16(gearsFloorPickupSpeed.selectedSegmentIndex)
+        pitRecord?.gearsFeederPickupSpeed = Int16(gearsFeederPickupSpeed.selectedSegmentIndex)
+        pitRecord?.autoScoresGear = autoScoresGear.isOn
+        pitRecord?.preferredStartLocation = Int16(preferedStarLocation.selectedSegmentIndex)
+        pitRecord?.shotLocation = Int16(shotLocation.selectedSegmentIndex)
+        pitRecord?.autoFuelHigh = Int16(autoFuelHigh.text!)!
+        pitRecord?.autoFuelLow = Int16(autoFuelLow.text!)!
+        //SABRINA & CHENYL: STEP 3: Save the value of each widget you wire
         print("Pit Record is: \(pitRecord)")
         do {
             print("Save pit record: \(pitRecord))")
