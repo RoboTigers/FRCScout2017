@@ -11,6 +11,8 @@ import CoreData
 
 class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    // SHARON TEST 
+    let sharon = 1
     var selectedTeamNumber = ""
     var selectedDriveTrainType = ""
     var existingPitReport : PitReport?
