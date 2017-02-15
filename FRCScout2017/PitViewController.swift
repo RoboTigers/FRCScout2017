@@ -11,6 +11,8 @@ import CoreData
 
 class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    // SHARON TEST 
+    let sharon = 1
     var selectedTeamNumber = ""
     var selectedDriveTrainType = ""
     var existingPitReport : PitReport?
@@ -36,10 +38,19 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     
     //SABRINA: STEP 1: Add the remaining outlets here (you won't need any actions, just
+    @IBOutlet weak var gearsPickupFromFloor: UISwitch!
     // outlets for the text fields and switches and segmented controls
+    @IBOutlet weak var gearsPickupFromFeeder: UISwitch!
     
+    @IBOutlet weak var shotLocation: UISegmentedControl!
+    @IBOutlet weak var gearsFeederPickupSpeed: UISegmentedControl!
+    @IBOutlet weak var gearsFloorPickupSpeed: UISegmentedControl!
     // MARK: - View Controller
     
+    @IBOutlet weak var autoFuelLow: UITextField!
+    @IBOutlet weak var autoFuelHigh: UITextField!
+    @IBOutlet weak var preferedStarLocation: UISegmentedControl!
+    @IBOutlet weak var autoScoresGear: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
         driveTrainTypePicker.dataSource = self
