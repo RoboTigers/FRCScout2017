@@ -24,6 +24,17 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var driveTrainMotorType: UISegmentedControl!
     @IBOutlet weak var driveTrainMotorNum: UITextField!
     @IBOutlet weak var crossesLineSwitch: UISwitch!
+    @IBOutlet weak var fuelPickupFromFloor: UISwitch!
+    @IBOutlet weak var fuelPickupFromFeeder: UISwitch!
+    @IBOutlet weak var fuelFloorPickupSpeed: UISegmentedControl!
+    @IBOutlet weak var fuelPickupFromHopper: UISwitch!
+    @IBOutlet weak var estimatedStorageVolumne: UITextField!
+    @IBOutlet weak var shotIsAccurate: UISwitch!
+    @IBOutlet weak var estimatedTimeToHang: UISegmentedControl!
+    @IBOutlet weak var commentsProud: UITextField!
+    @IBOutlet weak var commentsStillWorkingOn: UITextField!
+    
+    
     //SABRINA: STEP 1: Add the remaining outlets here (you won't need any actions, just
     // outlets for the text fields and switches and segmented controls
     
@@ -98,6 +109,22 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         pitRecord?.driveTrainMotorType = Int16(driveTrainMotorType.selectedSegmentIndex)
         pitRecord?.driveTrainMotorNum = Int16(driveTrainMotorNum.text!)!
         pitRecord?.autoCross = crossesLineSwitch.isOn
+        pitRecord?.fuelPickupFromFloor = fuelPickupFromFloor.isOn
+        pitRecord?.fuelPickupFromFeeder = fuelPickupFromFeeder.isOn
+        pitRecord?.fuelFloorPickupSpeed = Int16(fuelFloorPickupSpeed.selectedSegmentIndex)
+        pitRecord?.fuelPickupFromHopper = fuelPickupFromHopper.isOn
+        pitRecord?.shotIsAccurate = shotIsAccurate.isOn
+        pitRecord?.estimatedStorageVolumne = Int16(estimatedTimeToHang.selectedSegmentIndex)
+        pitRecord?.commentsProud = commentsProud.text!
+        pitRecord?.commentsStillWorkingOn = commentsStillWorkingOn.text!
+        
+        
+        
+        
+        
+        
+        
+        
         //SABRINA: STEP 3: Save the value of each widget you wire
         print("Pit Record is: \(pitRecord)")
         do {

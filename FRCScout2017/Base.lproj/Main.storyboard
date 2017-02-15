@@ -85,7 +85,7 @@
                                 <rect key="frame" x="0.0" y="28" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sW2-QW-wMr" id="2f5-yr-UDB">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -586,11 +586,20 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="commentsProud" destination="bU5-Pq-oF3" id="tI3-M9-J7m"/>
+                        <outlet property="commentsStillWorkingOn" destination="gvW-Is-PPt" id="7hj-Vg-2m5"/>
                         <outlet property="contactName" destination="UJf-Bw-aHv" id="yXB-BW-soT"/>
                         <outlet property="crossesLineSwitch" destination="Wvl-Kb-Hhl" id="F4v-l7-tWD"/>
                         <outlet property="driveTrainMotorNum" destination="7TY-Tf-wNq" id="wbn-HQ-tbv"/>
                         <outlet property="driveTrainMotorType" destination="KpC-Cn-jcF" id="FVd-ij-QDk"/>
                         <outlet property="driveTrainTypePicker" destination="lrR-Si-LkI" id="6H8-IP-PA6"/>
+                        <outlet property="estimatedStorageVolumne" destination="tpe-bJ-yUj" id="kmG-Qf-UBl"/>
+                        <outlet property="estimatedTimeToHang" destination="UcR-0x-g8p" id="Oat-3A-JzU"/>
+                        <outlet property="fuelFloorPickupSpeed" destination="xIe-M2-9wQ" id="yeq-L2-lhN"/>
+                        <outlet property="fuelPickupFromFeeder" destination="DHD-Ee-fGi" id="qAG-2p-23q"/>
+                        <outlet property="fuelPickupFromFloor" destination="pWy-Zu-NID" id="7SR-LU-BNX"/>
+                        <outlet property="fuelPickupFromHopper" destination="Gdr-Z5-XgW" id="Sb9-po-hGH"/>
+                        <outlet property="shotIsAccurate" destination="wmY-cq-bcL" id="TOf-GA-CQT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfF-ym-3JA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -612,8 +621,8 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zoq-RL-dor">
                                 <rect key="frame" x="20" y="64" width="728" height="29"/>
                                 <segments>
-                                    <segment title="Regional"/>
-                                    <segment title="L.I."/>
+                                    <segment title="Hudson Valley"/>
+                                    <segment title="SBPLI"/>
                                     <segment title="Championship"/>
                                 </segments>
                                 <connections>
@@ -628,18 +637,18 @@
                                         <rect key="frame" x="0.0" y="28" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i3E-Mj-PA8" id="Kbv-Mj-kss">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wyA-2A-5FB">
-                                                    <rect key="frame" x="48" y="5" width="33.5" height="20.5"/>
+                                                    <rect key="frame" x="48" y="4" width="34" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UiH-GI-BxS">
-                                                    <rect key="frame" x="48" y="25.5" width="44" height="14.5"/>
+                                                    <rect key="frame" x="48" y="25" width="44" height="15"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
