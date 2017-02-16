@@ -35,7 +35,7 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var estimatedTimeToHang: UISegmentedControl!
     @IBOutlet weak var commentsProud: UITextField!
     @IBOutlet weak var commentsStillWorkingOn: UITextField!
-    
+
     
     //SABRINA: STEP 1: Add the remaining outlets here (you won't need any actions, just
     @IBOutlet weak var gearsPickupFromFloor: UISwitch!
@@ -91,7 +91,18 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                     driveTrainMotorType.selectedSegmentIndex = Int((existingPitReport?.driveTrainMotorType)!)
                     driveTrainMotorNum.text = NSNumber(value: (existingPitReport?.driveTrainMotorNum)!).stringValue
                     crossesLineSwitch.isOn = (existingPitReport?.autoCross)!
-                    //SABRINA: STEP 2: Pre=populate each screen widget with the value 
+                    autoScoresGear.isOn = (existingPitReport?.autoScoresGear)!
+                    gearsPickupFromFloor.isOn = (existingPitReport?.gearsPickupFromFloor)!
+                    
+                    gearsPickupFromFeeder.isOn = (existingPitReport?.gearsPickupFromFeeder)!
+                    fuelPickupFromFloor.isOn = (existingPitReport?.fuelPickupFromFloor)!
+                    fuelPickupFromFeeder.isOn = (existingPitReport?.fuelPickupFromFeeder)!
+                    fuelPickupFromHopper.isOn = (existingPitReport?.fuelPickupFromHopper)!
+                    shotIsAccurate.isOn = (existingPitReport?.shotIsAccurate)!
+                    
+                    
+                    
+                    //SABRINA: STEP 2: Pre=populate each screen widget with the value
                     // from the existing data record in the store
                 }
             } catch let error as NSError {
@@ -128,13 +139,17 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         pitRecord?.estimatedStorageVolumne = Int16(estimatedTimeToHang.selectedSegmentIndex)
         pitRecord?.commentsProud = commentsProud.text!
         pitRecord?.commentsStillWorkingOn = commentsStillWorkingOn.text!
-        
-        
-        
-        
-        
-        
-        
+        pitRecord?.autoFuelLow = Int16(autoFuelLow.text!)!
+        print("NOW SAVE autoFuelHigh text value which is \(autoFuelHigh.text)")
+        pitRecord?.autoFuelHigh = Int16(autoFuelHigh.text!)!
+        pitRecord?.autoScoresGear = autoScoresGear.isOn
+        pitRecord?.gearsFeederPickupSpeed = Int16(gearsFeederPickupSpeed.selectedSegmentIndex)
+        pitRecord?.gearsPickupFromFloor = gearsPickupFromFloor.isOn
+        pitRecord?.gearsPickupFromFeeder = gearsPickupFromFeeder.isOn
+        pitRecord?.gearsFloorPickupSpeed = Int16(gearsFloorPickupSpeed.selectedSegmentIndex)
+        pitRecord?.preferredStartLocation = Int16(preferedStarLocation.selectedSegmentIndex)
+        pitRecord?.shotLocation = Int16(shotLocation.selectedSegmentIndex)
+        pitRecord?.shotIsAccurate = shotIsAccurate.isOn
         
         //SABRINA: STEP 3: Save the value of each widget you wire
         print("Pit Record is: \(pitRecord)")
