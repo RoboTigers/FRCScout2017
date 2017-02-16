@@ -139,6 +139,14 @@ class MatchesViewController: UIViewController, UITableViewDataSource, UITableVie
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<MatchReport>(entityName: "MatchReport")
         fetchRequest.predicate = NSPredicate(format: "tournament == \(tournamentSegmentedControl.selectedSegmentIndex)")
+        let teamSort = NSSortDescriptor(key: "teamNumber", ascending:true)
+        var sortsArray: [NSSortDescriptor] = []
+        let matchSort = NSSortDescriptor(key: "matchNumber", ascending:true)
+//        let matchSort = NSSortDescriptor(key: "Match", ascending: true, selector: NSLocalizedString ("Match", tableName: String?, bundle: Bundle, value: String, comment: String))
+        sortsArray.append(matchSort)
+        sortsArray.append(teamSort)
+        fetchRequest.sortDescriptors = sortsArray
+        
         do {
             matches = try context.fetch(fetchRequest)
             print("Retrieved \(matches.count) matches")
