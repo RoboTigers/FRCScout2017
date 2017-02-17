@@ -37,6 +37,11 @@ class AddMatchViewController: UIViewController {
     @IBOutlet weak var autoFuelLowLabel: UILabel!
     @IBOutlet weak var comments: UITextView!
     @IBOutlet weak var gearsLabel: UILabel!
+    @IBOutlet weak var rotorsStarted: UITextField!
+    @IBOutlet weak var autoScore: UITextField!
+    @IBOutlet weak var teleScore: UITextField!
+    
+
     
     @IBAction func autoHighFuelStepper(_ sender: UIStepper) {
         autoFuelHighLabel.text = String((Int(sender.value).description))
@@ -140,6 +145,11 @@ class AddMatchViewController: UIViewController {
             matchReport.penalty = penalty.isOn
             matchReport.defenseFaced = Int16(defenseFaced.selectedSegmentIndex)
             matchReport.comments = comments.text!
+            matchReport.rotorsStarted = (Int16(rotorsStarted.text!))!
+            matchReport.autoScore = (Int16(autoScore.text!))!
+            matchReport.teleScore = (Int16(teleScore.text!))!
+            
+            
             do {
                 print("Save match record: \(matchReport)")
                 try context.save()

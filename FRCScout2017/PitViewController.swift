@@ -35,22 +35,21 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var estimatedTimeToHang: UISegmentedControl!
     @IBOutlet weak var commentsProud: UITextField!
     @IBOutlet weak var commentsStillWorkingOn: UITextField!
-
-    
-    //SABRINA: STEP 1: Add the remaining outlets here (you won't need any actions, just
+    @IBOutlet weak var finalScore: UITextField!
     @IBOutlet weak var gearsPickupFromFloor: UISwitch!
-    // outlets for the text fields and switches and segmented controls
     @IBOutlet weak var gearsPickupFromFeeder: UISwitch!
-    
     @IBOutlet weak var shotLocation: UISegmentedControl!
     @IBOutlet weak var gearsFeederPickupSpeed: UISegmentedControl!
     @IBOutlet weak var gearsFloorPickupSpeed: UISegmentedControl!
-    // MARK: - View Controller
-    
     @IBOutlet weak var autoFuelLow: UITextField!
     @IBOutlet weak var autoFuelHigh: UITextField!
     @IBOutlet weak var preferedStarLocation: UISegmentedControl!
     @IBOutlet weak var autoScoresGear: UISwitch!
+    @IBOutlet weak var rotorsStarted: UITextField!
+
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         driveTrainTypePicker.dataSource = self
@@ -136,10 +135,11 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         pitRecord?.fuelFloorPickupSpeed = Int16(fuelFloorPickupSpeed.selectedSegmentIndex)
         pitRecord?.fuelPickupFromHopper = fuelPickupFromHopper.isOn
         pitRecord?.shotIsAccurate = shotIsAccurate.isOn
-        pitRecord?.estimatedStorageVolumne = Int16(estimatedTimeToHang.selectedSegmentIndex)
+        pitRecord?.estimatedTimeToHang = Int16(estimatedTimeToHang.selectedSegmentIndex)
         pitRecord?.commentsProud = commentsProud.text!
         pitRecord?.commentsStillWorkingOn = commentsStillWorkingOn.text!
         pitRecord?.autoFuelLow = Int16(autoFuelLow.text!)!
+        pitRecord?.estimatedStorageVolumne = Int16(estimatedStorageVolumne.text!)!
         print("NOW SAVE autoFuelHigh text value which is \(autoFuelHigh.text)")
         pitRecord?.autoFuelHigh = Int16(autoFuelHigh.text!)!
         pitRecord?.autoScoresGear = autoScoresGear.isOn
@@ -150,6 +150,11 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         pitRecord?.preferredStartLocation = Int16(preferedStarLocation.selectedSegmentIndex)
         pitRecord?.shotLocation = Int16(shotLocation.selectedSegmentIndex)
         pitRecord?.shotIsAccurate = shotIsAccurate.isOn
+        pitRecord?.finalScore = (Int16(finalScore.text!))!
+        pitRecord?.rotorsStarted = (Int16(rotorsStarted.text!))!
+        
+        
+        
         
         //SABRINA: STEP 3: Save the value of each widget you wire
         print("Pit Record is: \(pitRecord)")
