@@ -46,8 +46,10 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var preferedStarLocation: UISegmentedControl!
     @IBOutlet weak var autoScoresGear: UISwitch!
     @IBOutlet weak var rotorsStarted: UITextField!
+    @IBOutlet weak var rating: UISlider!
 
     
+    @IBOutlet weak var preferedStartLocation: UISegmentedControl!
     
     
     override func viewDidLoad() {
@@ -98,6 +100,19 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                     fuelPickupFromFeeder.isOn = (existingPitReport?.fuelPickupFromFeeder)!
                     fuelPickupFromHopper.isOn = (existingPitReport?.fuelPickupFromHopper)!
                     shotIsAccurate.isOn = (existingPitReport?.shotIsAccurate)!
+                    gearsFloorPickupSpeed.selectedSegmentIndex = Int((existingPitReport?.gearsFloorPickupSpeed)!)
+                    gearsFeederPickupSpeed.selectedSegmentIndex = Int((existingPitReport?.gearsFeederPickupSpeed)!)
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     
                     
                     
@@ -112,6 +127,9 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         
     }
     
+    @IBAction func rating(_ sender: UISlider) {
+     //   rating.text = String(Int(sender.value))
+    }
     @IBAction func save(_ sender: UIBarButtonItem) {
         // save the report to the data store either using a new object to updating an existing object
         var pitRecord : PitReport? = nil
@@ -150,8 +168,8 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         pitRecord?.preferredStartLocation = Int16(preferedStarLocation.selectedSegmentIndex)
         pitRecord?.shotLocation = Int16(shotLocation.selectedSegmentIndex)
         pitRecord?.shotIsAccurate = shotIsAccurate.isOn
-        pitRecord?.finalScore = (Int16(finalScore.text!))!
-        pitRecord?.rotorsStarted = (Int16(rotorsStarted.text!))!
+
+        
         
         
         
