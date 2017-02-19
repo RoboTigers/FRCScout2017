@@ -23,6 +23,19 @@ class PItReportTableViewController: UITableViewController {
         refreshPitReports()
     }
     
+    func displayErrorAlertWithOk(_ msg: String) {
+        let refreshAlert = UIAlertController(title: "Error", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            print("Notify user of error")
+            return
+        }))
+        
+        DispatchQueue.main.async(execute: {
+            self.present(refreshAlert, animated: true, completion: nil)
+        })
+    }
+    
 
     // MARK: - Table view data source
 
@@ -78,6 +91,48 @@ class PItReportTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func addPitReport(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: "Team Number?", message: "Please input team number:", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
+            if let field = alertController.textFields![0] as UITextField? {
+                var alreadyExists = false
+                for report in self.pitReports {
+                    if report.teamNumber == field.text {
+                        alreadyExists = true
+                        self.displayErrorAlertWithOk("Team \(field.text!) already exists")
+                        break
+                    }
+                }
+                if !alreadyExists {
+                    print("Add skelaton pit report for team \(field.text)")
+                    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                        return
+                    }
+                    let context = appDelegate.persistentContainer.viewContext
+                    let skelatonPitRecord = PitReport(context: context)
+                    skelatonPitRecord.teamNumber = field.text
+                    do {
+                        try context.save()
+                    } catch let error as NSError {
+                        print("Could not save the skelaton pit report. \(error), \(error.userInfo)")
+                    }
+                    self.pitReports.append(skelatonPitRecord)
+                    self.tableView.reloadData()
+                }
+            } else {
+                print("User did not enter anything")
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Team Number"
+        }
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var destination = segue.destination
         if let navigationController = destination as? UINavigationController {
@@ -89,8 +144,8 @@ class PItReportTableViewController: UITableViewController {
             case "ShowSelectedPitReportSegue":
                 // Send the selected team into the Pit Report scene
                 if let pitReportViewController = destination as? PitViewController {
-                    let rowIndex = tableView.indexPathForSelectedRow!.row
-                    pitReportViewController.selectedTeamNumber = pitReports[rowIndex].teamNumber!
+                let rowIndex = tableView.indexPathForSelectedRow!.row
+                pitReportViewController.selectedTeamNumber = pitReports[rowIndex].teamNumber!
                 }
             default:
                 print ("Unknown segueIdentifier: \(segueIdentifier)")

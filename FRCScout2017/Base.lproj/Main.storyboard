@@ -41,7 +41,7 @@
                                     <color key="titleColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="KyL-RX-tcC" kind="show" id="fL0-9Y-fOk"/>
+                                    <segue destination="KyL-RX-tcC" kind="show" id="wgR-fJ-2EH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boT-oI-QKz">
@@ -98,10 +98,22 @@
                             <outlet property="delegate" destination="KyL-RX-tcC" id="IDh-JC-WrX"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="HGu-8Q-Ch2"/>
+                        <barButtonItem title="Item" id="0Et-t0-q9i"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="lX6-s5-5Md">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ohm-z8-t4H">
+                            <connections>
+                                <action selector="addPitReport:" destination="KyL-RX-tcC" id="Jh5-lY-JU9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w0M-7N-BVU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1870" y="1484"/>
+            <point key="canvasLocation" x="1004" y="930"/>
         </scene>
         <!--Team Choices View Controller-->
         <scene sceneID="DKO-Pa-oZx">
