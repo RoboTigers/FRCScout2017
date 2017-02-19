@@ -55,6 +55,7 @@
         <attribute name="practiceAmount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="preferredStartLocation" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="robotImage" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="rotorsStarted" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="shotIsAccurate" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="shotLocation" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -62,6 +63,6 @@
     </entity>
     <elements>
         <element name="MatchReport" positionX="-6167" positionY="-1107" width="128" height="465"/>
-        <element name="PitReport" positionX="-6165" positionY="-954" width="128" height="465"/>
+        <element name="PitReport" positionX="-6165" positionY="-954" width="128" height="480"/>
     </elements>
 </model>
