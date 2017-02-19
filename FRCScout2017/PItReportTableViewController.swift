@@ -77,6 +77,27 @@ class PItReportTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var destination = segue.destination
+        if let navigationController = destination as? UINavigationController {
+            destination = navigationController.visibleViewController!
+        }
+        
+        if let segueIdentifier = segue.identifier {
+            switch segueIdentifier {
+            case "ShowSelectedPitReportSegue":
+                // Send the selected team into the Pit Report scene
+                if let pitReportViewController = destination as? PitViewController {
+                    let rowIndex = tableView.indexPathForSelectedRow!.row
+                    pitReportViewController.selectedTeamNumber = pitReports[rowIndex].teamNumber!
+                }
+            default:
+                print ("Unknown segueIdentifier: \(segueIdentifier)")
+                
+            }
+        }
+    }
 
 
 }

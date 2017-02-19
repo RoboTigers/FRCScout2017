@@ -88,6 +88,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="B7O-a4-MWs" kind="show" identifier="ShowSelectedPitReportSegue" id="bdM-yb-zhz"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -98,7 +101,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w0M-7N-BVU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="848" y="878"/>
+            <point key="canvasLocation" x="1870" y="1484"/>
         </scene>
         <!--Team Choices View Controller-->
         <scene sceneID="DKO-Pa-oZx">
@@ -1241,6 +1244,7 @@
         <!--Navigation Controller-->
         <scene sceneID="xjF-Jp-1f8">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cmI-Bb-CJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B7O-a4-MWs" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zso-m3-QPx">
@@ -1252,9 +1256,11 @@
                         <segue destination="qBI-fU-bYS" kind="relationship" relationship="rootViewController" id="2Ef-Im-gDF"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cmI-Bb-CJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2535" y="819"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="bdM-yb-zhz"/>
+    </inferredMetricsTieBreakers>
 </document>
