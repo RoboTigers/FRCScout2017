@@ -41,7 +41,7 @@
                                     <color key="titleColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="KyL-RX-tcC" kind="show" id="fL0-9Y-fOk"/>
+                                    <segue destination="KyL-RX-tcC" kind="show" id="wgR-fJ-2EH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boT-oI-QKz">
@@ -88,6 +88,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="B7O-a4-MWs" kind="show" identifier="ShowSelectedPitReportSegue" id="bdM-yb-zhz"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -95,10 +98,22 @@
                             <outlet property="delegate" destination="KyL-RX-tcC" id="IDh-JC-WrX"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="HGu-8Q-Ch2"/>
+                        <barButtonItem title="Item" id="0Et-t0-q9i"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="lX6-s5-5Md">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ohm-z8-t4H">
+                            <connections>
+                                <action selector="addPitReport:" destination="KyL-RX-tcC" id="Jh5-lY-JU9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w0M-7N-BVU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="848" y="878"/>
+            <point key="canvasLocation" x="1004" y="930"/>
         </scene>
         <!--Team Choices View Controller-->
         <scene sceneID="DKO-Pa-oZx">
@@ -1241,6 +1256,7 @@
         <!--Navigation Controller-->
         <scene sceneID="xjF-Jp-1f8">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cmI-Bb-CJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B7O-a4-MWs" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zso-m3-QPx">
@@ -1252,9 +1268,11 @@
                         <segue destination="qBI-fU-bYS" kind="relationship" relationship="rootViewController" id="2Ef-Im-gDF"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cmI-Bb-CJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2535" y="819"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="bdM-yb-zhz"/>
+    </inferredMetricsTieBreakers>
 </document>
