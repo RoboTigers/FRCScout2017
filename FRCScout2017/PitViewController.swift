@@ -41,12 +41,15 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var gearsFloorPickupSpeed: UISegmentedControl!
     @IBOutlet weak var autoFuelLow: UITextField!
     @IBOutlet weak var autoFuelHigh: UITextField!
-    @IBOutlet weak var preferedStarLocation: UISegmentedControl!
+    @IBOutlet weak var preferredStartLocation: UISegmentedControl!
     @IBOutlet weak var autoScoresGear: UISwitch!
     @IBOutlet weak var rotorsStarted: UITextField!
     @IBOutlet weak var rating: UISlider!
     @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var preferedStartLocation: UISegmentedControl!
+    @IBOutlet weak var driveCoach: UILabel!
+    @IBOutlet weak var robotWeight: UITextField!
+    
+    
     
     
     override func viewDidLoad() {
@@ -101,6 +104,8 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                     gearsFeederPickupSpeed.selectedSegmentIndex = Int((existingPitReport?.gearsFeederPickupSpeed)!)
                     rating.setValue((existingPitReport?.rating)!, animated: true)
                     ratingLabel.text = NSNumber(value: (existingPitReport?.rating)!).stringValue
+                    preferredStartLocation.selectedSegmentIndex = Int((existingPitReport?.preferredStartLocation)!)
+                    robotWeight.text = NSNumber(value: (existingPitReport?.robotWeight)!).stringValue
                     
                     //SABRINA: STEP 2: Pre=populate each screen widget with the value
                     // from the existing data record in the store
@@ -151,10 +156,12 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         pitRecord?.gearsPickupFromFloor = gearsPickupFromFloor.isOn
         pitRecord?.gearsPickupFromFeeder = gearsPickupFromFeeder.isOn
         pitRecord?.gearsFloorPickupSpeed = Int16(gearsFloorPickupSpeed.selectedSegmentIndex)
-        pitRecord?.preferredStartLocation = Int16(preferedStarLocation.selectedSegmentIndex)
+        pitRecord?.preferredStartLocation = Int16(preferredStartLocation.selectedSegmentIndex)
         pitRecord?.shotLocation = Int16(shotLocation.selectedSegmentIndex)
         pitRecord?.shotIsAccurate = shotIsAccurate.isOn
         pitRecord?.rating = Float(ratingLabel.text!)!
+        pitRecord?.driveCoach = driveCoach.text!
+        pitRecord?.robotWeight = Int16(robotWeight.text!)!
         
         
         //SABRINA: STEP 3: Save the value of each widget you wire
