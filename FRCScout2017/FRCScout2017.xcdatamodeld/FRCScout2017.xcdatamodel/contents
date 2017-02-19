@@ -54,6 +54,7 @@
         <attribute name="gearsPickupFromFloor" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="practiceAmount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="preferredStartLocation" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rotorsStarted" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="shotIsAccurate" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="shotLocation" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -61,6 +62,6 @@
     </entity>
     <elements>
         <element name="MatchReport" positionX="-6167" positionY="-1107" width="128" height="465"/>
-        <element name="PitReport" positionX="-6165" positionY="-954" width="128" height="450"/>
+        <element name="PitReport" positionX="-6165" positionY="-954" width="128" height="465"/>
     </elements>
 </model>
