@@ -62,6 +62,9 @@
                                 <state key="normal" title="Analytics">
                                     <color key="titleColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="5fR-kl-wR7" kind="show" id="ylT-vl-Qmg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -71,6 +74,112 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1003.90625" y="138.8671875"/>
+        </scene>
+        <!--Analytics Landing View Controller-->
+        <scene sceneID="5E3-4T-T9X">
+            <objects>
+                <viewController id="5fR-kl-wR7" customClass="AnalyticsLandingViewController" customModule="FRCScout2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZiN-d6-Lmp"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yfn-wd-fyF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4AP-pQ-Cd8">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oMl-Kt-grD">
+                                <rect key="frame" x="179" y="72" width="411" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="411" id="Hb7-j3-w3B"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Hudson Valley"/>
+                                    <segment title="SBPLI"/>
+                                    <segment title="Championship"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bc6-vd-AOf">
+                                <rect key="frame" x="257" y="280" width="294" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <state key="normal" title="Who can cheesecake?">
+                                    <color key="titleColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giW-Q1-01l">
+                                <rect key="frame" x="257" y="376" width="294" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <state key="normal" title="Other Nicole questions">
+                                    <color key="titleColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KdN-FG-odY">
+                                <rect key="frame" x="237" y="198" width="294" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <state key="normal" title="Who is best at..">
+                                    <color key="titleColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="8vF-9x-xUQ" kind="show" identifier="ShowBestSegue" id="srk-5C-SFy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oMl-Kt-grD" firstAttribute="top" secondItem="ZiN-d6-Lmp" secondAttribute="bottom" constant="8" symbolic="YES" id="SMM-Fi-xAc"/>
+                            <constraint firstItem="oMl-Kt-grD" firstAttribute="centerX" secondItem="4AP-pQ-Cd8" secondAttribute="centerX" id="gwc-vd-zYt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tournamentSegmentedControl" destination="oMl-Kt-grD" id="C7r-Fu-7ZN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BL8-CX-qye" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1003.90625" y="1596.09375"/>
+        </scene>
+        <!--Best At Table View Controller-->
+        <scene sceneID="7pu-X4-7vA">
+            <objects>
+                <tableViewController id="8vF-9x-xUQ" customClass="BestAtTableViewController" customModule="FRCScout2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="GG3-Ht-Tvi">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BestTeamCell" id="SpV-EU-PV3">
+                                <rect key="frame" x="0.0" y="28" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SpV-EU-PV3" id="VjS-i1-mT9">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8vF-9x-xUQ" id="dDJ-T1-Hew"/>
+                            <outlet property="delegate" destination="8vF-9x-xUQ" id="8go-CM-eWY"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="1gk-re-jkH">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="5cu-uw-2T9">
+                            <rect key="frame" x="215" y="8" width="339" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Low Fuel"/>
+                                <segment title="High Fuel"/>
+                                <segment title="Gears"/>
+                                <segment title="Climbing"/>
+                            </segments>
+                        </segmentedControl>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1X4-uO-42z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1745" y="1596"/>
         </scene>
         <!--It Report Table View Controller-->
         <scene sceneID="g6y-qN-LNf">
@@ -1310,6 +1419,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LNi-xh-vMH"/>
+        <segue reference="bdM-yb-zhz"/>
     </inferredMetricsTieBreakers>
 </document>
