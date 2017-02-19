@@ -11,8 +11,6 @@ import CoreData
 
 class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    // SHARON TEST 
-    let sharon = 1
     var selectedTeamNumber = ""
     var selectedDriveTrainType = ""
     var existingPitReport : PitReport?
@@ -47,8 +45,7 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var autoScoresGear: UISwitch!
     @IBOutlet weak var rotorsStarted: UITextField!
     @IBOutlet weak var rating: UISlider!
-
-    
+    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var preferedStartLocation: UISegmentedControl!
     
     
@@ -102,19 +99,8 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                     shotIsAccurate.isOn = (existingPitReport?.shotIsAccurate)!
                     gearsFloorPickupSpeed.selectedSegmentIndex = Int((existingPitReport?.gearsFloorPickupSpeed)!)
                     gearsFeederPickupSpeed.selectedSegmentIndex = Int((existingPitReport?.gearsFeederPickupSpeed)!)
-                    
-                    
-                
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                    rating.setValue((existingPitReport?.rating)!, animated: true)
+                    ratingLabel.text = NSNumber(value: (existingPitReport?.rating)!).stringValue
                     
                     //SABRINA: STEP 2: Pre=populate each screen widget with the value
                     // from the existing data record in the store
@@ -128,8 +114,9 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     @IBAction func rating(_ sender: UISlider) {
-     //   rating.text = String(Int(sender.value))
+        ratingLabel.text = NSString(format: "%1.1f", sender.value) as String
     }
+    
     @IBAction func save(_ sender: UIBarButtonItem) {
         // save the report to the data store either using a new object to updating an existing object
         var pitRecord : PitReport? = nil
@@ -158,7 +145,6 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         pitRecord?.commentsStillWorkingOn = commentsStillWorkingOn.text!
         pitRecord?.autoFuelLow = Int16(autoFuelLow.text!)!
         pitRecord?.estimatedStorageVolumne = Int16(estimatedStorageVolumne.text!)!
-        print("NOW SAVE autoFuelHigh text value which is \(autoFuelHigh.text)")
         pitRecord?.autoFuelHigh = Int16(autoFuelHigh.text!)!
         pitRecord?.autoScoresGear = autoScoresGear.isOn
         pitRecord?.gearsFeederPickupSpeed = Int16(gearsFeederPickupSpeed.selectedSegmentIndex)
@@ -168,10 +154,7 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         pitRecord?.preferredStartLocation = Int16(preferedStarLocation.selectedSegmentIndex)
         pitRecord?.shotLocation = Int16(shotLocation.selectedSegmentIndex)
         pitRecord?.shotIsAccurate = shotIsAccurate.isOn
-
-        
-        
-        
+        pitRecord?.rating = Float(ratingLabel.text!)!
         
         
         //SABRINA: STEP 3: Save the value of each widget you wire
