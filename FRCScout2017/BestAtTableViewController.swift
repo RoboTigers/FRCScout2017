@@ -12,24 +12,15 @@ import CoreData
 class BestAtTableViewController: UITableViewController {
     
     var teamArray: [TeamStats] = []
-    //var teamDictionary: NSDictionary = [String:TeamStats]
-//    var matches: [MatchReport] = []
-//    
-//    let teamDictionary: NSDictionary = [
-//        "teamNumber" : String,
-//        "stats" : TeamStats
-//    ]
     
     var selectedTournament = 0
+    
+    @IBOutlet weak var skillSegmentedControl: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("selectedTournament = \(selectedTournament)")
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        refreshData()
     }
 
     // MARK: - Table view data source
@@ -44,37 +35,101 @@ class BestAtTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BestTeamCell", for: indexPath)
-        cell.textLabel?.text = teamArray[indexPath.row].teamNumber  //TODO: Make a nicer cell
+        cell.textLabel?.text = "Team \(teamArray[indexPath.row].teamNumber)    Ave Low: \(teamArray[indexPath.row].avergeNumberFuelLow) High: \(teamArray[indexPath.row].averageNumberFuelHigh) Gears \(teamArray[indexPath.row].averageNumberGears) Hangs \(teamArray[indexPath.row].averageNumberClimbs)"
         return cell
     }
  
     private func refreshData() {
+        // We will read all the match data into the matches array and then fill in a team dictionary
+        // aggregating the stats as we go. Then we sort the dictionary according to the segmented control
+        // for proper display in the table view.
+        var teamDictionary: [String: TeamStats] = [:]
+        var matches: [MatchReport] = []
+        
         // First grab all matches for the selcted tournament into matches array
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         let context = appDelegate.persistentContainer.viewContext
-//        let fetchRequest = NSFetchRequest<MatchReport>(entityName: "MatchReport")
-//        
-//        do {
-//            matches = try context.fetch(fetchRequest)
-//        } catch let error as NSError {
-//            print("Could not fetch. \(error), \(error.userInfo)")
-//        }
-//        
-//        // Next we fill in team dictionary from the matches
-//        for match in matches {
-//            if teamDictionary[match.teamNumber] {
-//                print("update dictionary")
-//            } else {
-//                print("create new key in dictionary")
-//            }
+        let fetchRequest = NSFetchRequest<MatchReport>(entityName: "MatchReport")
+        fetchRequest.predicate = NSPredicate(format: "tournament == \(selectedTournament)")
+        do {
+            matches = try context.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        // Next we update the team dictionary from the matches
+        for match in matches {
+            if (teamDictionary[match.teamNumber!] != nil) {
+                print("update dictionary")
+                let teamFromDictionary = teamDictionary[match.teamNumber!]
+                teamFromDictionary?.numberOfMatchesPlayed = (teamFromDictionary?.numberOfMatchesPlayed)! + 1
+                teamFromDictionary?.totalNumberFuelLow = (teamFromDictionary?.totalNumberFuelLow)! + match.fuelLow
+                teamFromDictionary?.totalNumberFuelHigh = (teamFromDictionary?.totalNumberFuelHigh)! + match.fuelHigh
+                teamFromDictionary?.totalNumberGears = (teamFromDictionary?.totalNumberGears)! + match.gears
+                if match.hang {
+                    teamFromDictionary?.totalNumberClimbs = (teamFromDictionary?.totalNumberClimbs)! + 1
+                }
+                teamFromDictionary?.avergeNumberFuelLow = Double((teamFromDictionary?.totalNumberFuelLow)!) / Double((teamFromDictionary?.numberOfMatchesPlayed)!)
+                teamFromDictionary?.averageNumberFuelHigh = Double((teamFromDictionary?.totalNumberFuelHigh)!) / Double((teamFromDictionary?.numberOfMatchesPlayed)!)
+                teamFromDictionary?.averageNumberGears = Double((teamFromDictionary?.totalNumberGears)!) / Double((teamFromDictionary?.numberOfMatchesPlayed)!)
+                teamFromDictionary?.averageNumberClimbs = Double((teamFromDictionary?.totalNumberClimbs)!) / Double((teamFromDictionary?.numberOfMatchesPlayed)!)
+            } else {
+                print("create new key in dictionary")
+                let newTeam: TeamStats = TeamStats()
+                newTeam.teamNumber = match.teamNumber!
+                newTeam.numberOfMatchesPlayed = 1
+                newTeam.totalNumberFuelLow = match.fuelLow
+                newTeam.totalNumberFuelHigh = match.fuelHigh
+                newTeam.totalNumberGears = match.gears
+                if match.hang {
+                    newTeam.totalNumberClimbs = 1
+                } else {
+                    newTeam.totalNumberClimbs = 0
+                }
+                newTeam.avergeNumberFuelLow = Double(newTeam.totalNumberFuelLow)
+                newTeam.averageNumberFuelHigh = Double(newTeam.totalNumberFuelHigh)
+                newTeam.averageNumberGears = Double(newTeam.totalNumberGears)
+                newTeam.averageNumberClimbs = Double(newTeam.totalNumberClimbs)
+                teamDictionary.updateValue(newTeam, forKey: match.teamNumber!)
+            }
+        }
+        
+        // Next we sort the dictionary according to the segmented control selection (Low, High, Gears, Climb)
+        //let sortedBy = teamDictionary.sorted{ $0.value.avergeNumberFuelLow > $1.value.avergeNumberFuelLow }
+        var sortedBy = teamDictionary.sorted{ $0.value.avergeNumberFuelLow > $1.value.avergeNumberFuelLow } // default sort order
+//        switch(skillSegmentedControl.selectedSegmentIndex) {
+//        case 0:
+//            print("Order by Fuel Low")
+//            sortedBy = teamDictionary.sorted{ $0.value.avergeNumberFuelLow > $1.value.avergeNumberFuelLow }
+//            break
+//        case 1:
+//            print("Order by Fuel High")
+//            sortedBy = teamDictionary.sorted{ $0.value.averageNumberFuelHigh > $1.value.averageNumberFuelHigh }
+//            break
+//        case 2:
+//            print("Order by Gears")
+//            sortedBy = teamDictionary.sorted{ $0.value.averageNumberGears > $1.value.averageNumberGears }
+//            break
+//        case 3:
+//            print("Order by Climbing")
+//            sortedBy = teamDictionary.sorted{ $0.value.averageNumberClimbs > $1.value.averageNumberClimbs }
+//            break
+//        default:
+//            print("No sort setting, should never reach this!")
+//            break
 //        }
         
-        // Next we re-order the dictionary according to the segmented control selection (Low, High, Gears, Climb)
-        // into a teams array to be used by the table view controller requirements
+        // Next we populate the teams array which is used by the table view
+        teamArray.removeAll()
+        for (key, value) in sortedBy {
+            print("Key: \(key), value: \(value)")
+            teamArray.append(value)
+        }
         
-        // Finally we reload the table view
+        // Finally we reload the table view so that it displays its rows based on the above newly
+        // calculated teams array
         tableView.reloadData()
     }
 

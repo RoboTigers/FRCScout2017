@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamStats: NSObject {
+class TeamStats {
     
     var teamNumber: String = ""
     
@@ -18,9 +18,9 @@ class TeamStats: NSObject {
     var averageNumberGears: Double = 0.0
     var averageNumberClimbs: Double = 0.0
     
-    var totalNumberFuelLow: Int = 0
-    var totalNumberFuelHigh: Int = 0
-    var totalNumberGears: Int = 0
-    var totalNumberClimbs: Int = 0
+    var totalNumberFuelLow: Int16 = 0
+    var totalNumberFuelHigh: Int16 = 0
+    var totalNumberGears: Int16 = 0
+    var totalNumberClimbs: Int16 = 0
 
 }
