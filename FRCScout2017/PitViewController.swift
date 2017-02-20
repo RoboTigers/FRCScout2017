@@ -67,14 +67,15 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             // Get pit report for the selected team, if a report exists in the data store
             // There should only be one pit report but use an array here to be safe
             var pitReports: [PitReport] = []
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                return
-            }
-            let context = appDelegate.persistentContainer.viewContext
+//            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+//                return
+//            }
+//            let context = appDelegate.persistentContainer.viewContext
+            CoreDataStack.defaultStack.syncWithCompletion(nil)
             let fetchRequest = NSFetchRequest<PitReport>(entityName: "PitReport")
             fetchRequest.predicate = NSPredicate(format: "teamNumber == \(selectedTeamNumber)")
             do {
-                pitReports = try context.fetch(fetchRequest)
+                pitReports = try CoreDataStack.defaultStack.managedObjectContext.fetch(fetchRequest)
                 if pitReports.count > 0 {
                     // There should only be one pit report for a team but if more are found
                     // then just ignore them - we take the first (0th position) array element
@@ -125,16 +126,19 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBAction func save(_ sender: UIBarButtonItem) {
         // save the report to the data store either using a new object to updating an existing object
         var pitRecord : PitReport? = nil
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        let context = appDelegate.persistentContainer.viewContext
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+//            return
+//        }
+//        let context = appDelegate.persistentContainer.viewContext
+        CoreDataStack.defaultStack.syncWithCompletion(nil)
         if (existingPitReport != nil) {
             pitRecord = existingPitReport
         } else {
-            pitRecord = PitReport(context: context)
+            //pitRecord = PitReport(context: context)
+            pitRecord = NSEntityDescription.insertNewObject(forEntityName: "PitReport", into: CoreDataStack.defaultStack.managedObjectContext) as? PitReport
         }
         pitRecord?.teamNumber = selectedTeamNumber
+        pitRecord?.uniqueIdentifier = selectedTeamNumber
         pitRecord?.contactName = contactName.text!
         pitRecord?.driveTrainType = selectedDriveTrainType
         pitRecord?.driveTrainMotorType = Int16(driveTrainMotorType.selectedSegmentIndex)
@@ -168,7 +172,7 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         print("Pit Record is: \(pitRecord)")
         do {
             print("Save pit record: \(pitRecord))")
-            try context.save()
+            try CoreDataStack.defaultStack.managedObjectContext.save()
         } catch let error as NSError {
             print("Could not save the pit report. \(error), \(error.userInfo)")
         }

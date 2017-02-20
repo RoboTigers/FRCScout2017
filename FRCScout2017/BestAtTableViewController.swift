@@ -38,6 +38,9 @@ class BestAtTableViewController: UITableViewController {
         cell.textLabel?.text = "Team \(teamArray[indexPath.row].teamNumber)    Ave Low: \(teamArray[indexPath.row].avergeNumberFuelLow) High: \(teamArray[indexPath.row].averageNumberFuelHigh) Gears \(teamArray[indexPath.row].averageNumberGears) Hangs \(teamArray[indexPath.row].averageNumberClimbs)"
         return cell
     }
+    
+    
+    // MARK: - Refresh data model for this scene
  
     private func refreshData() {
         // We will read all the match data into the matches array and then fill in a team dictionary
@@ -47,14 +50,16 @@ class BestAtTableViewController: UITableViewController {
         var matches: [MatchReport] = []
         
         // First grab all matches for the selcted tournament into matches array
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        let context = appDelegate.persistentContainer.viewContext
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+//            return
+//        }
+//        let context = appDelegate.persistentContainer.viewContext
+        CoreDataStack.defaultStack.syncWithCompletion(nil)
         let fetchRequest = NSFetchRequest<MatchReport>(entityName: "MatchReport")
         fetchRequest.predicate = NSPredicate(format: "tournament == \(selectedTournament)")
         do {
-            matches = try context.fetch(fetchRequest)
+            //matches = try context.fetch(fetchRequest)
+            matches = try CoreDataStack.defaultStack.managedObjectContext.fetch(fetchRequest)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }

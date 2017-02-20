@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Ensembles
 
 class MatchesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -85,14 +86,11 @@ class MatchesViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                return
-            }
-            let context = appDelegate.persistentContainer.viewContext
+            CoreDataStack.defaultStack.syncWithCompletion(nil)
             let match = matches[indexPath.row]
-            context.delete(match)
+            CoreDataStack.defaultStack.managedObjectContext.delete(match)
             do {
-                try context.save()
+                try CoreDataStack.defaultStack.managedObjectContext.save()
             } catch let error as NSError {
                 print("Could not delete match row. \(error), \(error.userInfo)")
             }
@@ -104,6 +102,29 @@ class MatchesViewController: UIViewController, UITableViewDataSource, UITableVie
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
+    
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            // Delete the row from the data source
+//            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+//                return
+//            }
+//            let context = appDelegate.persistentContainer.viewContext
+//            let match = matches[indexPath.row]
+//            context.delete(match)
+//            do {
+//                try context.save()
+//            } catch let error as NSError {
+//                print("Could not delete match row. \(error), \(error.userInfo)")
+//            }
+//            
+//            // Update our global variable
+//            matches.remove(at: indexPath.row)
+//            
+//            // Delete the row from the table view
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//    }
     
     // MARK: - Data selection via segmented control
 
@@ -132,7 +153,7 @@ class MatchesViewController: UIViewController, UITableViewDataSource, UITableVie
         matchesTableView.reloadData()
     }
     
-    private func refreshMatches() {
+    private func refreshMatchesDoesNotUseSync() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -142,13 +163,32 @@ class MatchesViewController: UIViewController, UITableViewDataSource, UITableVie
         let teamSort = NSSortDescriptor(key: "teamNumber", ascending:true)
         var sortsArray: [NSSortDescriptor] = []
         let matchSort = NSSortDescriptor(key: "matchNumber", ascending:true)
-//        let matchSort = NSSortDescriptor(key: "Match", ascending: true, selector: NSLocalizedString ("Match", tableName: String?, bundle: Bundle, value: String, comment: String))
         sortsArray.append(matchSort)
         sortsArray.append(teamSort)
         fetchRequest.sortDescriptors = sortsArray
         
         do {
             matches = try context.fetch(fetchRequest)
+            print("Retrieved \(matches.count) matches")
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    private func refreshMatches() {
+        // SHARON DEBUG: CDESetCurrentLoggingLevel(CDELoggingLevel.verbose.rawValue)
+        CoreDataStack.defaultStack.syncWithCompletion(nil)
+        let fetchRequest = NSFetchRequest<MatchReport>(entityName: "MatchReport")
+        fetchRequest.predicate = NSPredicate(format: "tournament == \(tournamentSegmentedControl.selectedSegmentIndex)")
+        let teamSort = NSSortDescriptor(key: "teamNumber", ascending:true)
+        var sortsArray: [NSSortDescriptor] = []
+        let matchSort = NSSortDescriptor(key: "matchNumber", ascending:true)
+        sortsArray.append(matchSort)
+        sortsArray.append(teamSort)
+        fetchRequest.sortDescriptors = sortsArray
+        
+        do {
+            matches = try CoreDataStack.defaultStack.managedObjectContext.fetch(fetchRequest)
             print("Retrieved \(matches.count) matches")
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")

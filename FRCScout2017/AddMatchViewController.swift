@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Ensembles
 
 class AddMatchViewController: UIViewController {
     
@@ -116,11 +117,12 @@ class AddMatchViewController: UIViewController {
             displayErrorAlertWithOk("Match and Team Number is required!")
         } else {
             // save the report to the data store
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                return
-            }
-            let context = appDelegate.persistentContainer.viewContext
-            let matchReport = MatchReport(context: context)
+//            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+//                return
+//            }
+//            let context = appDelegate.persistentContainer.viewContext
+//            let matchReport = MatchReport(context: context)
+            let matchReport : MatchReport = NSEntityDescription.insertNewObject(forEntityName: "MatchReport", into: CoreDataStack.defaultStack.managedObjectContext) as! MatchReport
             let uniqueIdentifier = "\(selectedTournament)_\(match.text!)_\(team.text!)"
             matchReport.tournament = selectedTournament
             matchReport.matchNumber = match.text!
@@ -152,7 +154,9 @@ class AddMatchViewController: UIViewController {
             
             do {
                 print("Save match record: \(matchReport)")
-                try context.save()
+                //try context.save()
+                CoreDataStack.defaultStack.saveContext()
+                CoreDataStack.defaultStack.syncWithCompletion(nil)
             } catch let error as NSError {
                 print("Could not save the match report. \(error), \(error.userInfo)")
             }
