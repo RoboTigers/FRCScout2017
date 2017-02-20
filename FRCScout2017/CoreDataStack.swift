@@ -19,6 +19,16 @@ class CoreDataStack: NSObject, CDEPersistentStoreEnsembleDelegate {
     
     // MARK: - Core Data stack
     
+    // SHARON: Adding ensembleIdentifier, used to just use storeName but when we change the core data
+    //    model such as adding a field we get 204 errors so let's try this new name.
+    //    ** Update: This works but there must be a better way. This issue seems to have the answer:
+    //      https://github.com/drewmccormack/ensembles/issues/176
+    //      but I can't quite figure out how to do the steps suggested. So for now let's just, ugg, 
+    //      update the identifier.
+    lazy var ensembleIdentifier : String = {
+        return "FRCScout2017_2"
+    }()
+    
     lazy var storeName : String = {
         return Bundle.main.object(forInfoDictionaryKey: kCFBundleNameKey as String) as! String
     }()
@@ -139,7 +149,8 @@ class CoreDataStack: NSObject, CDEPersistentStoreEnsembleDelegate {
     
     func enableEnsemble() {
         CoreDataStack.defaultStack.cloudFileSystem = CDEICloudFileSystem(ubiquityContainerIdentifier: nil)
-        CoreDataStack.defaultStack.ensemble = CDEPersistentStoreEnsemble(ensembleIdentifier: self.storeName, persistentStore: self.storeURL, managedObjectModelURL: self.modelURL, cloudFileSystem: CoreDataStack.defaultStack.cloudFileSystem)
+//        CoreDataStack.defaultStack.ensemble = CDEPersistentStoreEnsemble(ensembleIdentifier: self.storeName, persistentStore: self.storeURL, managedObjectModelURL: self.modelURL, cloudFileSystem: CoreDataStack.defaultStack.cloudFileSystem)
+        CoreDataStack.defaultStack.ensemble = CDEPersistentStoreEnsemble(ensembleIdentifier: self.ensembleIdentifier, persistentStore: self.storeURL, managedObjectModelURL: self.modelURL, cloudFileSystem: CoreDataStack.defaultStack.cloudFileSystem)
         CoreDataStack.defaultStack.ensemble!.delegate = CoreDataStack.defaultStack
     }
     

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Ensembles
 
 class MatchesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -175,6 +176,7 @@ class MatchesViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     private func refreshMatches() {
+        // SHARON DEBUG: CDESetCurrentLoggingLevel(CDELoggingLevel.verbose.rawValue)
         CoreDataStack.defaultStack.syncWithCompletion(nil)
         let fetchRequest = NSFetchRequest<MatchReport>(entityName: "MatchReport")
         fetchRequest.predicate = NSPredicate(format: "tournament == \(tournamentSegmentedControl.selectedSegmentIndex)")
