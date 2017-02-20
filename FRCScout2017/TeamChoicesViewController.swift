@@ -124,14 +124,15 @@ class TeamChoicesViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     private func refreshTeams() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        let context = appDelegate.persistentContainer.viewContext
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+//            return
+//        }
+//        let context = appDelegate.persistentContainer.viewContext
+        CoreDataStack.defaultStack.syncWithCompletion(nil)
         let fetchRequest = NSFetchRequest<PitReport>(entityName: "PitReport")
         var pitReports: [PitReport] = []
         do {
-            pitReports = try context.fetch(fetchRequest)
+            pitReports = try CoreDataStack.defaultStack.managedObjectContext.fetch(fetchRequest)
             print("Retrieved \(pitReports.count) pitReports for picker")
             teams.removeAll()
             for report in pitReports {

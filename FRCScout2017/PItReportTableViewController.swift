@@ -47,14 +47,14 @@ class PItReportTableViewController: UITableViewController {
         return pitReports.count
     }
     private func refreshPitReports() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        let context = appDelegate.persistentContainer.viewContext
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+//            return
+//        }
+//        let context = appDelegate.persistentContainer.viewContext
+        CoreDataStack.defaultStack.syncWithCompletion(nil)
         let fetchRequest = NSFetchRequest<PitReport>(entityName: "PitReport")
-        
         do {
-            pitReports = try context.fetch(fetchRequest)
+            pitReports = try CoreDataStack.defaultStack.managedObjectContext.fetch(fetchRequest)
             print("Retrieved \(pitReports.count) pitReport")
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
@@ -71,14 +71,15 @@ class PItReportTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                return
-            }
-            let context = appDelegate.persistentContainer.viewContext
+//            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+//                return
+//            }
+//            let context = appDelegate.persistentContainer.viewContext
+            CoreDataStack.defaultStack.syncWithCompletion(nil)
             let pit = pitReports[indexPath.row]
-            context.delete(pit)
+            CoreDataStack.defaultStack.managedObjectContext.delete(pit)
             do {
-                try context.save()
+                try CoreDataStack.defaultStack.managedObjectContext.save()
             } catch let error as NSError {
                 print("Could not delete pit row. \(error), \(error.userInfo)")
             }
@@ -105,14 +106,17 @@ class PItReportTableViewController: UITableViewController {
                 }
                 if !alreadyExists {
                     print("Add skelaton pit report for team \(field.text)")
-                    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                        return
-                    }
-                    let context = appDelegate.persistentContainer.viewContext
-                    let skelatonPitRecord = PitReport(context: context)
+//                    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+//                        return
+//                    }
+//                    let context = appDelegate.persistentContainer.viewContext
+                    CoreDataStack.defaultStack.syncWithCompletion(nil)
+                    //let skelatonPitRecord = PitReport(context: context)
+                    let skelatonPitRecord : PitReport = NSEntityDescription.insertNewObject(forEntityName: "PitReport", into: CoreDataStack.defaultStack.managedObjectContext) as! PitReport
                     skelatonPitRecord.teamNumber = field.text
+                    skelatonPitRecord.uniqueIdentifier = field.text
                     do {
-                        try context.save()
+                        try CoreDataStack.defaultStack.managedObjectContext.save()
                     } catch let error as NSError {
                         print("Could not save the skelaton pit report. \(error), \(error.userInfo)")
                     }

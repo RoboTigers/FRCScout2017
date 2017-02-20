@@ -30,21 +30,16 @@ class TeamSummaryViewController: UIViewController {
         print("In viewDidLoad of summary scene")
         print("selected team is \(selectedTeamNumber)")
         super.viewDidLoad()
-        print("about to initialize pit Reports array")
         var pitReports: [PitReport] = []
-        print("now get app delegate")
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        print("now get context")
-        let context = appDelegate.persistentContainer.viewContext
-        print("now set fetch request")
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+//            return
+//        }
+//        let context = appDelegate.persistentContainer.viewContext
+        CoreDataStack.defaultStack.syncWithCompletion(nil)
         let fetchRequest = NSFetchRequest<PitReport>(entityName: "PitReport")
-        print("Aboue to fetch for teamNumber: \(selectedTeamNumber)")
         fetchRequest.predicate = NSPredicate(format: "teamNumber == \(selectedTeamNumber)")
-        print("teamNumber")
         do {
-            pitReports = try context.fetch(fetchRequest)
+            pitReports = try CoreDataStack.defaultStack.managedObjectContext.fetch(fetchRequest)
             if pitReports.count > 0 {
                 let existingPitReport = pitReports[0]
                 driveCoach.text = existingPitReport.driveCoach
