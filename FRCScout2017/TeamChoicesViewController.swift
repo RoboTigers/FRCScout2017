@@ -48,11 +48,17 @@ class TeamChoicesViewController: UIViewController, UIPickerViewDelegate, UIPicke
             let alertController = UIAlertController(title: "Team Number?", message: "Please input team number:", preferredStyle: .alert)
             let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
                 if let field = alertController.textFields![0] as UITextField? {
-                    print(field.text!)
-                    self.teams[row] = field.text!
-                    self.selectedTeam = self.teams[row]
-                    self.title = self.teams[row]
-                    pickerView.reloadAllComponents()
+                    if self.teams.contains(field.text!) {
+                        print("Team \(field.text!) already exists in the picker list")
+                    } else {
+                        print("Add \(field.text!) to picker list")
+                        self.teams[row] = field.text!
+                        self.selectedTeam = self.teams[row]
+                        self.title = self.teams[row]
+                        self.teams.append("New Team")
+                        self.teams.sort()
+                        pickerView.reloadAllComponents()
+                    }
                 } else {
                     print("User did not enter anything")
                 }
@@ -142,6 +148,7 @@ class TeamChoicesViewController: UIViewController, UIPickerViewDelegate, UIPicke
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
+        teams.sort()
     }
 
 }
