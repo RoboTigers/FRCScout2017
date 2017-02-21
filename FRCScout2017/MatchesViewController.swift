@@ -60,6 +60,17 @@ class MatchesViewController: UIViewController, UITableViewDataSource, UITableVie
                     print ("AddMatchReportSegue segue")
                     addMatchViewController.selectedTournament = Int16(tournamentSegmentedControl.selectedSegmentIndex)
                 }
+                break
+            case "ShowMatchSegue":
+                // Send the selected match to the AddMatch scene which is really an add/update scene
+                if let addMatchViewController = destination as? AddMatchViewController {
+                    print ("ShowMatchSegue segue")
+                    addMatchViewController.selectedTournament = Int16(tournamentSegmentedControl.selectedSegmentIndex)
+                    let rowIndex = matchesTableView.indexPathForSelectedRow!.row
+                    addMatchViewController.selectedMatchNumber = matches[rowIndex].matchNumber!
+                    addMatchViewController.selectedTeamNumber = matches[rowIndex].teamNumber!
+                }
+                break
             default:
                 print ("Unknown segueIdentifier: \(segueIdentifier)")
                 
@@ -132,24 +143,7 @@ class MatchesViewController: UIViewController, UITableViewDataSource, UITableVie
      * Fill the matches array with data from the data store for the selected tournament
      */
     @IBAction func chooseTournament(_ sender: UISegmentedControl) {
-    
-        switch(tournamentSegmentedControl.selectedSegmentIndex) {
-        case 0:
-            print("Fetching matches for tournament to 0 (Regional)")
-            break
-        case 1:
-            print("Fetching matches for tournament to 1 (LI)")
-            break
-        case 2:
-            print("Fetching matches for tournament to 2 (Championship)")
-            break
-        default:
-            print("No tournament setting, should never reach this!")
-            break
-        }
-        
         refreshMatches()
-
         matchesTableView.reloadData()
     }
     
