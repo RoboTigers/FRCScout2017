@@ -1,0 +1,6 @@
+framework module Pods_FRCScout2017 {
+  umbrella header "Pods-FRCScout2017-umbrella.h"
+
+  export *
+  module * { export * }
+}
