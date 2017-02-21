@@ -14,6 +14,8 @@ class AddMatchViewController: UIViewController {
     // MARK: - Data passed in from segue
     
     var selectedTournament : Int16 = 0
+    var selectedMatchNumber = ""
+    var selectedTeamNumber = ""
     
     // MARK: - Outlets and Actions for components of add-match scene
     
@@ -68,7 +70,7 @@ class AddMatchViewController: UIViewController {
     override func viewDidLoad() {
         print("in viewDidLoad")
         super.viewDidLoad()
-        print("AddMatchViewController - view loaded with selectedTourname = \(selectedTournament)")
+        print("AddMatchViewController - view loaded with selectedTourname = \(selectedTournament), selectedMatchNumber = \(selectedMatchNumber), selectedTeamNumber = \(selectedTeamNumber)")
     }
     
     func displayErrorAlertWithOk(_ msg: String) {
