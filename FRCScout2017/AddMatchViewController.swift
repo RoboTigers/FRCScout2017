@@ -103,10 +103,10 @@ class AddMatchViewController: UIViewController {
     }
     
     
-    // MARK: - Save action
+    // MARK: - Save/Update action
     
     /*
-     * Save the entered data into the data store. First check for required fields.
+     * Save/Update the entered data into the data store. First check for required fields.
      *
      * The unique key for a match report record is:
      *    Tournament_Match_Team
@@ -122,44 +122,68 @@ class AddMatchViewController: UIViewController {
 //            }
 //            let context = appDelegate.persistentContainer.viewContext
 //            let matchReport = MatchReport(context: context)
-            let matchReport : MatchReport = NSEntityDescription.insertNewObject(forEntityName: "MatchReport", into: CoreDataStack.defaultStack.managedObjectContext) as! MatchReport
-            let uniqueIdentifier = "\(selectedTournament)_\(match.text!)_\(team.text!)"
-            matchReport.tournament = selectedTournament
-            matchReport.matchNumber = match.text!
-            matchReport.teamNumber = team.text!
-            matchReport.uniqueIdentifier = uniqueIdentifier
-            matchReport.autoCrossedLine = autoCrosses.isOn
-            matchReport.autoScoresGear = autoScoresGear.isOn
-            matchReport.autoFuelHigh = (Int16(autoFuelHighLabel.text!))!
-            matchReport.autoFuelLow = (Int16(autoFuelLowLabel.text!))!
-            matchReport.gears = (Int16(gearsLabel.text!))!
-            matchReport.gearCycle = Int16(gearCycle.selectedSegmentIndex)
-            matchReport.fuelHigh = (Int16(teleFuelHighLabel.text!))!
-            matchReport.fuelLow = (Int16(teleFuelLowLabel.text!))!
-            matchReport.gearsFromFloor = gearsPickedFromFloor.isOn
-            matchReport.gearsFromFeeder = gearsPickedFromFeeder.isOn
-            matchReport.shotsLocation = Int16(shotsLocation.selectedSegmentIndex)
-            matchReport.fuelFromFloor = fuelFromFloor.isOn
-            matchReport.fuelFromFeeder = fuelFromFeeder.isOn
-            matchReport.fuelFromHopper = fuelFromHopper.isOn
-            matchReport.hangSpeed = Int16(hangSpeed.selectedSegmentIndex)
-            matchReport.hang = hang.isOn
-            matchReport.penalty = penalty.isOn
-            matchReport.defenseFaced = Int16(defenseFaced.selectedSegmentIndex)
-            matchReport.comments = comments.text!
-            matchReport.rotorsStarted = (Int16(rotorsStarted.text!))!
-            matchReport.autoScore = (Int16(autoScore.text!))!
-            matchReport.teleScore = (Int16(teleScore.text!))!
             
-            
+            // Set matchReport variable to either a new match report or an existing match report
+            CoreDataStack.defaultStack.syncWithCompletion(nil)
+            let fetchRequest = NSFetchRequest<MatchReport>(entityName: "MatchReport")
+            //fetchRequest.predicate = NSPredicate(format: "uniqueIdentifier == \(uniqueIdentifier)")
+            fetchRequest.predicate = NSPredicate(format: "tournament == \(selectedTournament) AND matchNumber == \(match.text!) AND teamNumber == \(team.text!)")
+            var dupMatches: [MatchReport] = []
             do {
+                dupMatches = try CoreDataStack.defaultStack.managedObjectContext.fetch(fetchRequest)
+                print("Retrieved \(dupMatches.count) duplicate matches")
+            } catch let error as NSError {
+                print("Could not fetch. \(error), \(error.userInfo)")
+            }
+            var existingMatchReport : MatchReport?
+            if (dupMatches.count > 0) {
+                existingMatchReport = dupMatches[0]
+            }
+            var matchReport : MatchReport? = nil
+            if (existingMatchReport != nil) {
+                matchReport = existingMatchReport
+            } else {
+                matchReport = NSEntityDescription.insertNewObject(forEntityName: "MatchReport", into: CoreDataStack.defaultStack.managedObjectContext) as? MatchReport
+            }
+            
+            // Add or update match report
+            //let matchReport : MatchReport = NSEntityDescription.insertNewObject(forEntityName: "MatchReport", into: CoreDataStack.defaultStack.managedObjectContext) as! MatchReport
+            let uniqueIdentifier = "\(selectedTournament)_\(match.text!)_\(team.text!)"
+            matchReport?.tournament = selectedTournament
+            matchReport?.matchNumber = match.text!
+            matchReport?.teamNumber = team.text!
+            matchReport?.uniqueIdentifier = uniqueIdentifier
+            matchReport?.autoCrossedLine = autoCrosses.isOn
+            matchReport?.autoScoresGear = autoScoresGear.isOn
+            matchReport?.autoFuelHigh = (Int16(autoFuelHighLabel.text!))!
+            matchReport?.autoFuelLow = (Int16(autoFuelLowLabel.text!))!
+            matchReport?.gears = (Int16(gearsLabel.text!))!
+            matchReport?.gearCycle = Int16(gearCycle.selectedSegmentIndex)
+            matchReport?.fuelHigh = (Int16(teleFuelHighLabel.text!))!
+            matchReport?.fuelLow = (Int16(teleFuelLowLabel.text!))!
+            matchReport?.gearsFromFloor = gearsPickedFromFloor.isOn
+            matchReport?.gearsFromFeeder = gearsPickedFromFeeder.isOn
+            matchReport?.shotsLocation = Int16(shotsLocation.selectedSegmentIndex)
+            matchReport?.fuelFromFloor = fuelFromFloor.isOn
+            matchReport?.fuelFromFeeder = fuelFromFeeder.isOn
+            matchReport?.fuelFromHopper = fuelFromHopper.isOn
+            matchReport?.hangSpeed = Int16(hangSpeed.selectedSegmentIndex)
+            matchReport?.hang = hang.isOn
+            matchReport?.penalty = penalty.isOn
+            matchReport?.defenseFaced = Int16(defenseFaced.selectedSegmentIndex)
+            matchReport?.comments = comments.text!
+            matchReport?.rotorsStarted = (Int16(rotorsStarted.text!))!
+            matchReport?.autoScore = (Int16(autoScore.text!))!
+            matchReport?.teleScore = (Int16(teleScore.text!))!
+//            
+//            do {
                 print("Save match record: \(matchReport)")
                 //try context.save()
                 CoreDataStack.defaultStack.saveContext()
                 CoreDataStack.defaultStack.syncWithCompletion(nil)
-            } catch let error as NSError {
-                print("Could not save the match report. \(error), \(error.userInfo)")
-            }
+//            } catch let error as NSError {
+//                print("Could not save the match report. \(error), \(error.userInfo)")
+//            }
             self.dismiss(animated: true, completion: nil)
         }
     }
