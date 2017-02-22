@@ -9,13 +9,19 @@
 import UIKit
 import Ensembles
 
+// This scene allows the user to view existing match reports and update them or add a new match report.
+
 class AddMatchViewController: UIViewController {
     
     // MARK: - Data passed in from segue
     
-    var selectedTournament : Int16 = 0
+    var selectedTournament : Int16 = -1
     var selectedMatchNumber = ""
     var selectedTeamNumber = ""
+    
+    // If existingMatchReport is not nil then that means we were able to retrieve an existing 
+    // match report from the data store so this is a view/update situation
+    var existingMatchReport : MatchReport?
     
     // MARK: - Outlets and Actions for components of add-match scene
     
@@ -70,7 +76,48 @@ class AddMatchViewController: UIViewController {
     override func viewDidLoad() {
         print("in viewDidLoad")
         super.viewDidLoad()
-        print("AddMatchViewController - view loaded with selectedTourname = \(selectedTournament), selectedMatchNumber = \(selectedMatchNumber), selectedTeamNumber = \(selectedTeamNumber)")
+        print("AddMatchViewController - view loaded with selectedTournament = \(selectedTournament), selectedMatchNumber = \(selectedMatchNumber), selectedTeamNumber = \(selectedTeamNumber)")
+        CoreDataStack.defaultStack.syncWithCompletion(nil)
+        let fetchRequest = NSFetchRequest<MatchReport>(entityName: "MatchReport")
+        if selectedTournament != -1 && selectedMatchNumber != "" && selectedTeamNumber != "" {
+            fetchRequest.predicate = NSPredicate(format: "tournament == \(selectedTournament) AND matchNumber == \(selectedMatchNumber) AND teamNumber == \(selectedTeamNumber)")
+            var existingMatches: [MatchReport] = []
+            do {
+                existingMatches = try CoreDataStack.defaultStack.managedObjectContext.fetch(fetchRequest)
+                print("Retrieved \(existingMatches.count) existing matches")
+            } catch let error as NSError {
+                print("Could not fetch. \(error), \(error.userInfo)")
+            }
+            if (existingMatches.count > 0) {
+                existingMatchReport = existingMatches[0]
+                // load outlets with values from existing match report
+                match.text = existingMatchReport?.matchNumber
+                team.text = existingMatchReport?.teamNumber
+                autoCrosses.isOn = (existingMatchReport?.autoCrossedLine)!
+                autoScoresGear.isOn = (existingMatchReport?.autoScoresGear)!
+                autoFuelHighLabel.text = NSNumber(value: (existingMatchReport?.autoFuelHigh)!).stringValue
+                autoFuelLowLabel.text = NSNumber(value: (existingMatchReport?.autoFuelLow)!).stringValue
+                gearCycle.selectedSegmentIndex = Int((existingMatchReport?.gearCycle)!)
+                teleFuelHighLabel.text = NSNumber(value: (existingMatchReport?.fuelHigh)!).stringValue
+                teleFuelLowLabel.text = NSNumber(value: (existingMatchReport?.fuelLow)!).stringValue
+                gearsLabel.text = NSNumber(value: (existingMatchReport?.gears)!).stringValue
+                gearsPickedFromFloor.isOn = (existingMatchReport?.gearsFromFloor)!
+                gearsPickedFromFeeder.isOn = (existingMatchReport?.gearsFromFeeder)!
+                defenseFaced.selectedSegmentIndex = Int((existingMatchReport?.defenseFaced)!)
+                shotsLocation.selectedSegmentIndex = Int((existingMatchReport?.shotsLocation)!)
+                fuelFromFloor.isOn = (existingMatchReport?.fuelFromFloor)!
+                fuelFromFeeder.isOn = (existingMatchReport?.fuelFromFeeder)!
+                fuelFromHopper.isOn = (existingMatchReport?.fuelFromHopper)!
+                hangSpeed.selectedSegmentIndex = Int((existingMatchReport?.hangSpeed)!)
+                rotorsStarted.text = NSNumber(value: (existingMatchReport?.rotorsStarted)!).stringValue
+                hang.isOn = (existingMatchReport?.hang)!
+                penalty.isOn = (existingMatchReport?.penalty)!
+                autoScore.text = NSNumber(value: (existingMatchReport?.autoScore)!).stringValue
+                teleScore.text = NSNumber(value: (existingMatchReport?.teleScore)!).stringValue
+                comments.text = existingMatchReport?.comments
+            }
+        }
+
     }
     
     func displayErrorAlertWithOk(_ msg: String) {
@@ -126,21 +173,6 @@ class AddMatchViewController: UIViewController {
 //            let matchReport = MatchReport(context: context)
             
             // Set matchReport variable to either a new match report or an existing match report
-            CoreDataStack.defaultStack.syncWithCompletion(nil)
-            let fetchRequest = NSFetchRequest<MatchReport>(entityName: "MatchReport")
-            //fetchRequest.predicate = NSPredicate(format: "uniqueIdentifier == \(uniqueIdentifier)")
-            fetchRequest.predicate = NSPredicate(format: "tournament == \(selectedTournament) AND matchNumber == \(match.text!) AND teamNumber == \(team.text!)")
-            var dupMatches: [MatchReport] = []
-            do {
-                dupMatches = try CoreDataStack.defaultStack.managedObjectContext.fetch(fetchRequest)
-                print("Retrieved \(dupMatches.count) duplicate matches")
-            } catch let error as NSError {
-                print("Could not fetch. \(error), \(error.userInfo)")
-            }
-            var existingMatchReport : MatchReport?
-            if (dupMatches.count > 0) {
-                existingMatchReport = dupMatches[0]
-            }
             var matchReport : MatchReport? = nil
             if (existingMatchReport != nil) {
                 matchReport = existingMatchReport
@@ -150,6 +182,10 @@ class AddMatchViewController: UIViewController {
             
             // Add or update match report
             //let matchReport : MatchReport = NSEntityDescription.insertNewObject(forEntityName: "MatchReport", into: CoreDataStack.defaultStack.managedObjectContext) as! MatchReport
+            if selectedTournament == -1 {
+                print("Somehow selectedTournament is not set, this should never happen. We will use 0 as default value")
+                selectedTournament = 0
+            }
             let uniqueIdentifier = "\(selectedTournament)_\(match.text!)_\(team.text!)"
             matchReport?.tournament = selectedTournament
             matchReport?.matchNumber = match.text!
