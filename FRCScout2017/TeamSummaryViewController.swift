@@ -9,17 +9,23 @@
 import UIKit
 import CoreData
 
-class TeamSummaryViewController: UIViewController {
+class TeamSummaryViewController: UIViewController{
+    
+//UIPickerViewDelegate, UIPickerViewDataSource {
 
+    var selectedDriveTrainType = ""
+    var existingPitReport : PitReport?
+    
+    let driveTrainTypes = ["Tank", "H Drive", "Omni", "Halo", "Arcade"]
     var selectedTeamNumber = ""
     
     @IBOutlet weak var teamNum: UILabel!
     @IBOutlet weak var contactName: UILabel!
-    @IBOutlet weak var driveCoach: UILabel!
-    @IBOutlet weak var driveTrainType: UILabel!
+    @IBOutlet weak var driveCoachName: UILabel!
+    @IBOutlet weak var driveTrainsTypePicker: UIPickerView!
     @IBOutlet weak var motorType: UISegmentedControl!
     @IBOutlet weak var overallSpeed: UILabel!
-    @IBOutlet weak var robotWeight: UILabel!
+    @IBOutlet weak var robotWeightt: UILabel!
     @IBOutlet weak var cheesecake: UILabel!
     @IBOutlet weak var storageVolume: UILabel!
     
@@ -30,11 +36,9 @@ class TeamSummaryViewController: UIViewController {
         print("In viewDidLoad of summary scene")
         print("selected team is \(selectedTeamNumber)")
         super.viewDidLoad()
+       // driveTrainsTypePicker.dataSource = self
+        //driveTrainsTypePicker.delegate = self
         var pitReports: [PitReport] = []
-//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-//            return
-//        }
-//        let context = appDelegate.persistentContainer.viewContext
         CoreDataStack.defaultStack.syncWithCompletion(nil)
         let fetchRequest = NSFetchRequest<PitReport>(entityName: "PitReport")
         fetchRequest.predicate = NSPredicate(format: "teamNumber == \(selectedTeamNumber)")
@@ -42,19 +46,45 @@ class TeamSummaryViewController: UIViewController {
             pitReports = try CoreDataStack.defaultStack.managedObjectContext.fetch(fetchRequest)
             if pitReports.count > 0 {
                 let existingPitReport = pitReports[0]
-                driveCoach.text = existingPitReport.driveCoach
-                driveTrainType.text = existingPitReport.driveTrainType
+                contactName.text = existingPitReport.contactName
+                driveCoachName.text = existingPitReport.driveCoach
+                driveTrainsTypePicker.reloadAllComponents()
+                var typeRow = 0
+                for (typeIndex, typeString) in driveTrainTypes.enumerated() {
+                    if typeString == existingPitReport.driveTrainType {
+                        typeRow = typeIndex
+                        break
+                    }
+                }
+                driveTrainsTypePicker.selectRow(typeRow, inComponent: 0, animated: false)
                 motorType.selectedSegmentIndex = Int(Int16(existingPitReport.driveTrainMotorType))
-                //overallSpeed
-                //robotWeight.text = existingPitReport.robotWeight
-                robotWeight.text = NSNumber(value: (existingPitReport.robotWeight)).stringValue
+                robotWeightt.text = NSNumber(value: (existingPitReport.robotWeight)).stringValue
+                storageVolume.text = NSNumber(value: (existingPitReport.estimatedStorageVolumne)).stringValue
+
                 
                 
                 
             }
             }catch let error as NSError {
                 print("Could not fetch. \(error), \(error.userInfo)")
-            }
+        }
+        
+        func numberOfComponents(in pickerView: UIPickerView) -> Int {
+            return 1
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            return driveTrainTypes.count
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            return driveTrainTypes[row]
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            selectedDriveTrainType = driveTrainTypes[row]
+            title = driveTrainTypes[row]
+        }
     }
 
     

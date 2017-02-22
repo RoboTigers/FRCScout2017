@@ -46,7 +46,7 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var rotorsStarted: UITextField!
     @IBOutlet weak var rating: UISlider!
     @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var driveCoach: UILabel!
+    @IBOutlet weak var driveCoach: UITextField!
     @IBOutlet weak var robotWeight: UITextField!
     
     
