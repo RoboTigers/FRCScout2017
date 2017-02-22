@@ -166,7 +166,7 @@
                     <navigationItem key="navigationItem" id="1gk-re-jkH">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="5cu-uw-2T9">
-                            <rect key="frame" x="215" y="8" width="339" height="29"/>
+                            <rect key="frame" x="214.5" y="7.5" width="339" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Low Fuel"/>
@@ -1637,7 +1637,7 @@
                         <outlet property="hang" destination="Vmc-ol-syv" id="BIV-Hi-ehQ"/>
                         <outlet property="hangSpeed" destination="dwE-y8-6Fh" id="jKk-T2-2sW"/>
                         <outlet property="match" destination="uZK-7L-mUb" id="bB4-ow-RhG"/>
-                        <outlet property="matchResult" destination="gQs-Oe-WvS" id="MiF-H9-N9G"/>
+                        <outlet property="matchResult" destination="gQs-Oe-WvS" id="02F-gj-VdB"/>
                         <outlet property="penalty" destination="iVe-Xq-XF1" id="cqD-Et-Ige"/>
                         <outlet property="rotorsStarted" destination="Ivd-vn-cQC" id="1xf-aS-cfU"/>
                         <outlet property="shotsLocation" destination="OE8-rK-xrI" id="KIn-Je-Fng"/>

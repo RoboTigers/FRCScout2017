@@ -49,6 +49,7 @@ class AddMatchViewController: UIViewController {
     @IBOutlet weak var rotorsStarted: UITextField!
     @IBOutlet weak var autoScore: UITextField!
     @IBOutlet weak var teleScore: UITextField!
+    @IBOutlet weak var matchResult: UISegmentedControl!
     
 
     
@@ -115,6 +116,7 @@ class AddMatchViewController: UIViewController {
                 autoScore.text = NSNumber(value: (existingMatchReport?.autoScore)!).stringValue
                 teleScore.text = NSNumber(value: (existingMatchReport?.teleScore)!).stringValue
                 comments.text = existingMatchReport?.comments
+                matchResult.selectedSegmentIndex = Int((existingMatchReport?.matchResult)!)
             }
         }
 
@@ -213,7 +215,8 @@ class AddMatchViewController: UIViewController {
             matchReport?.rotorsStarted = (Int16(rotorsStarted.text!))!
             matchReport?.autoScore = (Int16(autoScore.text!))!
             matchReport?.teleScore = (Int16(teleScore.text!))!
-//            
+            matchReport?.matchResult = Int16(matchResult.selectedSegmentIndex)
+//
 //            do {
                 print("Save match record: \(matchReport)")
                 //try context.save()
