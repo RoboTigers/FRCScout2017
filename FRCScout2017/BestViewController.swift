@@ -1,47 +1,53 @@
 //
-//  BestAtTableViewController.swift
+//  BestViewController.swift
 //  FRCScout2017
 //
-//  Created by Sharon Kass on 2/19/17.
+//  Created by Sharon Kass on 2/23/17.
 //  Copyright © 2017 RoboTigers. All rights reserved.
 //
 
 import UIKit
 import CoreData
+import Ensembles
 
-class BestAtTableViewController: UITableViewController {
+class BestViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var teamArray: [TeamStats] = []
     
     var selectedTournament = 0
-    
-    @IBOutlet weak var skillSegmentedControl: UISegmentedControl!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("selectedTournament = \(selectedTournament)")
+    @IBOutlet weak var skill: UISegmentedControl!
+    @IBOutlet weak var bestTableView: UITableView!
+    
+    @IBAction func skillAction(_ sender: UISegmentedControl) {
         refreshData()
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("selectedTournament = \(selectedTournament)")
+        title = "Best At Skill"
+        refreshData()
+    }
+    
+    // MARK: - Table view data source
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return teamArray.count
     }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BestTeamCell", for: indexPath)
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BestAtTeamCell", for: indexPath)
         cell.textLabel?.text = "Team \(teamArray[indexPath.row].teamNumber)    Ave Low: \(teamArray[indexPath.row].avergeNumberFuelLow) High: \(teamArray[indexPath.row].averageNumberFuelHigh) Gears \(teamArray[indexPath.row].averageNumberGears) Hangs \(teamArray[indexPath.row].averageNumberClimbs)"
         return cell
     }
     
     
     // MARK: - Refresh data model for this scene
- 
+    
     private func refreshData() {
         // We will read all the match data into the matches array and then fill in a team dictionary
         // aggregating the stats as we go. Then we sort the dictionary according to the segmented control
@@ -50,10 +56,10 @@ class BestAtTableViewController: UITableViewController {
         var matches: [MatchReport] = []
         
         // First grab all matches for the selcted tournament into matches array
-//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-//            return
-//        }
-//        let context = appDelegate.persistentContainer.viewContext
+        //        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+        //            return
+        //        }
+        //        let context = appDelegate.persistentContainer.viewContext
         CoreDataStack.defaultStack.syncWithCompletion(nil)
         let fetchRequest = NSFetchRequest<MatchReport>(entityName: "MatchReport")
         fetchRequest.predicate = NSPredicate(format: "tournament == \(selectedTournament)")
@@ -103,28 +109,28 @@ class BestAtTableViewController: UITableViewController {
         
         // Next we sort the dictionary according to the segmented control selection (Low, High, Gears, Climb)
         //let sortedBy = teamDictionary.sorted{ $0.value.avergeNumberFuelLow > $1.value.avergeNumberFuelLow }
-        var sortedBy = teamDictionary.sorted{ $0.value.avergeNumberFuelLow > $1.value.avergeNumberFuelLow } // default sort order
-//        switch(skillSegmentedControl.selectedSegmentIndex) {
-//        case 0:
-//            print("Order by Fuel Low")
-//            sortedBy = teamDictionary.sorted{ $0.value.avergeNumberFuelLow > $1.value.avergeNumberFuelLow }
-//            break
-//        case 1:
-//            print("Order by Fuel High")
-//            sortedBy = teamDictionary.sorted{ $0.value.averageNumberFuelHigh > $1.value.averageNumberFuelHigh }
-//            break
-//        case 2:
-//            print("Order by Gears")
-//            sortedBy = teamDictionary.sorted{ $0.value.averageNumberGears > $1.value.averageNumberGears }
-//            break
-//        case 3:
-//            print("Order by Climbing")
-//            sortedBy = teamDictionary.sorted{ $0.value.averageNumberClimbs > $1.value.averageNumberClimbs }
-//            break
-//        default:
-//            print("No sort setting, should never reach this!")
-//            break
-//        }
+        var sortedBy = teamDictionary.sorted{ $0.value.avergeNumberFuelLow > $1.value.avergeNumberFuelLow}  // default sort order
+        switch(skill.selectedSegmentIndex) {
+            case 0:
+                print("Order by Fuel Low")
+                sortedBy = teamDictionary.sorted{ $0.value.avergeNumberFuelLow > $1.value.avergeNumberFuelLow }
+                break
+            case 1:
+                print("Order by Fuel High")
+                sortedBy = teamDictionary.sorted{ $0.value.averageNumberFuelHigh > $1.value.averageNumberFuelHigh }
+                break
+            case 2:
+                print("Order by Gears")
+                sortedBy = teamDictionary.sorted{ $0.value.averageNumberGears > $1.value.averageNumberGears }
+                break
+            case 3:
+                print("Order by Climbing")
+                sortedBy = teamDictionary.sorted{ $0.value.averageNumberClimbs > $1.value.averageNumberClimbs }
+                break
+            default:
+                print("No sort setting, should never reach this!")
+                break
+        }
         
         // Next we populate the teams array which is used by the table view
         teamArray.removeAll()
@@ -135,10 +141,10 @@ class BestAtTableViewController: UITableViewController {
         
         // Finally we reload the table view so that it displays its rows based on the above newly
         // calculated teams array
-        tableView.reloadData()
+        bestTableView.reloadData()
     }
-
-
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var destination = segue.destination
         if let navigationController = destination as? UINavigationController {
@@ -147,10 +153,10 @@ class BestAtTableViewController: UITableViewController {
         
         if let segueIdentifier = segue.identifier {
             switch segueIdentifier {
-            case "BestTeamSummarySegue":
+            case "BestAtTeamSummarySegue":
                 print("About to segue to team summary")
                 if let teamSummaryViewController = destination as? TeamSummaryViewController {
-                    let rowIndex = tableView.indexPathForSelectedRow!.row
+                    let rowIndex = bestTableView.indexPathForSelectedRow!.row
                     teamSummaryViewController.selectedTeamNumber = teamArray[rowIndex].teamNumber
                 }
             default:

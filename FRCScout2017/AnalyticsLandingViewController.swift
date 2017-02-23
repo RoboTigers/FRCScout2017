@@ -33,10 +33,10 @@ class AnalyticsLandingViewController: UIViewController {
         
         if let segueIdentifier = segue.identifier {
             switch segueIdentifier {
-            case "ShowBestSegue":
+            case "ShowBestAtSegue":
                 // Send the selected tournament to the Best-At scene
-                if let bestTableViewController = destination as? BestAtTableViewController {
-                    bestTableViewController.selectedTournament = tournamentSegmentedControl.selectedSegmentIndex
+                if let bestViewController = destination as? BestViewController {
+                    bestViewController.selectedTournament = tournamentSegmentedControl.selectedSegmentIndex
                 }
             default:
                 print ("Unknown segueIdentifier: \(segueIdentifier)")
