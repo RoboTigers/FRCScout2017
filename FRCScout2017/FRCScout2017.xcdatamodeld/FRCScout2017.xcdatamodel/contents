@@ -20,6 +20,7 @@
         <attribute name="hang" optional="YES" attributeType="Boolean" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hangSpeed" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="matchNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="matchResult" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="penalty" optional="YES" attributeType="Boolean" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="rotorsStarted" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="shotsLocation" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -65,7 +66,7 @@
         <attribute name="uniqueIdentifier" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MatchReport" positionX="-6167" positionY="-1107" width="128" height="465"/>
+        <element name="MatchReport" positionX="-6167" positionY="-1107" width="128" height="480"/>
         <element name="PitReport" positionX="-6165" positionY="-954" width="128" height="525"/>
     </elements>
 </model>
