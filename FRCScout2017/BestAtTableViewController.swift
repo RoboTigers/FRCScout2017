@@ -139,15 +139,25 @@ class BestAtTableViewController: UITableViewController {
     }
 
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        var destination = segue.destination
+        if let navigationController = destination as? UINavigationController {
+            destination = navigationController.visibleViewController!
+        }
+        
+        if let segueIdentifier = segue.identifier {
+            switch segueIdentifier {
+            case "BestTeamSummarySegue":
+                print("About to segue to team summary")
+                if let teamSummaryViewController = destination as? TeamSummaryViewController {
+                    let rowIndex = tableView.indexPathForSelectedRow!.row
+                    teamSummaryViewController.selectedTeamNumber = teamArray[rowIndex].teamNumber
+                }
+            default:
+                print ("Unknown segueIdentifier: \(segueIdentifier)")
+                
+            }
+        }
     }
-    */
 
 }
