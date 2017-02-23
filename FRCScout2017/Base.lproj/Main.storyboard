@@ -156,6 +156,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="LrS-fG-OeH" kind="show" identifier="BestTeamSummarySegue" id="KRx-xL-en4"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1707,7 +1710,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bdM-yb-zhz"/>
         <segue reference="vfQ-GJ-uWw"/>
+        <segue reference="bdM-yb-zhz"/>
+        <segue reference="KRx-xL-en4"/>
     </inferredMetricsTieBreakers>
 </document>
