@@ -22,5 +22,9 @@ class TeamStats {
     var totalNumberFuelHigh: Int16 = 0
     var totalNumberGears: Int16 = 0
     var totalNumberClimbs: Int16 = 0
+    
+    var numberWins: Int = 0
+    var numberLoses: Int = 0
+    var numberTies: Int = 0
 
 }
