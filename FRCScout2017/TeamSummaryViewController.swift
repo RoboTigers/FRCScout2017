@@ -18,6 +18,7 @@ class TeamSummaryViewController: UIViewController{
     
     let driveTrainTypes = ["Tank", "H Drive", "Omni", "Halo", "Arcade"]
     var selectedTeamNumber = ""
+    var selectedTournament = Int16(0)
     
     @IBOutlet weak var teamNum: UILabel!
     @IBOutlet weak var contactName: UILabel!
@@ -30,52 +31,28 @@ class TeamSummaryViewController: UIViewController{
     @IBOutlet weak var cheesecake: UILabel!
     @IBOutlet weak var storageVolume: UILabel!
     @IBOutlet weak var selectTournamentControl: UISegmentedControl!
+    @IBOutlet weak var matchedPlayedOutlet: UILabel!
     
    
     @IBAction func selectedTournament(_ sender: UISegmentedControl) {
         print("selected \(sender.selectedSegmentIndex)")
-        class hudsonValley {
-            var hudsonpitReports 
-            func viewDidLoad() {
-                print("selected Hudson")
-            }
-        }
         
-        class sbpli{
-             func viewDidLoad(){
-                print("Selected SBPLI")
-
-            }
-        }
+        selectedTournament = Int16(sender.selectedSegmentIndex)
         
-        class championship{
-            func viewDidLoad() {
-
-        
-            }
-    }
-        
-
-    
-        // set class variagle gor selefted tournant
-        // reload the view but FIRST
-        // first you should modify the viewDidLoda to call
-        // the new refresh match funfction
-        // then much later you can modify that refersh match function
-        // to look at the selecvted tournament gairale and add a
-        // predicat eo the fetch request so taht the data is only fore
-        // tournamnet.. right now it is for all touraments
+        view.setNeedsDisplay()
         view.reloadInputViews()
     }
-
     
-    override func viewDidLoad() {
-        print("In viewDidLoad of summary scene")
-        print("selected team is \(selectedTeamNumber)")
-        super.viewDidLoad()
-        var summary = fillTeamStats()
+    func fillScreenComponents() {
+        // Fill Match data
+        let summary = fillTeamStats()
+        print("num is \(summary.numberOfMatchesPlayed)")
+        print("string is \(NSNumber(value: summary.numberOfMatchesPlayed).stringValue)")
+        matchedPlayedOutlet.text = NSNumber(value: summary.numberOfMatchesPlayed).stringValue
+        
+        // Fill pit report data
         var pitReports: [PitReport] = []
-        CoreDataStack.defaultStack.syncWithCompletion(nil)
+        //CoreDataStack.defaultStack.sncWithCompletion(nil)
         let fetchRequest = NSFetchRequest<PitReport>(entityName: "PitReport")
         fetchRequest.predicate = NSPredicate(format: "teamNumber == \(selectedTeamNumber)")
         do {
@@ -93,34 +70,48 @@ class TeamSummaryViewController: UIViewController{
                 motorNumber.text = NSNumber(value: (existingPitReport.driveTrainMotorNum)).stringValue
                 robotWeightt.text = NSNumber(value: (existingPitReport.robotWeight)).stringValue
                 storageVolume.text = NSNumber(value: (existingPitReport.estimatedStorageVolumne)).stringValue
-
+                
                 
                 
                 
             }
-            }catch let error as NSError {
-                print("Could not fetch. \(error), \(error.userInfo)")
+        }catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
         }
-        
-        func numberOfComponents(in pickerView: UIPickerView) -> Int {
-            return 1
-        }
-        
-        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            return driveTrainTypes.count
-        }
-        
-        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return driveTrainTypes[row]
-        }
-        
-        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            selectedDriveTrainType = driveTrainTypes[row]
-            title = driveTrainTypes[row]
-        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("In viewWillAppear of summary scene")
+        print("selected team is \(selectedTeamNumber)")
+        fillScreenComponents()
+    }
+
+    
+    override func viewDidLoad() {
+        print("In viewDidLoad of summary scene")
+        super.viewDidLoad()
+        fillScreenComponents()
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return driveTrainTypes.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return driveTrainTypes[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedDriveTrainType = driveTrainTypes[row]
+        title = driveTrainTypes[row]
     }
 
     func fillTeamStats() -> TeamStats {
+        print("Inside fillTeamStats")
         // We will read all the match data into the matches array and then fill a
         // TeamStats object, aggregating the data as we go.
         var matches: [MatchReport] = []
@@ -129,7 +120,7 @@ class TeamSummaryViewController: UIViewController{
         // Query database for all match data for the selected team
         CoreDataStack.defaultStack.syncWithCompletion(nil)
         let fetchRequest = NSFetchRequest<MatchReport>(entityName: "MatchReport")
-        fetchRequest.predicate = NSPredicate(format: "teamNumber == \(selectedTeamNumber)")
+        fetchRequest.predicate = NSPredicate(format: "teamNumber == \(selectedTeamNumber) AND tournament == \(selectedTournament)")
             do {
             matches = try CoreDataStack.defaultStack.managedObjectContext.fetch(fetchRequest)
             } catch let error as NSError {
