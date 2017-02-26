@@ -105,9 +105,11 @@ class TeamChoicesViewController: UIViewController, UIPickerViewDelegate, UIPicke
             case "ShowTeamSegue":
                 print("About to segue to team summary")
                 if let teamSummaryViewController = destination as? TeamSummaryViewController {
-                    print("set the selected team")
                     teamSummaryViewController.selectedTeamNumber = selectedTeam
-                    print("Selected team set: \(selectedTeam)")
+                }
+            case "ShowMatchesForTeam":
+                if let matchesController = destination as? MatchesViewController {
+                    matchesController.selectedTeamNumber = selectedTeam
                 }
             default:
                 print ("Unknown segueIdentifier: \(segueIdentifier)")

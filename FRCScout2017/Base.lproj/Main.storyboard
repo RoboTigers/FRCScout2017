@@ -512,34 +512,6 @@
             </objects>
             <point key="canvasLocation" x="2589.84375" y="1553.90625"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="fbd-iD-yI4">
-            <objects>
-                <tableViewController id="Lmp-Ss-4hr" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="JyS-dh-7BD">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="3Q2-Zc-qO8">
-                                <rect key="frame" x="0.0" y="28" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Q2-Zc-qO8" id="kNr-vg-zSg">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Lmp-Ss-4hr" id="SC0-lR-1zW"/>
-                            <outlet property="delegate" destination="Lmp-Ss-4hr" id="QaW-5D-WYq"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O8Z-jw-geL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3313" y="1554"/>
-        </scene>
         <!--It Report Table View Controller-->
         <scene sceneID="g6y-qN-LNf">
             <objects>
@@ -611,7 +583,7 @@
                                     <color key="titleColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Lmp-Ss-4hr" kind="show" id="ZR3-op-5aT"/>
+                                    <segue destination="mQ5-z0-73X" kind="show" identifier="ShowMatchesForTeam" id="3x7-Yx-OMH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptT-t0-W9P">
@@ -1805,8 +1777,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vfQ-GJ-uWw"/>
         <segue reference="LNi-xh-vMH"/>
         <segue reference="iGf-Cj-QV5"/>
+        <segue reference="3x7-Yx-OMH"/>
+        <segue reference="vfQ-GJ-uWw"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -19,6 +19,8 @@ class MatchesViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var matches: [MatchReport] = []
     
+    var selectedTeamNumber = ""
+    
     // MARK: - View containing the segmented control and the table view
     
     override func viewDidLoad() {
@@ -173,7 +175,11 @@ class MatchesViewController: UIViewController, UITableViewDataSource, UITableVie
         // SHARON DEBUG: CDESetCurrentLoggingLevel(CDELoggingLevel.verbose.rawValue)
         CoreDataStack.defaultStack.syncWithCompletion(nil)
         let fetchRequest = NSFetchRequest<MatchReport>(entityName: "MatchReport")
-        fetchRequest.predicate = NSPredicate(format: "tournament == \(tournamentSegmentedControl.selectedSegmentIndex)")
+        if selectedTeamNumber == "" {
+            fetchRequest.predicate = NSPredicate(format: "tournament == \(tournamentSegmentedControl.selectedSegmentIndex)")
+        } else {
+            fetchRequest.predicate = NSPredicate(format: "tournament == \(tournamentSegmentedControl.selectedSegmentIndex) AND teamNumber == \(selectedTeamNumber)")
+        }
         let teamSort = NSSortDescriptor(key: "teamNumber", ascending:true)
         var sortsArray: [NSSortDescriptor] = []
         let matchSort = NSSortDescriptor(key: "matchNumber", ascending:true)
