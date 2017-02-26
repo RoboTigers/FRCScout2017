@@ -11,7 +11,7 @@ import CoreData
 
 class TeamSummaryViewController: UIViewController{
     
-//UIPickerViewDelegate, UIPickerViewDataSource {
+
 
     var selectedDriveTrainType = ""
     var existingPitReport : PitReport?
@@ -32,6 +32,43 @@ class TeamSummaryViewController: UIViewController{
     @IBOutlet weak var selectTournamentControl: UISegmentedControl!
     
    
+    @IBAction func selectedTournament(_ sender: UISegmentedControl) {
+        print("selected \(sender.selectedSegmentIndex)")
+        class hudsonValley {
+            var hudsonpitReports 
+            func viewDidLoad() {
+                print("selected Hudson")
+            }
+        }
+        
+        class sbpli{
+             func viewDidLoad(){
+                print("Selected SBPLI")
+
+            }
+        }
+        
+        class championship{
+            func viewDidLoad() {
+
+        
+            }
+    }
+        
+
+    
+        // set class variagle gor selefted tournant
+        // reload the view but FIRST
+        // first you should modify the viewDidLoda to call
+        // the new refresh match funfction
+        // then much later you can modify that refersh match function
+        // to look at the selecvted tournament gairale and add a
+        // predicat eo the fetch request so taht the data is only fore
+        // tournamnet.. right now it is for all touraments
+        view.reloadInputViews()
+    }
+
+    
     override func viewDidLoad() {
         print("In viewDidLoad of summary scene")
         print("selected team is \(selectedTeamNumber)")
@@ -48,7 +85,11 @@ class TeamSummaryViewController: UIViewController{
                 contactName.text = existingPitReport.contactName
                 driveCoachName.text = existingPitReport.driveCoach
                 driveTrainsType.text = existingPitReport.driveTrainType
-                //motorType.text =
+                if existingPitReport.driveTrainMotorType ==  0 {
+                    motorType.text = "Smethign"
+                } else {
+                    motorType.text = "else"
+                }
                 motorNumber.text = NSNumber(value: (existingPitReport.driveTrainMotorNum)).stringValue
                 robotWeightt.text = NSNumber(value: (existingPitReport.robotWeight)).stringValue
                 storageVolume.text = NSNumber(value: (existingPitReport.estimatedStorageVolumne)).stringValue

@@ -367,15 +367,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="b4h-VZ-bDS" customClass="selectedTournamentSegmentedControl">
-                                <rect key="frame" x="71" y="301" width="626" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Hudson Valley"/>
-                                    <segment title="SBPLI"/>
-                                    <segment title="Championship"/>
-                                </segments>
-                            </segmentedControl>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AVD-3c-LW8">
                                 <rect key="frame" x="71" y="337" width="637" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -488,6 +479,18 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="R6f-l8-4qK">
+                                <rect key="frame" x="71" y="301" width="626" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Hudson Valley"/>
+                                    <segment title="SBPLI"/>
+                                    <segment title="Championship"/>
+                                </segments>
+                                <connections>
+                                    <action selector="selectedTournament:" destination="LrS-fG-OeH" eventType="valueChanged" id="1OM-ZT-iZ2"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -500,7 +503,7 @@
                         <outlet property="motorType" destination="TsM-yK-RNg" id="I6y-vD-wdz"/>
                         <outlet property="overallSpeed" destination="aoJ-cl-unq" id="ytP-yo-v2L"/>
                         <outlet property="robotWeightt" destination="rTn-xk-xEE" id="jGa-1e-XAc"/>
-                        <outlet property="selectTournamentControl" destination="b4h-VZ-bDS" id="dqJ-8R-YJp"/>
+                        <outlet property="selectTournamentControl" destination="R6f-l8-4qK" id="8Ig-Qz-6TB"/>
                         <outlet property="storageVolume" destination="u1d-b0-14A" id="ivg-Hi-JoW"/>
                         <outlet property="teamNum" destination="oBN-vR-hQo" id="7gD-hN-mwg"/>
                     </connections>
