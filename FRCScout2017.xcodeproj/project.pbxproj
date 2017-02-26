@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		047F0B391E50D48D00CE89F8 /* PItReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F0B381E50D48D00CE89F8 /* PItReportTableViewController.swift */; };
+		048418881E62338600B172CE /* AllMatchesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048418871E62338600B172CE /* AllMatchesTableViewController.swift */; };
 		048F45841E5A196700110DEE /* TeamSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048F45831E5A196700110DEE /* TeamSummaryViewController.swift */; };
 		8044190F1E5B62E200A06CF2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8044190E1E5B62E200A06CF2 /* CoreDataStack.swift */; };
 		806D5ABF1E4DE39600EC1EDC /* TeamChoicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806D5ABE1E4DE39600EC1EDC /* TeamChoicesViewController.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		047F0B381E50D48D00CE89F8 /* PItReportTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PItReportTableViewController.swift; sourceTree = "<group>"; };
+		048418871E62338600B172CE /* AllMatchesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllMatchesTableViewController.swift; sourceTree = "<group>"; };
 		048F45831E5A196700110DEE /* TeamSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSummaryViewController.swift; sourceTree = "<group>"; };
 		3BE1321795EFD44F0B6335EB /* Pods_FRCScout2017.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FRCScout2017.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E06A03B2694D423618CE912 /* Pods-FRCScout2017.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRCScout2017.release.xcconfig"; path = "Pods/Target Support Files/Pods-FRCScout2017/Pods-FRCScout2017.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				8044190E1E5B62E200A06CF2 /* CoreDataStack.swift */,
 				80854B671E4767F300C52877 /* ViewController.swift */,
 				80854B691E4767F300C52877 /* Main.storyboard */,
+				048418871E62338600B172CE /* AllMatchesTableViewController.swift */,
 				8081CD421E5A06F800EF3E1B /* AnalyticsLandingViewController.swift */,
 				047F0B381E50D48D00CE89F8 /* PItReportTableViewController.swift */,
 				806D5AC01E4DE75100EC1EDC /* PitViewController.swift */,
@@ -261,6 +264,7 @@
 				048F45841E5A196700110DEE /* TeamSummaryViewController.swift in Sources */,
 				8081CD431E5A06F800EF3E1B /* AnalyticsLandingViewController.swift in Sources */,
 				047F0B391E50D48D00CE89F8 /* PItReportTableViewController.swift in Sources */,
+				048418881E62338600B172CE /* AllMatchesTableViewController.swift in Sources */,
 				8044190F1E5B62E200A06CF2 /* CoreDataStack.swift in Sources */,
 				80854B7F1E477E2500C52877 /* AddMatchViewController.swift in Sources */,
 				80854B6E1E4767F300C52877 /* FRCScout2017.xcdatamodeld in Sources */,
