@@ -105,6 +105,7 @@ class TeamChoicesViewController: UIViewController, UIPickerViewDelegate, UIPicke
             case "ShowTeamSegue":
                 print("About to segue to team summary")
                 if let teamSummaryViewController = destination as? TeamSummaryViewController {
+                    print("seghue to teamsummary for team \(selectedTeam)")
                     teamSummaryViewController.selectedTeamNumber = selectedTeam
                 }
             case "ShowMatchesForTeam":
