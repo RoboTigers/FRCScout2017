@@ -22,22 +22,21 @@ class TeamSummaryViewController: UIViewController{
     @IBOutlet weak var teamNum: UILabel!
     @IBOutlet weak var contactName: UILabel!
     @IBOutlet weak var driveCoachName: UILabel!
-    @IBOutlet weak var driveTrainsTypePicker: UIPickerView!
-    @IBOutlet weak var motorType: UISegmentedControl!
+    @IBOutlet weak var driveTrainsType: UILabel!
+    @IBOutlet weak var motorType: UILabel!
+    @IBOutlet weak var motorNumber: UILabel!
     @IBOutlet weak var overallSpeed: UILabel!
     @IBOutlet weak var robotWeightt: UILabel!
     @IBOutlet weak var cheesecake: UILabel!
     @IBOutlet weak var storageVolume: UILabel!
+    @IBOutlet weak var selectTournamentControl: UISegmentedControl!
     
-
-    
-    
+   
     override func viewDidLoad() {
         print("In viewDidLoad of summary scene")
         print("selected team is \(selectedTeamNumber)")
         super.viewDidLoad()
-       // driveTrainsTypePicker.dataSource = self
-        //driveTrainsTypePicker.delegate = self
+        var summary = fillTeamStats()
         var pitReports: [PitReport] = []
         CoreDataStack.defaultStack.syncWithCompletion(nil)
         let fetchRequest = NSFetchRequest<PitReport>(entityName: "PitReport")
@@ -48,16 +47,9 @@ class TeamSummaryViewController: UIViewController{
                 let existingPitReport = pitReports[0]
                 contactName.text = existingPitReport.contactName
                 driveCoachName.text = existingPitReport.driveCoach
-                driveTrainsTypePicker.reloadAllComponents()
-                var typeRow = 0
-                for (typeIndex, typeString) in driveTrainTypes.enumerated() {
-                    if typeString == existingPitReport.driveTrainType {
-                        typeRow = typeIndex
-                        break
-                    }
-                }
-                driveTrainsTypePicker.selectRow(typeRow, inComponent: 0, animated: false)
-                motorType.selectedSegmentIndex = Int(Int16(existingPitReport.driveTrainMotorType))
+                driveTrainsType.text = existingPitReport.driveTrainType
+                //motorType.text =
+                motorNumber.text = NSNumber(value: (existingPitReport.driveTrainMotorNum)).stringValue
                 robotWeightt.text = NSNumber(value: (existingPitReport.robotWeight)).stringValue
                 storageVolume.text = NSNumber(value: (existingPitReport.estimatedStorageVolumne)).stringValue
 
@@ -135,7 +127,11 @@ class TeamSummaryViewController: UIViewController{
         }
         return summary
     }
-
+    
+    
+    
+    
+    
     /*
     // MARK: - Navigation
 
