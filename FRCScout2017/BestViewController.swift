@@ -41,7 +41,11 @@ class BestViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BestAtTeamCell", for: indexPath)
-        cell.textLabel?.text = "Team \(teamArray[indexPath.row].teamNumber)    Ave Low: \(teamArray[indexPath.row].avergeNumberFuelLow) High: \(teamArray[indexPath.row].averageNumberFuelHigh) Gears \(teamArray[indexPath.row].averageNumberGears) Hangs \(teamArray[indexPath.row].averageNumberClimbs)"
+        let formattedLow = String(format: "%.1f", teamArray[indexPath.row].avergeNumberFuelLow)
+        let formattedHigh = String(format: "%.1f", teamArray[indexPath.row].averageNumberFuelHigh)
+        let formattedGears = String(format: "%.1f", teamArray[indexPath.row].averageNumberGears)
+        let formattedHangs = String(format: "%.1f", teamArray[indexPath.row].averageNumberClimbs)
+        cell.textLabel?.text = "Team \(teamArray[indexPath.row].teamNumber)    Ave Low: \(formattedLow) High: \(formattedHigh) Gears \(formattedGears) Hangs \(formattedHangs)"
         return cell
     }
     
