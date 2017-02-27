@@ -32,16 +32,31 @@ class TeamSummaryViewController: UIViewController{
     @IBOutlet weak var storageVolume: UILabel!
     @IBOutlet weak var selectTournamentControl: UISegmentedControl!
     @IBOutlet weak var matchedPlayedOutlet: UILabel!
+    @IBOutlet weak var matchesWon: UILabel!
+    @IBOutlet weak var matchesLost: UILabel!
+    @IBOutlet weak var matchesTied: UILabel!
+    @IBOutlet weak var avgGears: UILabel!
+    @IBOutlet weak var avgHighFuel: UILabel!
+    @IBOutlet weak var avgClimbRate: UILabel!
+    @IBOutlet weak var avgLowFuel: UILabel!
+    @IBOutlet weak var totalGears: UILabel!
+    @IBOutlet weak var totalHighFuel: UILabel!
+    @IBOutlet weak var totalLowFuel: UILabel!
+    @IBOutlet weak var successfulClimbs: UILabel!
+    @IBOutlet weak var allComments: UILabel!
     
    
     @IBAction func selectedTournament(_ sender: UISegmentedControl) {
-        print("selected \(sender.selectedSegmentIndex)")
-        
-        selectedTournament = Int16(sender.selectedSegmentIndex)
-        
         view.setNeedsDisplay()
         view.reloadInputViews()
-    }
+            print("selected \(sender.selectedSegmentIndex)")
+        
+            selectedTournament = Int16(sender.selectedSegmentIndex)
+            
+            fillScreenComponents()
+            
+        }
+    
     
     func fillScreenComponents() {
         // Fill Match data
@@ -49,6 +64,19 @@ class TeamSummaryViewController: UIViewController{
         print("num is \(summary.numberOfMatchesPlayed)")
         print("string is \(NSNumber(value: summary.numberOfMatchesPlayed).stringValue)")
         matchedPlayedOutlet.text = NSNumber(value: summary.numberOfMatchesPlayed).stringValue
+        matchesWon.text = NSNumber(value: summary.numberWins).stringValue
+        matchesLost.text = NSNumber(value: summary.numberLoses).stringValue
+        matchesTied.text = NSNumber(value: summary.numberTies).stringValue
+        avgGears.text = NSNumber(value: summary.averageNumberGears).stringValue
+        avgHighFuel.text = NSNumber(value: summary.averageNumberFuelHigh).stringValue
+        //avgLowFuel.text = NSNumber(value: summary.averageNumberFuelLow).stringValue
+        //avgClimbRate
+        //avgClimbSpeed
+        totalGears.text = NSNumber(value: summary.totalNumberGears).stringValue
+        totalHighFuel.text = NSNumber(value: summary.totalNumberFuelHigh).stringValue
+        totalLowFuel.text = NSNumber(value: summary.totalNumberFuelLow).stringValue
+        successfulClimbs.text = NSNumber(value: summary.totalNumberClimbs).stringValue
+        
         
         // Fill pit report data
         var pitReports: [PitReport] = []
@@ -63,9 +91,9 @@ class TeamSummaryViewController: UIViewController{
                 driveCoachName.text = existingPitReport.driveCoach
                 driveTrainsType.text = existingPitReport.driveTrainType
                 if existingPitReport.driveTrainMotorType ==  0 {
-                    motorType.text = "Smethign"
+                    motorType.text = "CIM"
                 } else {
-                    motorType.text = "else"
+                    motorType.text = "Other"
                 }
                 motorNumber.text = NSNumber(value: (existingPitReport.driveTrainMotorNum)).stringValue
                 robotWeightt.text = NSNumber(value: (existingPitReport.robotWeight)).stringValue
