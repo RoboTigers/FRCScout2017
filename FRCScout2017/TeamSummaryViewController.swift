@@ -69,7 +69,7 @@ class TeamSummaryViewController: UIViewController{
         matchesTied.text = NSNumber(value: summary.numberTies).stringValue
         avgGears.text = NSNumber(value: summary.averageNumberGears).stringValue
         avgHighFuel.text = NSNumber(value: summary.averageNumberFuelHigh).stringValue
-        //avgLowFuel.text = NSNumber(value: summary.averageNumberFuelLow).stringValue
+        avgLowFuel.text = NSNumber(value: summary.avergeNumberFuelLow).stringValue
         //avgClimbRate
         //avgClimbSpeed
         totalGears.text = NSNumber(value: summary.totalNumberGears).stringValue
