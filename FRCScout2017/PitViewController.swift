@@ -9,7 +9,15 @@
 import UIKit
 import CoreData
 
-class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    
+    // MARK: - Variables to manage the keyboard so that the comments textView is not obstructed
+    
+    var moveValue: CGFloat!
+    var moved: Bool = false
+    var lowerTextFieldBeingEdited: Bool = false
+    
+    // MARK: - Data model
     
     var selectedTeamNumber = ""
     var selectedDriveTrainType = ""
@@ -54,6 +62,16 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set up a keyboard observer so we can shift the screen up when comments are being entered
+        // and thus avoid having that comments textView obstructed by the keyboard
+        self.estimatedStorageVolumne.delegate = self
+        self.robotWeight.delegate = self
+        self.commentsProud.delegate = self
+        self.commentsStillWorkingOn.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: .UIKeyboardDidShow, object: nil)
+        
+        // Fill outlets iwth any existing report data
         driveTrainTypePicker.dataSource = self
         driveTrainTypePicker.delegate = self
         
@@ -239,6 +257,66 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         DispatchQueue.main.async(execute: {
             self.present(refreshAlert, animated: true, completion: nil)
         })
+    }
+    
+    // MARK: - Keyboard Management
+    
+    // These functions manage the keyboard so that the comments textView is not obstructed
+    
+    func animateViewMoving (up:Bool, moveValue :CGFloat){
+        print("animateViewMoving")
+        let movementDuration:TimeInterval = 0.3
+        let movement:CGFloat = ( up ? -moveValue : moveValue)
+        
+        UIView.beginAnimations("animateView", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration)
+        
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+    
+    func keyboardDidShow(notification: Notification) {
+        print("keyboardDidShow")
+        if (lowerTextFieldBeingEdited) {
+            print("Lower text fields being edited so shift view up to avoid keyboard obstruction")
+            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                let keyboardHeight = keyboardSize.height
+                if (view.frame.size.height-self.commentsStillWorkingOn.frame.origin.y) - self.commentsStillWorkingOn.frame.size.height < keyboardHeight{
+                    moveValue = keyboardHeight - ((view.frame.size.height-self.commentsStillWorkingOn.frame.origin.y) - self.commentsStillWorkingOn.frame.size.height)
+                    self.animateViewMoving(up: true, moveValue: moveValue )
+                    moved = true
+                }
+            }
+        }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("textFieldDidBeginEditing")
+        if (textField == robotWeight
+            || textField == estimatedStorageVolumne
+            || textField == commentsProud
+            || textField == commentsStillWorkingOn)
+            {
+            print("beginning lower field editing")
+            lowerTextFieldBeingEdited = true
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("textFieldDidEndEditing")
+        if (textField == robotWeight
+            || textField == estimatedStorageVolumne
+            || textField == commentsProud
+            || textField == commentsStillWorkingOn)
+        {
+            print("ending lower field editing")
+            lowerTextFieldBeingEdited = false
+        }
+        if moved == true {
+            self.animateViewMoving(up: false, moveValue: moveValue )
+            moved = false
+        }
     }
     
 
