@@ -117,6 +117,8 @@ class AddMatchViewController: UIViewController {
                 teleScore.text = NSNumber(value: (existingMatchReport?.teleScore)!).stringValue
                 comments.text = existingMatchReport?.comments
                 matchResult.selectedSegmentIndex = Int((existingMatchReport?.matchResult)!)
+                autoScore.text = NSNumber(value: (existingMatchReport?.autoScore)!).stringValue
+                teleScore.text = NSNumber(value: (existingMatchReport?.teleScore)!).stringValue
             }
         }
 

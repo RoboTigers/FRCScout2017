@@ -38,10 +38,10 @@ class TeamSummaryViewController: UIViewController{
     @IBOutlet weak var avgGears: UILabel!
     @IBOutlet weak var avgHighFuel: UILabel!
     @IBOutlet weak var avgClimbRate: UILabel!
+    @IBOutlet weak var avgClimbSpeed: UILabel!
     @IBOutlet weak var avgLowFuel: UILabel!
-    @IBOutlet weak var totalGears: UILabel!
-    @IBOutlet weak var totalHighFuel: UILabel!
-    @IBOutlet weak var totalLowFuel: UILabel!
+    @IBOutlet weak var avgAutoScore: UILabel!
+    @IBOutlet weak var avgTeleScore: UILabel!
     @IBOutlet weak var successfulClimbs: UILabel!
     @IBOutlet weak var allComments: UILabel!
     
@@ -67,14 +67,18 @@ class TeamSummaryViewController: UIViewController{
         matchesWon.text = NSNumber(value: summary.numberWins).stringValue
         matchesLost.text = NSNumber(value: summary.numberLoses).stringValue
         matchesTied.text = NSNumber(value: summary.numberTies).stringValue
-        avgGears.text = NSNumber(value: summary.averageNumberGears).stringValue
-        avgHighFuel.text = NSNumber(value: summary.averageNumberFuelHigh).stringValue
-        avgLowFuel.text = NSNumber(value: summary.avergeNumberFuelLow).stringValue
+        let formattedGears = String(format: "%.1f", summary.averageNumberGears)
+        avgGears.text = formattedGears
+        let formattedHighFuel = String(format: "%.1f", summary.averageNumberFuelHigh)
+        avgHighFuel.text = formattedHighFuel
+        let formattedLowFuel = String(format: "%.1f", summary.avergeNumberFuelLow)
+        avgLowFuel.text = formattedLowFuel
         //avgClimbRate
         //avgClimbSpeed
-        totalGears.text = NSNumber(value: summary.totalNumberGears).stringValue
-        totalHighFuel.text = NSNumber(value: summary.totalNumberFuelHigh).stringValue
-        totalLowFuel.text = NSNumber(value: summary.totalNumberFuelLow).stringValue
+        let formattedAutoScore = String(format: "%.0f", summary.averageNumberAutoScore)
+        avgAutoScore.text = formattedAutoScore
+        let formattedTeleScore = String (format: "%.0f", summary.averageNumberTeleScore)
+        avgTeleScore.text = formattedTeleScore
         successfulClimbs.text = NSNumber(value: summary.totalNumberClimbs).stringValue
         
         
@@ -163,6 +167,8 @@ class TeamSummaryViewController: UIViewController{
             summary.totalNumberFuelLow =  summary.totalNumberFuelLow + match.fuelLow
             summary.totalNumberFuelHigh = summary.totalNumberFuelHigh + match.fuelHigh
             summary.totalNumberGears = summary.totalNumberGears + match.gears
+            summary.totalNumberAutoScore = summary.totalNumberAutoScore + match.autoScore
+            summary.totalNumberTeleScore = summary.totalNumberTeleScore + match.teleScore
             if match.hang {
                 summary.totalNumberClimbs = summary.totalNumberClimbs + 1
             }
@@ -170,6 +176,8 @@ class TeamSummaryViewController: UIViewController{
             summary.averageNumberFuelHigh = Double(summary.totalNumberFuelHigh) / Double(summary.numberOfMatchesPlayed)
             summary.averageNumberGears = Double(summary.totalNumberGears) / Double(summary.numberOfMatchesPlayed)
             summary.averageNumberClimbs = Double(summary.totalNumberClimbs) / Double(summary.numberOfMatchesPlayed)
+            summary.averageNumberAutoScore = Double(summary.totalNumberAutoScore) / Double (summary.numberOfMatchesPlayed)
+            summary.averageNumberTeleScore = Double(summary.totalNumberTeleScore) / Double (summary.numberOfMatchesPlayed)
             switch(match.matchResult) {
             case 0:
                 summary.numberWins = summary.numberWins + 1
