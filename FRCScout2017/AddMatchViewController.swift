@@ -11,7 +11,13 @@ import Ensembles
 
 // This scene allows the user to view existing match reports and update them or add a new match report.
 
-class AddMatchViewController: UIViewController {
+class AddMatchViewController: UIViewController, UITextViewDelegate {
+    
+    // MARK: - Variables to manage the keyboard so that the comments textView is not obstructed
+    
+    var moveValue: CGFloat!
+    var moved: Bool = false
+    var commentsBeingEdited: Bool = false
     
     // MARK: - Data passed in from segue
     
@@ -77,6 +83,14 @@ class AddMatchViewController: UIViewController {
     override func viewDidLoad() {
         print("in viewDidLoad")
         super.viewDidLoad()
+        
+        // Set up a keyboard observer so we can shift the screen up when comments are being entered
+        // and thus avoid having that comments textView obstructed by the keyboard
+        self.comments.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: .UIKeyboardDidShow, object: nil)
+
+        
+        // Fill outlets with any existing report data
         print("AddMatchViewController - view loaded with selectedTournament = \(selectedTournament), selectedMatchNumber = \(selectedMatchNumber), selectedTeamNumber = \(selectedTeamNumber)")
         CoreDataStack.defaultStack.syncWithCompletion(nil)
         let fetchRequest = NSFetchRequest<MatchReport>(entityName: "MatchReport")
@@ -230,6 +244,59 @@ class AddMatchViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
+    // MARK: - Keyboard Management
+    
+    // These functions manage the keyboard so that the comments textView is not obstructed
+    
+    func animateViewMoving (up:Bool, moveValue :CGFloat){
+        print("animateViewMoving")
+        let movementDuration:TimeInterval = 0.3
+        let movement:CGFloat = ( up ? -moveValue : moveValue)
+        
+        UIView.beginAnimations("animateView", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration)
+        
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+
+    func keyboardDidShow(notification: Notification) {
+        print("keyboardDidShow")
+        if (commentsBeingEdited) {
+            print("Comments being edited so shift view up to avoid keyboard obstruction")
+            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                let keyboardHeight = keyboardSize.height
+                if (view.frame.size.height-self.comments.frame.origin.y) - self.comments.frame.size.height < keyboardHeight{
+                    moveValue = keyboardHeight - ((view.frame.size.height-self.comments.frame.origin.y) - self.comments.frame.size.height)
+                    self.animateViewMoving(up: true, moveValue: moveValue )
+                    moved = true
+                }
+            }
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        print("textViewDidBeginEditing")
+        if textView == comments {
+            print("beginning comments editing")
+            commentsBeingEdited = true
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        print("textViewDidEndEditing")
+        if textView == comments {
+            print("ending comments editing")
+            commentsBeingEdited = false
+        }
+        if moved == true {
+            self.animateViewMoving(up: false, moveValue: moveValue )
+            moved = false
+        }
+    }
+    
     
     
 }
