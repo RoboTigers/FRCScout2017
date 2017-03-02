@@ -155,8 +155,11 @@ UINavigationControllerDelegate {
                     ratingLabel.text = NSNumber(value: (existingPitReport?.rating)!).stringValue
                     preferredStartLocation.selectedSegmentIndex = Int((existingPitReport?.preferredStartLocation)!)
                     robotWeight.text = NSNumber(value: (existingPitReport?.robotWeight)!).stringValue
-                    //SABRINA: STEP 2: Pre=populate each screen widget with the value
-                    // from the existing data record in the store
+                    if existingPitReport?.robotImage != nil {
+                        let existingImage = UIImage(data: (existingPitReport?.robotImage)! as Data)
+                        myImageView.image = existingImage
+                        myImageView.contentMode = .scaleAspectFit
+                    }
                 }
             } catch let error as NSError {
                 print("Could not fetch. \(error), \(error.userInfo)")
@@ -213,9 +216,11 @@ UINavigationControllerDelegate {
         pitRecord?.rating = Float(ratingLabel.text!)!
         pitRecord?.driveCoach = driveCoach.text!
         pitRecord?.robotWeight = Int16(robotWeight.text!)!
+        // add myImageView.image
+        let imageData = UIImagePNGRepresentation(myImageView.image!) as NSData?
+        pitRecord?.robotImage = imageData
         
-        
-        //SABRINA: STEP 3: Save the value of each widget you wire
+
         print("Pit Record is: \(pitRecord)")
         do {
             print("Save pit record: \(pitRecord))")
@@ -355,15 +360,16 @@ UINavigationControllerDelegate {
             moved = false
         }
     }
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [String : AnyObject])
-    {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("in imagePickerController")
         var  chosenImage = UIImage()
         chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
         myImageView.contentMode = .scaleAspectFit //3
         myImageView.image = chosenImage //4
         dismiss(animated:true, completion: nil) //5
     }
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
