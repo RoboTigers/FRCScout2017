@@ -102,11 +102,14 @@ class TeamSummaryViewController: UIViewController{
                 motorNumber.text = NSNumber(value: (existingPitReport.driveTrainMotorNum)).stringValue
                 robotWeightt.text = NSNumber(value: (existingPitReport.robotWeight)).stringValue
                 storageVolume.text = NSNumber(value: (existingPitReport.estimatedStorageVolumne)).stringValue
-                
-                
-                
-                
+                if existingPitReport.robotWeight<100 {
+                    cheesecake.text = "Yes"
+                }else {
+                    cheesecake.text = "No"
+                }
+                allComments.text = existingPitReport.commentsProud! + existingPitReport.commentsStillWorkingOn!
             }
+            
         }catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }

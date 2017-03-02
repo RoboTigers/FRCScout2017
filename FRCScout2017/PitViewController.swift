@@ -155,6 +155,12 @@ UINavigationControllerDelegate {
                     ratingLabel.text = NSNumber(value: (existingPitReport?.rating)!).stringValue
                     preferredStartLocation.selectedSegmentIndex = Int((existingPitReport?.preferredStartLocation)!)
                     robotWeight.text = NSNumber(value: (existingPitReport?.robotWeight)!).stringValue
+                    driveCoach.text = existingPitReport?.driveCoach
+                    estimatedStorageVolumne.text = NSNumber(value: (existingPitReport?.estimatedStorageVolumne)!).stringValue
+                    commentsProud.text = existingPitReport?.commentsProud
+                    commentsStillWorkingOn.text = existingPitReport?.commentsStillWorkingOn
+                    autoFuelLow.text = NSNumber(value: (existingPitReport?.autoFuelLow)!).stringValue
+                    autoFuelHigh.text = NSNumber(value: (existingPitReport?.autoFuelHigh)!).stringValue
                     //SABRINA: STEP 2: Pre=populate each screen widget with the value
                     // from the existing data record in the store
                 }
