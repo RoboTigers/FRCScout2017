@@ -9,8 +9,7 @@
 import UIKit
 import CoreData
 
-class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate,UIImagePickerControllerDelegate,
-UINavigationControllerDelegate {
+class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - Variables to manage the keyboard so that the comments textView is not obstructed
     
@@ -219,9 +218,10 @@ UINavigationControllerDelegate {
         pitRecord?.rating = Float(ratingLabel.text!)!
         pitRecord?.driveCoach = driveCoach.text!
         pitRecord?.robotWeight = Int16(robotWeight.text!)!
+        let imageData = UIImagePNGRepresentation(myImageView.image!) as NSData?
+        pitRecord?.robotImage = imageData
         
-        
-        //SABRINA: STEP 3: Save the value of each widget you wire
+
         print("Pit Record is: \(pitRecord)")
         do {
             print("Save pit record: \(pitRecord))")
@@ -275,17 +275,6 @@ UINavigationControllerDelegate {
         title = driveTrainTypes[row]
     }
 
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     // MARK: - Utilities
     
@@ -361,15 +350,18 @@ UINavigationControllerDelegate {
             moved = false
         }
     }
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [String : AnyObject])
-    {
+    
+    // MARK: - ImagePickerController
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("in imagePickerController")
         var  chosenImage = UIImage()
         chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
         myImageView.contentMode = .scaleAspectFit //3
         myImageView.image = chosenImage //4
         dismiss(animated:true, completion: nil) //5
     }
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
