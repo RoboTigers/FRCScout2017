@@ -9,8 +9,7 @@
 import UIKit
 import CoreData
 
-class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate,UIImagePickerControllerDelegate,
-UINavigationControllerDelegate {
+class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - Variables to manage the keyboard so that the comments textView is not obstructed
     
@@ -216,7 +215,6 @@ UINavigationControllerDelegate {
         pitRecord?.rating = Float(ratingLabel.text!)!
         pitRecord?.driveCoach = driveCoach.text!
         pitRecord?.robotWeight = Int16(robotWeight.text!)!
-        // add myImageView.image
         let imageData = UIImagePNGRepresentation(myImageView.image!) as NSData?
         pitRecord?.robotImage = imageData
         
@@ -274,17 +272,6 @@ UINavigationControllerDelegate {
         title = driveTrainTypes[row]
     }
 
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     // MARK: - Utilities
     
@@ -360,6 +347,8 @@ UINavigationControllerDelegate {
             moved = false
         }
     }
+    
+    // MARK: - ImagePickerController
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         print("in imagePickerController")
