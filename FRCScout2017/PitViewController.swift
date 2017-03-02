@@ -9,7 +9,8 @@
 import UIKit
 import CoreData
 
-class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate,UIImagePickerControllerDelegate,
+UINavigationControllerDelegate {
     
     // MARK: - Variables to manage the keyboard so that the comments textView is not obstructed
     
@@ -56,11 +57,40 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var driveCoach: UITextField!
     @IBOutlet weak var robotWeight: UITextField!
+    let picker = UIImagePickerController()
+    @IBOutlet weak var myImageView: UIImageView!
     
+    @IBAction func shootPhoto(_ sender: UIBarButtonItem) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            picker.allowsEditing = false
+            picker.sourceType = UIImagePickerControllerSourceType.camera
+            picker.cameraCaptureMode = .photo
+            picker.modalPresentationStyle = .fullScreen
+            present(picker,animated: true,completion: nil)
+        } else {
+            noCamera()
+        }
+    }
+    func noCamera(){
+        let alertVC = UIAlertController(
+            title: "No Camera",
+            message: "Sorry, this device has no camera",
+            preferredStyle: .alert)
+        let okAction = UIAlertAction(
+            title: "OK",
+            style:.default,
+            handler: nil)
+        alertVC.addAction(okAction)
+        present(
+            alertVC,
+            animated: true,
+            completion: nil)
+    }
     
     
     
     override func viewDidLoad() {
+        picker.delegate = self
         super.viewDidLoad()
         
         // Set up a keyboard observer so we can shift the screen up when comments are being entered
@@ -125,7 +155,6 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                     ratingLabel.text = NSNumber(value: (existingPitReport?.rating)!).stringValue
                     preferredStartLocation.selectedSegmentIndex = Int((existingPitReport?.preferredStartLocation)!)
                     robotWeight.text = NSNumber(value: (existingPitReport?.robotWeight)!).stringValue
-                    
                     //SABRINA: STEP 2: Pre=populate each screen widget with the value
                     // from the existing data record in the store
                 }
@@ -195,6 +224,14 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             print("Could not save the pit report. \(error), \(error.userInfo)")
         }
         self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func photoFromLibrary(_ sender: UIBarButtonItem) {
+        picker.allowsEditing = false
+        picker.sourceType = .photoLibrary
+        picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        picker.modalPresentationStyle = .popover
+        present(picker, animated: true, completion: nil)
+        picker.popoverPresentationController?.barButtonItem = sender
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
@@ -317,6 +354,18 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             self.animateViewMoving(up: false, moveValue: moveValue )
             moved = false
         }
+    }
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : AnyObject])
+    {
+        var  chosenImage = UIImage()
+        chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
+        myImageView.contentMode = .scaleAspectFit //3
+        myImageView.image = chosenImage //4
+        dismiss(animated:true, completion: nil) //5
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
 
