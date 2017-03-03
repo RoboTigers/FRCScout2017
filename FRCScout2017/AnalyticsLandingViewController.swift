@@ -38,6 +38,12 @@ class AnalyticsLandingViewController: UIViewController {
                 if let bestViewController = destination as? BestViewController {
                     bestViewController.selectedTournament = tournamentSegmentedControl.selectedSegmentIndex
                 }
+                break
+            case "cheesecakeSegue":
+                if let pitReportTVC = destination as? PItReportTableViewController {
+                    pitReportTVC.sortByWeight = true
+                }
+                break
             default:
                 print ("Unknown segueIdentifier: \(segueIdentifier)")
                 
