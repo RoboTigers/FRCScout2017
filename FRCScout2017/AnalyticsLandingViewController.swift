@@ -44,6 +44,11 @@ class AnalyticsLandingViewController: UIViewController {
                     pitReportTVC.sortByWeight = true
                 }
                 break
+            case "ShowWinningSegue":
+                if let winningViewController = destination as? WinningViewController {
+                    winningViewController.selectedTournament = tournamentSegmentedControl.selectedSegmentIndex
+                }
+                break
             default:
                 print ("Unknown segueIdentifier: \(segueIdentifier)")
                 
