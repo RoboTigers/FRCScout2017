@@ -44,7 +44,7 @@ class TeamSummaryViewController: UIViewController{
     @IBOutlet weak var avgTeleScore: UILabel!
     @IBOutlet weak var successfulClimbs: UILabel!
     @IBOutlet weak var allComments: UILabel!
-    
+    @IBOutlet weak var myImageView: UIImageView!
    
     @IBAction func selectedTournament(_ sender: UISegmentedControl) {
         view.setNeedsDisplay()
@@ -52,8 +52,21 @@ class TeamSummaryViewController: UIViewController{
         selectedTournament = Int16(sender.selectedSegmentIndex)
         fillScreenComponents()
     }
+    @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
+        let imageView = sender.view as! UIImageView
+        let newImageView = UIImageView(image: imageView.image)
+        newImageView.frame = self.view.frame
+        newImageView.backgroundColor = .black
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        newImageView.addGestureRecognizer(tap)
+        self.view.addSubview(newImageView)
+    }
     
-    
+    func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        sender.view?.removeFromSuperview()
+    }
     func fillScreenComponents() {
         // Fill Match data
         let summary = fillTeamStats()
@@ -76,6 +89,8 @@ class TeamSummaryViewController: UIViewController{
         let formattedTeleScore = String (format: "%.0f", summary.averageNumberTeleScore)
         avgTeleScore.text = formattedTeleScore
         successfulClimbs.text = NSNumber(value: summary.totalNumberClimbs).stringValue
+        
+
         
         
         // Fill pit report data
@@ -105,7 +120,14 @@ class TeamSummaryViewController: UIViewController{
                 }
                 //105 just to be safe since our component will be around 10-12 lb
                 allComments.text = existingPitReport.commentsProud! + existingPitReport.commentsStillWorkingOn!
+                if existingPitReport.robotImage != nil {
+                let existingImage = UIImage(data: (existingPitReport.robotImage)! as Data)
+                myImageView.image = existingImage
+                    myImageView.contentMode = .scaleAspectFit
+                }
             }
+            
+    
             
         }catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
