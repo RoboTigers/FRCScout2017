@@ -11,13 +11,13 @@ import Ensembles
 
 // This scene allows the user to view existing match reports and update them or add a new match report.
 
-class AddMatchViewController: UIViewController, UITextViewDelegate {
+class AddMatchViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     
     // MARK: - Variables to manage the keyboard so that the comments textView is not obstructed
     
     var moveValue: CGFloat!
     var moved: Bool = false
-    var commentsBeingEdited: Bool = false
+    var lowerFieldBeingEdited: Bool = false
     
     // MARK: - Data passed in from segue
     
@@ -87,6 +87,8 @@ class AddMatchViewController: UIViewController, UITextViewDelegate {
         // Set up a keyboard observer so we can shift the screen up when comments are being entered
         // and thus avoid having that comments textView obstructed by the keyboard
         self.comments.delegate = self
+        self.teleScore.delegate = self
+        self.autoScore.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: .UIKeyboardDidShow, object: nil)
 
         
@@ -264,8 +266,8 @@ class AddMatchViewController: UIViewController, UITextViewDelegate {
 
     func keyboardDidShow(notification: Notification) {
         print("keyboardDidShow")
-        if (commentsBeingEdited) {
-            print("Comments being edited so shift view up to avoid keyboard obstruction")
+        if (lowerFieldBeingEdited) {
+            print("Lower field being edited so shift view up to avoid keyboard obstruction")
             if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
                 let keyboardHeight = keyboardSize.height
                 if (view.frame.size.height-self.comments.frame.origin.y) - self.comments.frame.size.height < keyboardHeight{
@@ -280,16 +282,33 @@ class AddMatchViewController: UIViewController, UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         print("textViewDidBeginEditing")
         if textView == comments {
-            print("beginning comments editing")
-            commentsBeingEdited = true
+            print("beginning lower field editing")
+            lowerFieldBeingEdited = true
         }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         print("textViewDidEndEditing")
         if textView == comments {
-            print("ending comments editing")
-            commentsBeingEdited = false
+            print("ending lower field editing")
+            lowerFieldBeingEdited = false
+        }
+        if moved == true {
+            self.animateViewMoving(up: false, moveValue: moveValue )
+            moved = false
+        }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == teleScore || textField == autoScore {
+            lowerFieldBeingEdited = true
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == teleScore || textField == autoScore {
+            print("ending lower field editing")
+            lowerFieldBeingEdited = false
         }
         if moved == true {
             self.animateViewMoving(up: false, moveValue: moveValue )
