@@ -54,7 +54,7 @@ class PItReportTableViewController: UITableViewController {
         CoreDataStack.defaultStack.syncWithCompletion(nil)
         let fetchRequest = NSFetchRequest<PitReport>(entityName: "PitReport")
         if sortByWeight {
-            let weightSort = NSSortDescriptor(key: "robotWeight", ascending:false)
+            let weightSort = NSSortDescriptor(key: "robotWeight", ascending:true)
             var sortsArray: [NSSortDescriptor] = []
             sortsArray.append(weightSort)
             fetchRequest.sortDescriptors = sortsArray
