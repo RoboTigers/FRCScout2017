@@ -138,6 +138,27 @@ class WinningViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.reloadData()
     }
     
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var destination = segue.destination
+        if let navigationController = destination as? UINavigationController {
+            destination = navigationController.visibleViewController!
+        }
+        
+        if let segueIdentifier = segue.identifier {
+            switch segueIdentifier {
+            case "WinScoreTeamSegue":
+                print("About to segue to team summary")
+                if let teamSummaryViewController = destination as? TeamSummaryViewController {
+                    let rowIndex = tableView.indexPathForSelectedRow!.row
+                    teamSummaryViewController.selectedTeamNumber = teamArray[rowIndex].teamNumber
+                }
+            default:
+                print ("Unknown segueIdentifier: \(segueIdentifier)")
+                
+            }
+        }
+    }
+    
 
 }
