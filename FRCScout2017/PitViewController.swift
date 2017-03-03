@@ -154,14 +154,17 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                     ratingLabel.text = NSNumber(value: (existingPitReport?.rating)!).stringValue
                     preferredStartLocation.selectedSegmentIndex = Int((existingPitReport?.preferredStartLocation)!)
                     robotWeight.text = NSNumber(value: (existingPitReport?.robotWeight)!).stringValue
+                    if existingPitReport?.robotImage != nil {
+                        let existingImage = UIImage(data: (existingPitReport?.robotImage)! as Data)
+                        myImageView.image = existingImage
+                        myImageView.contentMode = .scaleAspectFit
+                    }
                     driveCoach.text = existingPitReport?.driveCoach
                     estimatedStorageVolumne.text = NSNumber(value: (existingPitReport?.estimatedStorageVolumne)!).stringValue
                     commentsProud.text = existingPitReport?.commentsProud
                     commentsStillWorkingOn.text = existingPitReport?.commentsStillWorkingOn
                     autoFuelLow.text = NSNumber(value: (existingPitReport?.autoFuelLow)!).stringValue
                     autoFuelHigh.text = NSNumber(value: (existingPitReport?.autoFuelHigh)!).stringValue
-                    //SABRINA: STEP 2: Pre=populate each screen widget with the value
-                    // from the existing data record in the store
                 }
             } catch let error as NSError {
                 print("Could not fetch. \(error), \(error.userInfo)")
