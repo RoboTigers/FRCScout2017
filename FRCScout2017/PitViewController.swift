@@ -58,8 +58,7 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var robotWeight: UITextField!
     let picker = UIImagePickerController()
     @IBOutlet weak var myImageView: UIImageView!
-    
-    @IBAction func shootPhoto(_ sender: UIBarButtonItem) {
+        @IBAction func shootPhoto(_ sender: UIBarButtonItem) {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             picker.allowsEditing = false
             picker.sourceType = UIImagePickerControllerSourceType.camera
@@ -85,7 +84,6 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             animated: true,
             completion: nil)
     }
-    
     
     
     override func viewDidLoad() {
@@ -260,8 +258,23 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         present(refreshAlert, animated: true, completion: nil)
     }
     
+    @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
+        let imageView = sender.view as! UIImageView
+        let newImageView = UIImageView(image: imageView.image)
+        newImageView.frame = self.view.frame
+        newImageView.backgroundColor = .black
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        newImageView.addGestureRecognizer(tap)
+        self.view.addSubview(newImageView)
+    }
     
+    func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        sender.view?.removeFromSuperview()
+    }
     // MARK: - Picker
+    // Keep image in the orienatation it was taken in 
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
