@@ -15,11 +15,10 @@ class PItReportTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Hello")
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("in viewWillAppear")
+        title = "Team Pit Reports"
         refreshPitReports()
     }
     
@@ -63,7 +62,11 @@ class PItReportTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "pitRow", for: indexPath)
-        cell.textLabel?.text = pitReports[indexPath.row].teamNumber
+        var contact = ""
+        if pitReports[indexPath.row].contactName != nil {
+            contact = pitReports[indexPath.row].contactName!
+        }
+        cell.textLabel?.text = "Team \(pitReports[indexPath.row].teamNumber!) Contact: \(contact)  Weight: \(pitReports[indexPath.row].robotWeight)"
         return cell
     }
 

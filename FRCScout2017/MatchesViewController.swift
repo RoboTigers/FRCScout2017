@@ -91,7 +91,22 @@ class MatchesViewController: UIViewController, UITableViewDataSource, UITableVie
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MatchReportCell", for: indexPath)
         let match = matches[indexPath.row]
-        cell.textLabel?.text = "Match# \(match.matchNumber!)"
+        var result = ""
+        switch(match.matchResult) {
+        case 0:
+            result = "Win"
+            break
+        case 1:
+            result = "Lose"
+            break
+        case 2:
+            result = "Tie"
+            break
+        default:
+            print("Unknown match result, should never reach this!")
+            break
+        }
+        cell.textLabel?.text = "Match# \(match.matchNumber!)\t\t\(result)"
         cell.detailTextLabel?.text = "Team # \(match.teamNumber!)"
         return cell
     }
