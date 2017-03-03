@@ -256,6 +256,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="LrS-fG-OeH" kind="show" identifier="WinScoreTeamSegue" id="c96-Bb-LaR"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1977,6 +1980,6 @@
         <segue reference="vfQ-GJ-uWw"/>
         <segue reference="Hvy-Zk-ngC"/>
         <segue reference="bdM-yb-zhz"/>
-        <segue reference="0rb-FX-9gw"/>
+        <segue reference="c96-Bb-LaR"/>
     </inferredMetricsTieBreakers>
 </document>
