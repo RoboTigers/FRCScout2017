@@ -12,6 +12,7 @@ import CoreData
 class PItReportTableViewController: UITableViewController {
     
     var pitReports: [PitReport] = []
+    var sortByWeight = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,12 @@ class PItReportTableViewController: UITableViewController {
 //        let context = appDelegate.persistentContainer.viewContext
         CoreDataStack.defaultStack.syncWithCompletion(nil)
         let fetchRequest = NSFetchRequest<PitReport>(entityName: "PitReport")
+        if sortByWeight {
+            let weightSort = NSSortDescriptor(key: "robotWeight", ascending:false)
+            var sortsArray: [NSSortDescriptor] = []
+            sortsArray.append(weightSort)
+            fetchRequest.sortDescriptors = sortsArray
+        }
         do {
             pitReports = try CoreDataStack.defaultStack.managedObjectContext.fetch(fetchRequest)
             print("Retrieved \(pitReports.count) pitReport")
