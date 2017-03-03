@@ -142,6 +142,9 @@
                                 <state key="normal" title="Winning / Scoring">
                                     <color key="titleColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="kAk-Lt-pvR" kind="show" identifier="ShowWinningSegue" id="ryV-Hp-OtK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -216,6 +219,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PR1-6P-ogz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1834" y="1554"/>
+        </scene>
+        <!--Winning View Controller-->
+        <scene sceneID="8kA-Iy-FU9">
+            <objects>
+                <viewController id="kAk-Lt-pvR" customClass="WinningViewController" customModule="FRCScout2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5hn-vE-NIW"/>
+                        <viewControllerLayoutGuide type="bottom" id="S9A-2L-zAs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ad1-20-VHk">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kGq-tV-8mY">
+                                <rect key="frame" x="20" y="64" width="728" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Winning"/>
+                                    <segment title="Auto Scoring"/>
+                                    <segment title="Teleop Scoring"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segAction:" destination="kAk-Lt-pvR" eventType="valueChanged" id="4gg-Mm-KXq"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="10I-ni-lkl">
+                                <rect key="frame" x="0.0" y="100" width="768" height="924"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WinningCell" id="pS6-j1-sJ4">
+                                        <rect key="frame" x="0.0" y="28" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pS6-j1-sJ4" id="TY6-63-0oF">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="kAk-Lt-pvR" id="NXY-Gf-tLH"/>
+                                    <outlet property="delegate" destination="kAk-Lt-pvR" id="8V4-iK-Z7D"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="segOutlet" destination="kGq-tV-8mY" id="6Qo-e6-Ngm"/>
+                        <outlet property="tableView" destination="10I-ni-lkl" id="8TV-7b-mMb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="obq-SZ-HGI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1833.59375" y="2203.7109375"/>
         </scene>
         <!--Team Summary View Controller-->
         <scene sceneID="5KZ-Fh-z4o">

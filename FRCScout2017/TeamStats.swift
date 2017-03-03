@@ -30,5 +30,7 @@ class TeamStats {
     var numberWins: Int = 0
     var numberLoses: Int = 0
     var numberTies: Int = 0
+    
+    var winningPercentage: Double = 0.0
 
 }
