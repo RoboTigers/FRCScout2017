@@ -49,13 +49,9 @@ class TeamSummaryViewController: UIViewController{
     @IBAction func selectedTournament(_ sender: UISegmentedControl) {
         view.setNeedsDisplay()
         view.reloadInputViews()
-            print("selected \(sender.selectedSegmentIndex)")
-        
-            selectedTournament = Int16(sender.selectedSegmentIndex)
-            
-            fillScreenComponents()
-            
-        }
+        selectedTournament = Int16(sender.selectedSegmentIndex)
+        fillScreenComponents()
+    }
     
     
     func fillScreenComponents() {
@@ -118,7 +114,7 @@ class TeamSummaryViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         print("In viewWillAppear of summary scene")
-        print("selected team is \(selectedTeamNumber)")
+        title = "Team \(selectedTeamNumber) Summary"
         fillScreenComponents()
     }
 
@@ -200,18 +196,5 @@ class TeamSummaryViewController: UIViewController{
         return summary
     }
     
-    
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

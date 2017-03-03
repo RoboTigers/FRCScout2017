@@ -104,9 +104,6 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         driveTrainTypePicker.dataSource = self
         driveTrainTypePicker.delegate = self
         
-        // Set title to indicate the selected team entered via the segue
-        title = "Team \(selectedTeamNumber) Pit Report"
-        
         if (selectedTeamNumber == "") {
             displayErrorAlertWithOk("Please pick a team first")
             self.dismiss(animated: true, completion: nil)
@@ -172,6 +169,11 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         }
         
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Set title to indicate the selected team entered via the segue
+        title = "Team \(selectedTeamNumber) Pit Report"
     }
     
     @IBAction func rating(_ sender: UISlider) {
