@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		041769751E6C7B540043CE54 /* zones and markings.png in Resources */ = {isa = PBXBuildFile; fileRef = 041769741E6C7B540043CE54 /* zones and markings.png */; };
+		041769771E6C83C90043CE54 /* zones.png in Resources */ = {isa = PBXBuildFile; fileRef = 041769761E6C83C90043CE54 /* zones.png */; };
 		047F0B391E50D48D00CE89F8 /* PItReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F0B381E50D48D00CE89F8 /* PItReportTableViewController.swift */; };
 		048F45841E5A196700110DEE /* TeamSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048F45831E5A196700110DEE /* TeamSummaryViewController.swift */; };
 		8044190F1E5B62E200A06CF2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8044190E1E5B62E200A06CF2 /* CoreDataStack.swift */; };
@@ -33,7 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		041769741E6C7B540043CE54 /* zones and markings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zones and markings.png"; path = "../../../../Downloads/zones and markings.png"; sourceTree = "<group>"; };
+		041769761E6C83C90043CE54 /* zones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zones.png; sourceTree = "<group>"; };
 		047F0B381E50D48D00CE89F8 /* PItReportTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PItReportTableViewController.swift; sourceTree = "<group>"; };
 		048F45831E5A196700110DEE /* TeamSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSummaryViewController.swift; sourceTree = "<group>"; };
 		3BE1321795EFD44F0B6335EB /* Pods_FRCScout2017.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FRCScout2017.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +119,7 @@
 				80FF3F381E6BC1D7009A3CCE /* audience.jpg */,
 				80FF3F2D1E6BBE44009A3CCE /* GameField.jpg */,
 				80FF3F2E1E6BBE44009A3CCE /* SteamField.jpg */,
-				041769741E6C7B540043CE54 /* zones and markings.png */,
+				041769761E6C83C90043CE54 /* zones.png */,
 			);
 			path = FRCScout2017;
 			sourceTree = "<group>";
@@ -219,7 +219,7 @@
 				80FF3F391E6BC1D7009A3CCE /* audience.jpg in Resources */,
 				80854B701E4767F300C52877 /* Assets.xcassets in Resources */,
 				80854B6B1E4767F300C52877 /* Main.storyboard in Resources */,
-				041769751E6C7B540043CE54 /* zones and markings.png in Resources */,
+				041769771E6C83C90043CE54 /* zones.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
