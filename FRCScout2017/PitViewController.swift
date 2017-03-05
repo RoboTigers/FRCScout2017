@@ -99,6 +99,11 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         self.commentsStillWorkingOn.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: .UIKeyboardDidShow, object: nil)
         
+        // Set up an observer so we know when the drive motor num value changes. We need to check it is <= 6
+        driveTrainMotorNum.delegate = self
+        driveTrainMotorNum.addTarget(self, action: #selector(driveMotorNumDidChange(_:)), for: .editingChanged)
+
+        
         // Fill outlets iwth any existing report data
         driveTrainTypePicker.dataSource = self
         driveTrainTypePicker.delegate = self
@@ -161,6 +166,7 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                     commentsStillWorkingOn.text = existingPitReport?.commentsStillWorkingOn
                     autoFuelLow.text = NSNumber(value: (existingPitReport?.autoFuelLow)!).stringValue
                     autoFuelHigh.text = NSNumber(value: (existingPitReport?.autoFuelHigh)!).stringValue
+                    practiceSegControl.selectedSegmentIndex = (Int((existingPitReport?.practiceAmount)!))
                 }
             } catch let error as NSError {
                 print("Could not fetch. \(error), \(error.userInfo)")
@@ -177,6 +183,13 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     @IBAction func rating(_ sender: UISlider) {
         ratingLabel.text = NSString(format: "%1.1f", sender.value) as String
+    }
+    
+    func driveMotorNumDidChange(_ textField: UITextField) {
+        let driveTrainMotorNumToBeSaved = Int16(driveTrainMotorNum.text!)!
+        if (driveTrainMotorNumToBeSaved > 6) {
+            displayErrorAlertWithOk("Numer of drive train motors must not exceed 6")
+        }
     }
     
     @IBAction func save(_ sender: UIBarButtonItem) {
@@ -221,6 +234,7 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         pitRecord?.shotIsAccurate = shotIsAccurate.isOn
         pitRecord?.rating = Float(ratingLabel.text!)!
         pitRecord?.driveCoach = driveCoach.text!
+        pitRecord?.practiceAmount = Int16(practiceSegControl.selectedSegmentIndex)
         pitRecord?.robotWeight = Int16(robotWeight.text!)!
         let imageData = UIImagePNGRepresentation(myImageView.image!) as NSData?
         pitRecord?.robotImage = imageData
