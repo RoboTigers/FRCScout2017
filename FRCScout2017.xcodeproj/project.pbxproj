@@ -24,6 +24,10 @@
 		80854B7D1E4775CB00C52877 /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80854B7C1E4775CB00C52877 /* MatchesViewController.swift */; };
 		80854B7F1E477E2500C52877 /* AddMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80854B7E1E477E2500C52877 /* AddMatchViewController.swift */; };
 		809AA4981E5F048F00816FD7 /* BestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809AA4971E5F048F00816FD7 /* BestViewController.swift */; };
+		80FF3F301E6BBE44009A3CCE /* aT3M10l.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FF3F2C1E6BBE44009A3CCE /* aT3M10l.png */; };
+		80FF3F311E6BBE44009A3CCE /* GameField.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80FF3F2D1E6BBE44009A3CCE /* GameField.jpg */; };
+		80FF3F321E6BBE44009A3CCE /* SteamField.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80FF3F2E1E6BBE44009A3CCE /* SteamField.jpg */; };
+		80FF3F391E6BC1D7009A3CCE /* audience.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80FF3F381E6BC1D7009A3CCE /* audience.jpg */; };
 		86ED7D3CA3D77B2F9CAB5D54 /* Pods_FRCScout2017.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE1321795EFD44F0B6335EB /* Pods_FRCScout2017.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +54,10 @@
 		80854B7C1E4775CB00C52877 /* MatchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesViewController.swift; sourceTree = "<group>"; };
 		80854B7E1E477E2500C52877 /* AddMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMatchViewController.swift; sourceTree = "<group>"; };
 		809AA4971E5F048F00816FD7 /* BestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestViewController.swift; sourceTree = "<group>"; };
+		80FF3F2C1E6BBE44009A3CCE /* aT3M10l.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aT3M10l.png; sourceTree = "<group>"; };
+		80FF3F2D1E6BBE44009A3CCE /* GameField.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GameField.jpg; sourceTree = "<group>"; };
+		80FF3F2E1E6BBE44009A3CCE /* SteamField.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SteamField.jpg; sourceTree = "<group>"; };
+		80FF3F381E6BC1D7009A3CCE /* audience.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = audience.jpg; sourceTree = "<group>"; };
 		F2FFBCE6A192BF1A0AF76700 /* Pods-FRCScout2017.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRCScout2017.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FRCScout2017/Pods-FRCScout2017.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +113,10 @@
 				80854B741E4767F300C52877 /* Info.plist */,
 				80854B6C1E4767F300C52877 /* FRCScout2017.xcdatamodeld */,
 				809AA4971E5F048F00816FD7 /* BestViewController.swift */,
+				80FF3F2C1E6BBE44009A3CCE /* aT3M10l.png */,
+				80FF3F381E6BC1D7009A3CCE /* audience.jpg */,
+				80FF3F2D1E6BBE44009A3CCE /* GameField.jpg */,
+				80FF3F2E1E6BBE44009A3CCE /* SteamField.jpg */,
 			);
 			path = FRCScout2017;
 			sourceTree = "<group>";
@@ -197,7 +209,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80FF3F301E6BBE44009A3CCE /* aT3M10l.png in Resources */,
+				80FF3F311E6BBE44009A3CCE /* GameField.jpg in Resources */,
 				80854B731E4767F300C52877 /* LaunchScreen.storyboard in Resources */,
+				80FF3F321E6BBE44009A3CCE /* SteamField.jpg in Resources */,
+				80FF3F391E6BC1D7009A3CCE /* audience.jpg in Resources */,
 				80854B701E4767F300C52877 /* Assets.xcassets in Resources */,
 				80854B6B1E4767F300C52877 /* Main.storyboard in Resources */,
 			);
