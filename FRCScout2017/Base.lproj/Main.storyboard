@@ -1753,6 +1753,7 @@
                         <outlet property="gearsPickupFromFeeder" destination="c4H-Jh-BW6" id="KRM-yn-wjN"/>
                         <outlet property="gearsPickupFromFloor" destination="xcv-vK-fTY" id="foQ-hO-ifX"/>
                         <outlet property="myImageView" destination="GQa-as-Dci" id="ihJ-3l-yQ2"/>
+                        <outlet property="practiceSegControl" destination="EpQ-Uh-Mq6" id="jAv-qN-pUw"/>
                         <outlet property="preferredStartLocation" destination="3zP-T3-ycQ" id="pdz-cs-ttF"/>
                         <outlet property="rating" destination="7b2-1i-suR" id="KJP-W1-K9Y"/>
                         <outlet property="ratingLabel" destination="ewL-Zf-wcQ" id="oMg-7y-WPx"/>

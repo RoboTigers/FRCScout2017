@@ -56,6 +56,7 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var driveCoach: UITextField!
     @IBOutlet weak var robotWeight: UITextField!
+    @IBOutlet weak var practiceSegControl: UISegmentedControl!
     let picker = UIImagePickerController()
     @IBOutlet weak var myImageView: UIImageView!
         @IBAction func shootPhoto(_ sender: UIBarButtonItem) {
