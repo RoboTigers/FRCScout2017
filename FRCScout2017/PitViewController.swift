@@ -154,6 +154,7 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                     rating.setValue((existingPitReport?.rating)!, animated: true)
                     ratingLabel.text = NSNumber(value: (existingPitReport?.rating)!).stringValue
                     preferredStartLocation.selectedSegmentIndex = Int((existingPitReport?.preferredStartLocation)!)
+                    shotLocation.selectedSegmentIndex = Int((existingPitReport?.shotLocation)!)
                     robotWeight.text = NSNumber(value: (existingPitReport?.robotWeight)!).stringValue
                     if existingPitReport?.robotImage != nil {
                         let existingImage = UIImage(data: (existingPitReport?.robotImage)! as Data)
