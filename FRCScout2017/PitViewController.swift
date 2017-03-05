@@ -188,7 +188,8 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     func driveMotorNumDidChange(_ textField: UITextField) {
         let driveTrainMotorNumToBeSaved = Int16(driveTrainMotorNum.text!)!
-        if (driveTrainMotorNumToBeSaved > 6) {
+        let driveTrainMotorTypeToBeSaved = driveTrainMotorType.selectedSegmentIndex
+        if (driveTrainMotorTypeToBeSaved == 0 && driveTrainMotorNumToBeSaved > 6) {
             displayErrorAlertWithOk("Numer of drive train motors must not exceed 6")
         }
     }
