@@ -1792,7 +1792,7 @@
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g42-oW-g32">
                                 <rect key="frame" x="34" y="123" width="701" height="373"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="zones and markings.png"/>
+                                <state key="normal" backgroundImage="zones.png"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="32" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCb-1p-cj1">
                                 <rect key="frame" x="34" y="504" width="701" height="448"/>
@@ -2556,7 +2556,7 @@ behind the alliance wall diamond plate.</mutableString>
         <image name="SteamField.jpg" width="1448" height="835"/>
         <image name="aT3M10l.png" width="1920" height="1080"/>
         <image name="audience.jpg" width="1136" height="242"/>
-        <image name="zones and markings.png" width="1262" height="619"/>
+        <image name="zones.png" width="1262" height="619"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ySV-Vz-BEB"/>
