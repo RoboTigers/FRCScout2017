@@ -35,7 +35,7 @@ From each analytics report table and from the Team Page you may select a team an
 The app can provide analytics on the pit and match data. You can quickly get a list of the best teams sorted by skill or by match results.
 
 <p align="center">
-<img src="https://cloud.githubusercontent.com/assets/16652800/23657776/cbef23be-030d-11e7-9dd4-107abdd9e259.png" align="center" height="450">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23657776/cbef23be-030d-11e7-9dd4-107abdd9e259.png" align="center" height="350">
 </p>
 
 ## Best By Skill
@@ -47,7 +47,7 @@ The app can provide analytics on the pit and match data. You can quickly get a l
 ## Best By Result
 
 <p align="center">
-<img src="https://cloud.githubusercontent.com/assets/16652800/23657787/d205ff7a-030d-11e7-9f81-e77124bd13c2.png" align="center" height="250">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23657787/d205ff7a-030d-11e7-9f81-e77124bd13c2.png" align="center" height="200">
 </p>
 
 # Export
