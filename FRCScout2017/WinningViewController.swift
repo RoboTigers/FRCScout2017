@@ -42,9 +42,7 @@ class WinningViewController: UIViewController, UITableViewDataSource, UITableVie
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WinningCell", for: indexPath)
         let formattedWinningPercentage = String(format: "%.1f", teamArray[indexPath.row].winningPercentage * 100)
-        let formattedAutoScoring = String(format: "%.1f", teamArray[indexPath.row].averageNumberAutoScore)
-        let formattedTeleScoring = String(format: "%.1f", teamArray[indexPath.row].averageNumberTeleScore)
-        cell.textLabel?.text = "Team \(teamArray[indexPath.row].teamNumber)    Winning: \(formattedWinningPercentage)% Average Auto: \(formattedAutoScoring) Teleop: \(formattedTeleScoring)"
+        cell.textLabel?.text = "Team \(teamArray[indexPath.row].teamNumber)    Winning: \(formattedWinningPercentage)% "
         return cell
     }
     
@@ -78,30 +76,22 @@ class WinningViewController: UIViewController, UITableViewDataSource, UITableVie
                 print("update dictionary")
                 let teamFromDictionary = teamDictionary[match.teamNumber!]
                 teamFromDictionary?.numberOfMatchesPlayed = (teamFromDictionary?.numberOfMatchesPlayed)! + 1
-                teamFromDictionary?.totalNumberAutoScore = (teamFromDictionary?.totalNumberAutoScore)! + match.autoScore
-                teamFromDictionary?.totalNumberTeleScore = (teamFromDictionary?.totalNumberTeleScore)! + match.teleScore
                 if match.matchResult == 0 {
                     teamFromDictionary?.numberWins = (teamFromDictionary?.numberWins)! + 1
                 }
                 teamFromDictionary?.winningPercentage = Double((teamFromDictionary?.numberWins)!) / Double((teamFromDictionary?.numberOfMatchesPlayed)!)
-                teamFromDictionary?.averageNumberAutoScore = Double((teamFromDictionary?.totalNumberAutoScore)!) / Double((teamFromDictionary?.numberOfMatchesPlayed)!)
-                teamFromDictionary?.averageNumberTeleScore = Double((teamFromDictionary?.totalNumberTeleScore)!) / Double((teamFromDictionary?.numberOfMatchesPlayed)!)
 
             } else {
                 print("create new key in dictionary")
                 let newTeam: TeamStats = TeamStats()
                 newTeam.teamNumber = match.teamNumber!
                 newTeam.numberOfMatchesPlayed = 1
-                newTeam.totalNumberAutoScore = match.autoScore
-                newTeam.totalNumberTeleScore = match.teleScore
                 if match.matchResult == 0 {
                     newTeam.numberWins = 1
                 } else {
                     newTeam.numberWins = 0
                 }
                 newTeam.winningPercentage = Double(newTeam.numberWins)
-                newTeam.averageNumberAutoScore = Double(newTeam.totalNumberAutoScore)
-                newTeam.averageNumberTeleScore = Double(newTeam.totalNumberTeleScore)
                 teamDictionary.updateValue(newTeam, forKey: match.teamNumber!)
             }
         }
@@ -114,12 +104,12 @@ class WinningViewController: UIViewController, UITableViewDataSource, UITableVie
             sortedBy = teamDictionary.sorted{ $0.value.winningPercentage > $1.value.winningPercentage }
             break
         case 1:
-            print("Order by Auto Scoring Average")
-            sortedBy = teamDictionary.sorted{ $0.value.averageNumberAutoScore > $1.value.averageNumberAutoScore }
+            print("Order by Can Play Effective Defense")
+            sortedBy = teamDictionary.sorted{ $0.value.averageWeightedDefensePlayedAndEffective > $1.value.averageWeightedDefensePlayedAndEffective }
             break
         case 2:
-            print("Order by Teleop Scoring Average")
-            sortedBy = teamDictionary.sorted{ $0.value.averageNumberTeleScore > $1.value.averageNumberTeleScore }
+            print("Order by Penalty Percentage")
+            sortedBy = teamDictionary.sorted{ $0.value.averagePenalty > $1.value.averagePenalty }
             break
         default:
             print("No sort setting, should never reach this!")

@@ -17,15 +17,15 @@ class TeamStats {
     var averageNumberFuelHigh: Double = 0.0
     var averageNumberGears: Double = 0.0
     var averageNumberClimbs: Double = 0.0
-    var averageNumberAutoScore: Double = 0.0
-    var averageNumberTeleScore: Double = 0.0
+    var averageWeightedDefensePlayedAndEffective: Double = 0.0
+    var averagePenalty: Double = 0.0
     
     var totalNumberFuelLow: Int16 = 0
     var totalNumberFuelHigh: Int16 = 0
     var totalNumberGears: Int16 = 0
     var totalNumberClimbs: Int16 = 0
-    var totalNumberAutoScore: Int16 = 0
-    var totalNumberTeleScore: Int16 = 0
+    var totalWeightedDefensePlayedAndEffective: Int16 = 0
+    var totalPenalty: Int16 = 0
     
     var numberWins: Int = 0
     var numberLoses: Int = 0

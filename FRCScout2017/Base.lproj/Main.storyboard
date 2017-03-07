@@ -91,7 +91,7 @@
                                 <action selector="composeEmail:" destination="BYZ-38-t0r" id="aU5-wj-uIs"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Field Zones and Markings" id="aHj-H9-JtY">
+                        <barButtonItem key="rightBarButtonItem" title="Field Info" id="aHj-H9-JtY">
                             <connections>
                                 <segue destination="KQf-uG-VyE" kind="show" id="x6o-4A-gGA"/>
                             </connections>
@@ -231,7 +231,7 @@
                                         <rect key="frame" x="0.0" y="28" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bVD-Hu-BIA" id="QB5-7u-UrM">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -296,7 +296,7 @@
                                         <rect key="frame" x="0.0" y="28" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pS6-j1-sJ4" id="TY6-63-0oF">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -915,7 +915,7 @@
                                 <rect key="frame" x="0.0" y="28" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sW2-QW-wMr" id="2f5-yr-UDB">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -1109,13 +1109,13 @@
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Gears" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2L-7L-APj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Gears" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2L-7L-APj">
                                 <rect key="frame" x="20" y="549" width="86" height="41"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Fuel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Svv-oa-gbR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Fuel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Svv-oa-gbR">
                                 <rect key="frame" x="20" y="649" width="86" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="Y3C-Vp-QJA"/>
@@ -1176,13 +1176,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Preferred shooting location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJc-Mt-zop">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Preferred shooting location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJc-Mt-zop">
                                 <rect key="frame" x="20" y="440" width="208" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3zP-T3-ycQ">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3zP-T3-ycQ">
                                 <rect key="frame" x="20" y="404" width="240" height="29"/>
                                 <segments>
                                     <segment title="Left"/>
@@ -1190,7 +1190,7 @@
                                     <segment title="Right"/>
                                 </segments>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BBA-gr-g8C">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BBA-gr-g8C">
                                 <rect key="frame" x="20" y="469" width="240" height="29"/>
                                 <segments>
                                     <segment title="Key"/>
@@ -1199,19 +1199,19 @@
                                     <segment title="Right"/>
                                 </segments>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Crosses Baseline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ur-Qc-xK7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Crosses Baseline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ur-Qc-xK7">
                                 <rect key="frame" x="287" y="411" width="131" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Max High Fuel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RC7-om-2Bq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Max High Fuel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RC7-om-2Bq">
                                 <rect key="frame" x="508" y="410" width="109" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Scores Gear" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sq-xD-UKG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Scores Gear" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sq-xD-UKG">
                                 <rect key="frame" x="287" y="471" width="94" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="tWd-b3-Pt9"/>
@@ -1220,67 +1220,67 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wvl-Kb-Hhl">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wvl-Kb-Hhl">
                                 <rect key="frame" x="438" y="406" width="51" height="31"/>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EGr-Oy-fSf">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EGr-Oy-fSf">
                                 <rect key="frame" x="438" y="466" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Floor Pickup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxT-IZ-VAL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Floor Pickup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxT-IZ-VAL">
                                 <rect key="frame" x="131" y="529" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BaQ-6j-EsT">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BaQ-6j-EsT">
                                 <rect key="frame" x="619" y="408" width="97" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tpe-bJ-yUj">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tpe-bJ-yUj">
                                 <rect key="frame" x="390" y="713" width="97" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vPN-9H-7EJ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vPN-9H-7EJ">
                                 <rect key="frame" x="619" y="464" width="97" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Max Low Fuel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srX-be-pXS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Max Low Fuel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srX-be-pXS">
                                 <rect key="frame" x="508" y="469" width="104" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Feeder Station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAe-Lk-Cte">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Feeder Station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAe-Lk-Cte">
                                 <rect key="frame" x="131" y="569" width="112" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="c4H-Jh-BW6">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="c4H-Jh-BW6">
                                 <rect key="frame" x="250" y="564" width="51" height="31"/>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xcv-vK-fTY">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xcv-vK-fTY">
                                 <rect key="frame" x="250" y="524" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Floor Pickup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnU-An-rc9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Floor Pickup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnU-An-rc9">
                                 <rect key="frame" x="131" y="639" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Feeder Station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRI-9G-6OP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Feeder Station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRI-9G-6OP">
                                 <rect key="frame" x="131" y="679" width="112" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Estimated Storage Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qb-eX-cQh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Estimated Storage Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qb-eX-cQh">
                                 <rect key="frame" x="131" y="723" width="203" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -1292,37 +1292,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Location Dependent Shot Accuracy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2IW-b0-TQI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Location Dependent Shot Accuracy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2IW-b0-TQI">
                                 <rect key="frame" x="131" y="761" width="271" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Anything that you are super proud of or excited about?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qsq-Vi-HDR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Anything that you are super proud of or excited about?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qsq-Vi-HDR">
                                 <rect key="frame" x="131" y="852" width="417" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DHD-Ee-fGi">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DHD-Ee-fGi">
                                 <rect key="frame" x="250" y="674" width="51" height="31"/>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Gdr-Z5-XgW">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Gdr-Z5-XgW">
                                 <rect key="frame" x="438" y="674" width="51" height="31"/>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wmY-cq-bcL">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wmY-cq-bcL">
                                 <rect key="frame" x="438" y="751" width="51" height="31"/>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pWy-Zu-NID">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pWy-Zu-NID">
                                 <rect key="frame" x="250" y="634" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBq-m5-Rm8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBq-m5-Rm8">
                                 <rect key="frame" x="357" y="529" width="50" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="C6D-MZ-GSR">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="C6D-MZ-GSR">
                                 <rect key="frame" x="438" y="522" width="278" height="29"/>
                                 <segments>
                                     <segment title="Slow"/>
@@ -1330,13 +1330,13 @@
                                     <segment title="Fast"/>
                                 </segments>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdN-81-BgU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdN-81-BgU">
                                 <rect key="frame" x="357" y="564" width="50" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="r2h-UP-efJ">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="r2h-UP-efJ">
                                 <rect key="frame" x="438" y="558" width="278" height="29"/>
                                 <segments>
                                     <segment title="Slow"/>
@@ -1344,13 +1344,13 @@
                                     <segment title="Fast"/>
                                 </segments>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTr-wt-jXR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTr-wt-jXR">
                                 <rect key="frame" x="357" y="638" width="50" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xIe-M2-9wQ">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xIe-M2-9wQ">
                                 <rect key="frame" x="438" y="632" width="278" height="29"/>
                                 <segments>
                                     <segment title="Slow"/>
@@ -1358,7 +1358,7 @@
                                     <segment title="Fast"/>
                                 </segments>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Hopper" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sn9-x4-1o2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Hopper" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sn9-x4-1o2">
                                 <rect key="frame" x="357" y="679" width="58" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -1417,7 +1417,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIk-vb-UDY">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIk-vb-UDY">
                                 <rect key="frame" x="511" y="761" width="49" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -1435,7 +1435,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2.5" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="7b2-1i-suR">
+                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2.5" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="7b2-1i-suR">
                                 <rect key="frame" x="600" y="756" width="118" height="31"/>
                                 <connections>
                                     <action selector="rating:" destination="qBI-fU-bYS" eventType="valueChanged" id="dLr-Ne-vUg"/>
@@ -1448,13 +1448,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Robot Weight (Whole #)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DA8-h2-NEQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Robot Weight (Whole #)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DA8-h2-NEQ">
                                 <rect key="frame" x="508" y="679" width="183" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewL-Zf-wcQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="2.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewL-Zf-wcQ">
                                 <rect key="frame" x="648" y="790" width="30" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="Ie4-FZ-CUT"/>
@@ -1463,7 +1463,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MnZ-lI-sa2">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MnZ-lI-sa2">
                                 <rect key="frame" x="508" y="713" width="208" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1484,7 +1484,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UcR-0x-g8p">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UcR-0x-g8p">
                                 <rect key="frame" x="357" y="797" width="200" height="29"/>
                                 <segments>
                                     <segment title="Slow"/>
@@ -1797,7 +1797,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="32" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCb-1p-cj1">
                                 <rect key="frame" x="34" y="504" width="701" height="448"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <mutableString key="text">ALLIANCE STATION:  infinitely tall volume bounded by the alliance wall and colored tape (volume above the tape is part of the alliance station) 
+                                <string key="text">ALLIANCE STATION:  infinitely tall volume bounded by the alliance wall and colored tape (volume above the tape is part of the alliance station) 
 BASE LINE: a green line that goes across the entire width of the field
 KEY: infinitely tall volume in the alliances launchpad (includes the alliance wall, guardrail, and colored tape and the volume above the
 tape. 
@@ -1808,7 +1808,7 @@ NEUTRAL ZONE: infinitely tall volume bounded by the gaurdrails and launchpad lin
 RETRIEVAL ZONE: infinitely tall volume bounded by the alliance wall, guardrail, alliance colored tape and the
 volume above the tape. 
 STARTING LINE: a white tape line that runs the width of the carpet and is 
-behind the alliance wall diamond plate.</mutableString>
+behind the alliance wall diamond plate.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1852,18 +1852,18 @@ behind the alliance wall diamond plate.</mutableString>
                                         <rect key="frame" x="0.0" y="28" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i3E-Mj-PA8" id="Kbv-Mj-kss">
-                                            <rect key="frame" x="0.0" y="0.0" width="702" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="702" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wyA-2A-5FB">
-                                                    <rect key="frame" x="48" y="4" width="34" height="21"/>
+                                                    <rect key="frame" x="48" y="5" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UiH-GI-BxS">
-                                                    <rect key="frame" x="48" y="25" width="44" height="15"/>
+                                                    <rect key="frame" x="48" y="25.5" width="44" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -1945,7 +1945,7 @@ behind the alliance wall diamond plate.</mutableString>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ngn-01-kfU">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ngn-01-kfU">
                                 <rect key="frame" x="307" y="188" width="51" height="31"/>
                             </switch>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="6Ok-2h-BM3">
@@ -1954,7 +1954,7 @@ behind the alliance wall diamond plate.</mutableString>
                                     <action selector="autoHighFuelStepper:" destination="gNr-S9-kRc" eventType="valueChanged" id="ctn-w1-Ixh"/>
                                 </connections>
                             </stepper>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="jJK-ZS-JOn">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="jJK-ZS-JOn">
                                 <rect key="frame" x="262" y="324" width="94" height="29"/>
                                 <connections>
                                     <action selector="gearStepper:" destination="gNr-S9-kRc" eventType="valueChanged" id="bw1-oi-w7O"/>
@@ -1984,7 +1984,7 @@ behind the alliance wall diamond plate.</mutableString>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1pK-fw-IRw">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1pK-fw-IRw">
                                 <rect key="frame" x="307" y="230" width="51" height="31"/>
                             </switch>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" stepValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="qlO-Q9-pZR">
@@ -2034,27 +2034,28 @@ behind the alliance wall diamond plate.</mutableString>
                             <segmentedControl opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dwE-y8-6Fh">
                                 <rect key="frame" x="547" y="664" width="179" height="29"/>
                                 <segments>
+                                    <segment title="N/A"/>
                                     <segment title="Slow"/>
-                                    <segment title="Medium"/>
+                                    <segment title="Med"/>
                                     <segment title="Fast"/>
                                 </segments>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Gear Cycle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3G-cj-mSb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gear Cycle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3G-cj-mSb">
                                 <rect key="frame" x="71" y="377" width="84" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FFs-fd-ar0">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FFs-fd-ar0">
                                 <rect key="frame" x="307" y="437" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Gears Picked up from Floor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdb-Ny-Uhl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gears Picked up from Floor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdb-Ny-Uhl">
                                 <rect key="frame" x="71" y="442" width="208" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8gO-GN-I0Y">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8gO-GN-I0Y">
                                 <rect key="frame" x="307" y="485" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gears From Feeder Station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gY-dI-HsV">
@@ -2078,7 +2079,7 @@ behind the alliance wall diamond plate.</mutableString>
                                     <segment title="Right"/>
                                 </segments>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Was Defense played on them?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tt-zM-eWo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Was Defense played on them?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tt-zM-eWo">
                                 <rect key="frame" x="71" y="534" width="285" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -2116,7 +2117,7 @@ behind the alliance wall diamond plate.</mutableString>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ggh-IA-Wwy">
                                 <rect key="frame" x="677" y="613" width="51" height="31"/>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vmc-ol-syv">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vmc-ol-syv">
                                 <rect key="frame" x="307" y="663" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Successful Hang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tpg-Rb-XQA">
@@ -2125,7 +2126,7 @@ behind the alliance wall diamond plate.</mutableString>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iVe-Xq-XF1">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iVe-Xq-XF1">
                                 <rect key="frame" x="307" y="709" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Penalty against robot?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgv-OA-Qzx">
@@ -2143,13 +2144,13 @@ behind the alliance wall diamond plate.</mutableString>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GeX-fz-ENA">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GeX-fz-ENA">
                                 <rect key="frame" x="71" y="892" width="655" height="75"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vnk-Bi-VXe">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vnk-Bi-VXe">
                                 <rect key="frame" x="71" y="854" width="84" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -2185,7 +2186,7 @@ behind the alliance wall diamond plate.</mutableString>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jza-oH-bug">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jza-oH-bug">
                                 <rect key="frame" x="172" y="328" width="65" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -2206,32 +2207,22 @@ behind the alliance wall diamond plate.</mutableString>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ivd-vn-cQC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Played Defense" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObH-wT-xwP">
+                                <rect key="frame" x="71" y="769" width="119" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Played Effective Defense?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1y-EU-IfZ">
+                                <rect key="frame" x="441" y="719" width="199" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ivd-vn-cQC">
                                 <rect key="frame" x="259" y="615" width="97" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Autonomous Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OmJ-5J-ZrV">
-                                <rect key="frame" x="140" y="768" width="146" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lXs-54-AhX">
-                                <rect key="frame" x="71" y="797" width="285" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teleoperated Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Dm-SU-fv5">
-                                <rect key="frame" x="508" y="768" width="150" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8E7-TX-RKA">
-                                <rect key="frame" x="440" y="797" width="286" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -2279,13 +2270,31 @@ behind the alliance wall diamond plate.</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCt-Iq-5eQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCt-Iq-5eQ">
                                 <rect key="frame" x="163" y="841" width="563" height="47"/>
                                 <string key="text">Ex. Specify any tech fouls/penalties and/or note any unique features/skills, broken drives, stuck on game piece(s) or field element(s), timeouts, situations/circumstances, etc.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EjC-h1-HJf">
+                                <rect key="frame" x="207" y="765" width="149" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="None"/>
+                                    <segment title="Some"/>
+                                    <segment title="A lot"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Lqf-R2-27x">
+                                <rect key="frame" x="441" y="765" width="285" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Ineffective"/>
+                                    <segment title="Average"/>
+                                    <segment title="Excellent"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -2314,7 +2323,6 @@ behind the alliance wall diamond plate.</mutableString>
                             <constraint firstItem="2wt-0K-RJ5" firstAttribute="baseline" secondItem="r21-ue-PR1" secondAttribute="baseline" id="ByO-7W-WXE"/>
                             <constraint firstItem="gQs-Oe-WvS" firstAttribute="baseline" secondItem="2wt-0K-RJ5" secondAttribute="firstBaseline" id="Cdr-W0-et2"/>
                             <constraint firstItem="5t3-SB-VhV" firstAttribute="baseline" secondItem="Jza-oH-bug" secondAttribute="baseline" id="D75-SS-27U"/>
-                            <constraint firstItem="OmJ-5J-ZrV" firstAttribute="top" secondItem="jgv-OA-Qzx" secondAttribute="bottom" constant="32" id="DCP-NL-yfq"/>
                             <constraint firstItem="Vmc-ol-syv" firstAttribute="centerY" secondItem="FZh-rj-0Sr" secondAttribute="centerY" id="DuN-II-P1N"/>
                             <constraint firstItem="2wt-0K-RJ5" firstAttribute="leading" secondItem="57J-mm-n5S" secondAttribute="leadingMargin" constant="-4" id="EIP-yA-2nC"/>
                             <constraint firstItem="PCt-Iq-5eQ" firstAttribute="trailing" secondItem="GeX-fz-ENA" secondAttribute="trailing" id="Fgc-vb-YmQ"/>
@@ -2329,7 +2337,6 @@ behind the alliance wall diamond plate.</mutableString>
                             <constraint firstItem="i3G-cj-mSb" firstAttribute="baseline" secondItem="bXF-wq-7v5" secondAttribute="baseline" id="JVH-ut-SLM"/>
                             <constraint firstItem="i3G-cj-mSb" firstAttribute="leading" secondItem="Cdb-Ny-Uhl" secondAttribute="leading" id="JdG-dX-W8h"/>
                             <constraint firstItem="Nqu-Dn-eFD" firstAttribute="baseline" secondItem="sML-Al-RVu" secondAttribute="baseline" id="KGI-sz-IZF"/>
-                            <constraint firstItem="8E7-TX-RKA" firstAttribute="leading" secondItem="lXs-54-AhX" secondAttribute="trailing" constant="84" id="Kn8-X8-7uA"/>
                             <constraint firstItem="8gO-GN-I0Y" firstAttribute="leading" secondItem="Vmc-ol-syv" secondAttribute="leading" id="KqU-mo-7SE"/>
                             <constraint firstItem="Ivd-vn-cQC" firstAttribute="trailing" secondItem="Vmc-ol-syv" secondAttribute="trailing" id="LIK-s2-GBI"/>
                             <constraint firstItem="hAZ-9d-hmZ" firstAttribute="top" secondItem="uUj-Yp-THg" secondAttribute="bottom" constant="11" id="LjE-fZ-vr0"/>
@@ -2338,8 +2345,6 @@ behind the alliance wall diamond plate.</mutableString>
                             <constraint firstItem="c1i-Uf-rCO" firstAttribute="leading" secondItem="oTb-D4-RRv" secondAttribute="leading" id="OLd-M8-ujn"/>
                             <constraint firstItem="2Tt-zM-eWo" firstAttribute="baseline" secondItem="E8J-RE-4iW" secondAttribute="baseline" id="OYU-UR-75T"/>
                             <constraint firstItem="REB-zV-1Sd" firstAttribute="bottom" secondItem="6Ok-2h-BM3" secondAttribute="bottom" id="Ofy-Xb-dqR"/>
-                            <constraint firstItem="lXs-54-AhX" firstAttribute="top" secondItem="OmJ-5J-ZrV" secondAttribute="bottom" constant="8" symbolic="YES" id="P5w-CO-vkp"/>
-                            <constraint firstItem="lXs-54-AhX" firstAttribute="baseline" secondItem="8E7-TX-RKA" secondAttribute="baseline" id="QOS-Ds-Qk6"/>
                             <constraint firstItem="FFs-fd-ar0" firstAttribute="leading" secondItem="Cdb-Ny-Uhl" secondAttribute="trailing" constant="28" id="Qlh-Zj-DJL"/>
                             <constraint firstItem="8gO-GN-I0Y" firstAttribute="top" secondItem="FFs-fd-ar0" secondAttribute="bottom" constant="17" id="QuZ-aP-dEc"/>
                             <constraint firstItem="f3u-wT-7gy" firstAttribute="top" secondItem="GeX-fz-ENA" secondAttribute="bottom" constant="8" symbolic="YES" id="R4b-aF-yYH"/>
@@ -2348,9 +2353,7 @@ behind the alliance wall diamond plate.</mutableString>
                             <constraint firstItem="Hl5-kJ-oc7" firstAttribute="leading" secondItem="bXF-wq-7v5" secondAttribute="leading" id="Rn8-cN-tPr"/>
                             <constraint firstItem="raG-5g-dmc" firstAttribute="trailing" secondItem="aOg-2V-Y2I" secondAttribute="trailing" id="SoR-tE-bze"/>
                             <constraint firstItem="sML-Al-RVu" firstAttribute="trailing" secondItem="GAI-gP-SeH" secondAttribute="trailing" id="T8w-nJ-4dl"/>
-                            <constraint firstItem="OmJ-5J-ZrV" firstAttribute="baseline" secondItem="9Dm-SU-fv5" secondAttribute="baseline" id="TSl-Xh-s2c"/>
                             <constraint firstItem="fay-OM-JZX" firstAttribute="trailing" secondItem="oHz-64-tl7" secondAttribute="trailing" id="TmZ-0R-ZR2"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9Dm-SU-fv5" secondAttribute="trailing" constant="90" id="UjI-0C-ZNO"/>
                             <constraint firstItem="5t3-SB-VhV" firstAttribute="leading" secondItem="i3G-cj-mSb" secondAttribute="leading" id="UuF-iZ-25j"/>
                             <constraint firstItem="gQs-Oe-WvS" firstAttribute="top" secondItem="Xgy-kT-X29" secondAttribute="bottom" constant="22" id="V0u-fk-r5C"/>
                             <constraint firstItem="jJK-ZS-JOn" firstAttribute="top" secondItem="I5x-Iu-h4q" secondAttribute="top" id="VHh-Cp-EWM"/>
@@ -2379,13 +2382,10 @@ behind the alliance wall diamond plate.</mutableString>
                             <constraint firstItem="Jza-oH-bug" firstAttribute="leading" secondItem="5t3-SB-VhV" secondAttribute="trailing" constant="55" id="cLf-y7-sys"/>
                             <constraint firstItem="OE8-rK-xrI" firstAttribute="trailing" secondItem="uUj-Yp-THg" secondAttribute="trailing" id="cPW-Wq-kPH"/>
                             <constraint firstItem="9Gy-3n-640" firstAttribute="baseline" secondItem="Ivd-vn-cQC" secondAttribute="baseline" id="cpp-G8-GgB"/>
-                            <constraint firstItem="8E7-TX-RKA" firstAttribute="trailing" secondItem="PCt-Iq-5eQ" secondAttribute="trailing" id="cv0-Lf-I42"/>
                             <constraint firstItem="jJK-ZS-JOn" firstAttribute="top" secondItem="oTb-D4-RRv" secondAttribute="bottom" constant="18" id="d3E-rr-nS1"/>
                             <constraint firstItem="9Gy-3n-640" firstAttribute="leading" secondItem="Tpg-Rb-XQA" secondAttribute="leading" id="dbp-d9-NZ1"/>
                             <constraint firstItem="d8P-Sh-WGQ" firstAttribute="trailing" secondItem="z5T-Wk-Gg2" secondAttribute="trailing" id="dmu-PT-gwb"/>
                             <constraint firstItem="uUj-Yp-THg" firstAttribute="leading" secondItem="E8J-RE-4iW" secondAttribute="trailing" constant="23" id="dyh-UQ-de4"/>
-                            <constraint firstItem="dwE-y8-6Fh" firstAttribute="trailing" secondItem="8E7-TX-RKA" secondAttribute="trailing" id="dyk-dE-oSz"/>
-                            <constraint firstItem="PCt-Iq-5eQ" firstAttribute="top" secondItem="lXs-54-AhX" secondAttribute="bottom" constant="14" id="eEi-vZ-puB"/>
                             <constraint firstItem="c1i-Uf-rCO" firstAttribute="trailing" secondItem="oTb-D4-RRv" secondAttribute="trailing" id="eGG-mv-GXs"/>
                             <constraint firstItem="Vnk-Bi-VXe" firstAttribute="centerY" secondItem="PCt-Iq-5eQ" secondAttribute="centerY" id="eXW-3T-QSg"/>
                             <constraint firstItem="fay-OM-JZX" firstAttribute="leading" secondItem="oHz-64-tl7" secondAttribute="leading" id="eYG-fl-ySi"/>
@@ -2399,8 +2399,6 @@ behind the alliance wall diamond plate.</mutableString>
                             <constraint firstItem="Hl5-kJ-oc7" firstAttribute="centerY" secondItem="I5x-Iu-h4q" secondAttribute="centerY" id="fcz-xb-R21"/>
                             <constraint firstItem="fay-OM-JZX" firstAttribute="baseline" secondItem="hXt-HX-Y87" secondAttribute="firstBaseline" id="ff1-VT-JQ7"/>
                             <constraint firstItem="I5x-Iu-h4q" firstAttribute="leading" secondItem="d8P-Sh-WGQ" secondAttribute="leading" id="fzH-Av-XpY"/>
-                            <constraint firstItem="lXs-54-AhX" firstAttribute="leading" secondItem="Vnk-Bi-VXe" secondAttribute="leading" id="g5b-aq-rx2"/>
-                            <constraint firstItem="iVe-Xq-XF1" firstAttribute="trailing" secondItem="lXs-54-AhX" secondAttribute="trailing" id="gNr-yf-nPx"/>
                             <constraint firstItem="iVe-Xq-XF1" firstAttribute="top" secondItem="Vmc-ol-syv" secondAttribute="bottom" constant="15" id="hb8-KL-IfJ"/>
                             <constraint firstItem="ngn-01-kfU" firstAttribute="centerY" secondItem="REB-zV-1Sd" secondAttribute="centerY" id="i6W-ek-nQd"/>
                             <constraint firstItem="bXF-wq-7v5" firstAttribute="centerX" secondItem="z5T-Wk-Gg2" secondAttribute="centerX" id="jm9-y0-VXO"/>
@@ -2411,7 +2409,6 @@ behind the alliance wall diamond plate.</mutableString>
                             <constraint firstItem="z5T-Wk-Gg2" firstAttribute="leading" secondItem="OE8-rK-xrI" secondAttribute="leading" id="lZP-WR-jfe"/>
                             <constraint firstItem="jgv-OA-Qzx" firstAttribute="top" secondItem="Tpg-Rb-XQA" secondAttribute="bottom" constant="26" id="mes-Eo-b2C"/>
                             <constraint firstItem="sML-Al-RVu" firstAttribute="centerY" secondItem="oHz-64-tl7" secondAttribute="centerY" id="mxT-d8-9pH"/>
-                            <constraint firstItem="9Dm-SU-fv5" firstAttribute="centerX" secondItem="8E7-TX-RKA" secondAttribute="centerX" id="nBi-aN-Mzj"/>
                             <constraint firstItem="Leh-p6-P0K" firstAttribute="centerY" secondItem="bXF-wq-7v5" secondAttribute="centerY" id="oF1-6N-zQf"/>
                             <constraint firstItem="Leh-p6-P0K" firstAttribute="top" secondItem="GAI-gP-SeH" secondAttribute="bottom" constant="25" id="oQV-ah-Gbd"/>
                             <constraint firstItem="Cdb-Ny-Uhl" firstAttribute="baseline" secondItem="z5T-Wk-Gg2" secondAttribute="baseline" id="oSe-0x-DmS"/>
@@ -2420,7 +2417,6 @@ behind the alliance wall diamond plate.</mutableString>
                             <constraint firstItem="oHz-64-tl7" firstAttribute="trailing" secondItem="Hl5-kJ-oc7" secondAttribute="trailing" id="qIY-fa-GAj"/>
                             <constraint firstItem="Leh-p6-P0K" firstAttribute="leading" secondItem="z5T-Wk-Gg2" secondAttribute="leading" id="qah-8n-daJ"/>
                             <constraint firstItem="ggh-IA-Wwy" firstAttribute="top" secondItem="hAZ-9d-hmZ" secondAttribute="bottom" constant="11" id="r7d-uy-N3x"/>
-                            <constraint firstItem="OE8-rK-xrI" firstAttribute="centerX" secondItem="9Dm-SU-fv5" secondAttribute="centerX" id="rKL-Xb-A8S"/>
                             <constraint firstItem="oTb-D4-RRv" firstAttribute="top" secondItem="sML-Al-RVu" secondAttribute="bottom" constant="16" id="rqv-m5-ubo"/>
                             <constraint firstItem="uZK-7L-mUb" firstAttribute="leading" secondItem="2wt-0K-RJ5" secondAttribute="trailing" constant="27" id="s9Z-wt-WeB"/>
                             <constraint firstItem="jJK-ZS-JOn" firstAttribute="leading" secondItem="Jza-oH-bug" secondAttribute="trailing" constant="25" id="sAW-fm-GKj"/>
@@ -2430,7 +2426,6 @@ behind the alliance wall diamond plate.</mutableString>
                             <constraint firstItem="FZh-rj-0Sr" firstAttribute="centerY" secondItem="dwE-y8-6Fh" secondAttribute="centerY" id="t6f-Cb-qAw"/>
                             <constraint firstItem="sc3-PM-O5R" firstAttribute="bottom" secondItem="d8P-Sh-WGQ" secondAttribute="bottom" id="t8L-9a-JrY"/>
                             <constraint firstItem="raG-5g-dmc" firstAttribute="centerY" secondItem="hAZ-9d-hmZ" secondAttribute="centerY" id="tbU-hd-3Th"/>
-                            <constraint firstItem="OmJ-5J-ZrV" firstAttribute="centerX" secondItem="lXs-54-AhX" secondAttribute="centerX" id="uaR-T2-3Ik"/>
                             <constraint firstItem="d8P-Sh-WGQ" firstAttribute="top" secondItem="I5x-Iu-h4q" secondAttribute="bottom" constant="19" id="uhX-ip-Y6e"/>
                             <constraint firstItem="FFs-fd-ar0" firstAttribute="top" secondItem="sc3-PM-O5R" secondAttribute="bottom" constant="36" id="v5l-Ls-DzX"/>
                             <constraint firstItem="FFs-fd-ar0" firstAttribute="leading" secondItem="8gO-GN-I0Y" secondAttribute="leading" id="vdm-AV-UPU"/>
@@ -2467,10 +2462,11 @@ behind the alliance wall diamond plate.</mutableString>
                         <outlet property="autoCrosses" destination="ngn-01-kfU" id="lDH-Cd-gWt"/>
                         <outlet property="autoFuelHighLabel" destination="fay-OM-JZX" id="xvZ-qR-SMk"/>
                         <outlet property="autoFuelLowLabel" destination="oHz-64-tl7" id="eRI-Yh-lgi"/>
-                        <outlet property="autoScore" destination="lXs-54-AhX" id="SGy-fw-5p0"/>
                         <outlet property="autoScoresGear" destination="1pK-fw-IRw" id="4QU-46-6U8"/>
                         <outlet property="comments" destination="GeX-fz-ENA" id="TNj-O1-7md"/>
                         <outlet property="defenseFaced" destination="miM-mh-9fZ" id="dDm-o4-nmU"/>
+                        <outlet property="defensePlayed" destination="EjC-h1-HJf" id="d5u-q4-fCv"/>
+                        <outlet property="defensePlayedLevel" destination="Lqf-R2-27x" id="owR-6K-azu"/>
                         <outlet property="fuelFromFeeder" destination="hAZ-9d-hmZ" id="3wY-Gc-eGc"/>
                         <outlet property="fuelFromFloor" destination="uUj-Yp-THg" id="iI6-ZJ-x3B"/>
                         <outlet property="fuelFromHopper" destination="ggh-IA-Wwy" id="Xji-tW-w9P"/>
@@ -2488,7 +2484,6 @@ behind the alliance wall diamond plate.</mutableString>
                         <outlet property="team" destination="KIW-1R-tPC" id="lsa-hj-VVN"/>
                         <outlet property="teleFuelHighLabel" destination="Hl5-kJ-oc7" id="OwH-3o-4b4"/>
                         <outlet property="teleFuelLowLabel" destination="bXF-wq-7v5" id="M01-vR-i9d"/>
-                        <outlet property="teleScore" destination="8E7-TX-RKA" id="28t-hC-IPD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8D-Gn-M9e" userLabel="First Responder" sceneMemberID="firstResponder"/>

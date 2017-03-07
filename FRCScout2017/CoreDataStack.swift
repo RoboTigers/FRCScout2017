@@ -26,7 +26,7 @@ class CoreDataStack: NSObject, CDEPersistentStoreEnsembleDelegate {
     //      but I can't quite figure out how to do the steps suggested. So for now let's just, ugg, 
     //      update the identifier.
     lazy var ensembleIdentifier : String = {
-        return "FRCScout2017_4"
+        return "FRCScout2017_5"
     }()
     
     lazy var storeName : String = {
