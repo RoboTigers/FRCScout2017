@@ -26,21 +26,24 @@ Screens are provided for adding pit reports and match reports. There is one pit 
 
 From each analytics report table and from the Team Page you may select a team and look at the data just for that team. This include Pit Report data, Team Summary Data, and a list of matches played by that team.
 
+<p align="center">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23657788/d4d06542-030d-11e7-970d-e84add96eba4.png" align="center" height="450">
+</p>
 
 # Analytics
 
 The app can provide analytics on the pit and match data. You can quickly get a list of the best teams sorted by skill or by match results.
 
 <p align="center">
-<img src="https://cloud.githubusercontent.com/assets/16652800/23657094/79a7110a-030a-11e7-9f57-7171ae82c0f7.png" align="center" height="450">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23657776/cbef23be-030d-11e7-9dd4-107abdd9e259.png" align="center" height="450">
 </p>
 
 <p align="center">
-<img src="https://cloud.githubusercontent.com/assets/16652800/23657635/0f019fca-030d-11e7-92eb-add3c63035d2.png" align="center" height="550">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23657778/cf1d7266-030d-11e7-969b-1b3a2db66f6c.png" align="center" height="550">
 </p>
 
 <p align="center">
-<img src="https://cloud.githubusercontent.com/assets/16652800/23657639/1205c502-030d-11e7-8f84-998c60c5b452.png" align="center" height="550">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23657787/d205ff7a-030d-11e7-9f81-e77124bd13c2.png" align="center" height="550">
 </p>
 
 # Export
