@@ -47,7 +47,7 @@ The app can provide analytics on the pit and match data. You can quickly get a l
 ## Best By Result
 
 <p align="center">
-<img src="https://cloud.githubusercontent.com/assets/16652800/23657787/d205ff7a-030d-11e7-9f81-e77124bd13c2.png" align="center" height="150">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23657787/d205ff7a-030d-11e7-9f81-e77124bd13c2.png" align="center" height="250">
 </p>
 
 # Export
