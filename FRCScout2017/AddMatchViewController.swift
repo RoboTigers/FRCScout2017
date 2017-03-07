@@ -11,7 +11,7 @@ import Ensembles
 
 // This scene allows the user to view existing match reports and update them or add a new match report.
 
-class AddMatchViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
+class AddMatchViewController: UIViewController, UITextViewDelegate {
     
     // MARK: - Variables to manage the keyboard so that the comments textView is not obstructed
     
@@ -53,9 +53,9 @@ class AddMatchViewController: UIViewController, UITextViewDelegate, UITextFieldD
     @IBOutlet weak var comments: UITextView!
     @IBOutlet weak var gearsLabel: UILabel!
     @IBOutlet weak var rotorsStarted: UITextField!
-    @IBOutlet weak var autoScore: UITextField!
-    @IBOutlet weak var teleScore: UITextField!
     @IBOutlet weak var matchResult: UISegmentedControl!
+    @IBOutlet weak var defensePlayed: UISegmentedControl!
+    @IBOutlet weak var defensePlayedLevel: UISegmentedControl!
     
 
     
@@ -87,8 +87,6 @@ class AddMatchViewController: UIViewController, UITextViewDelegate, UITextFieldD
         // Set up a keyboard observer so we can shift the screen up when comments are being entered
         // and thus avoid having that comments textView obstructed by the keyboard
         self.comments.delegate = self
-        self.teleScore.delegate = self
-        self.autoScore.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: .UIKeyboardDidShow, object: nil)
 
         
@@ -129,12 +127,10 @@ class AddMatchViewController: UIViewController, UITextViewDelegate, UITextFieldD
                 rotorsStarted.text = NSNumber(value: (existingMatchReport?.rotorsStarted)!).stringValue
                 hang.isOn = (existingMatchReport?.hang)!
                 penalty.isOn = (existingMatchReport?.penalty)!
-                autoScore.text = NSNumber(value: (existingMatchReport?.autoScore)!).stringValue
-                teleScore.text = NSNumber(value: (existingMatchReport?.teleScore)!).stringValue
                 comments.text = existingMatchReport?.comments
                 matchResult.selectedSegmentIndex = Int((existingMatchReport?.matchResult)!)
-                autoScore.text = NSNumber(value: (existingMatchReport?.autoScore)!).stringValue
-                teleScore.text = NSNumber(value: (existingMatchReport?.teleScore)!).stringValue
+                defensePlayed.selectedSegmentIndex = Int((existingMatchReport?.defensePlayed)!)
+                defensePlayedLevel.selectedSegmentIndex = Int((existingMatchReport?.defensePlayedLevel)!)
             }
         }
 
@@ -231,9 +227,9 @@ class AddMatchViewController: UIViewController, UITextViewDelegate, UITextFieldD
             matchReport?.defenseFaced = Int16(defenseFaced.selectedSegmentIndex)
             matchReport?.comments = comments.text!
             matchReport?.rotorsStarted = (Int16(rotorsStarted.text!))!
-            matchReport?.autoScore = (Int16(autoScore.text!))!
-            matchReport?.teleScore = (Int16(teleScore.text!))!
             matchReport?.matchResult = Int16(matchResult.selectedSegmentIndex)
+            matchReport?.defensePlayed = Int16(defensePlayed.selectedSegmentIndex)
+            matchReport?.defensePlayedLevel = Int16(defensePlayedLevel.selectedSegmentIndex)
 //
 //            do {
                 print("Save match record: \(matchReport)")
@@ -287,34 +283,17 @@ class AddMatchViewController: UIViewController, UITextViewDelegate, UITextFieldD
         }
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        print("textViewDidEndEditing")
-        if textView == comments {
-            print("ending lower field editing")
-            lowerFieldBeingEdited = false
-        }
-        if moved == true {
-            self.animateViewMoving(up: false, moveValue: moveValue )
-            moved = false
-        }
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == teleScore || textField == autoScore {
-            lowerFieldBeingEdited = true
-        }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == teleScore || textField == autoScore {
-            print("ending lower field editing")
-            lowerFieldBeingEdited = false
-        }
-        if moved == true {
-            self.animateViewMoving(up: false, moveValue: moveValue )
-            moved = false
-        }
-    }
+//    func textViewDidEndEditing(_ textView: UITextView) {
+//        print("textViewDidEndEditing")
+//        if textView == comments {
+//            print("ending lower field editing")
+//            lowerFieldBeingEdited = false
+//        }
+//        if moved == true {
+//            self.animateViewMoving(up: false, moveValue: moveValue )
+//            moved = false
+//        }
+//    }
     
     
     

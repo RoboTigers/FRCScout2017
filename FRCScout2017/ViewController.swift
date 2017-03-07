@@ -26,7 +26,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     func createDataDumpOfMatchReports() -> Data {
         let mailString = NSMutableString()
-        mailString.append("Tournament,Match Number,Team Number,Auto Crossed Line,Auto Fuel High,Auto Fuel Low,Auto Score,Auto Scores Gear,Comments,DefenseFaced,Fuel From Feeder,Fuel From Floor,Fuel From Hopper,Fuel High,Fuel Low,Gear Cycle,Gears,Gears From Feeder,Gears From Floor,Hang,Hang Speed,Match Result,Penalty,Rotors Started,Shots Location,Tele Score\n")
+        mailString.append("Tournament,Match Number,Team Number,Auto Crossed Line,Auto Fuel High,Auto Fuel Low,Auto Scores Gear,Comments,DefenseFaced,Fuel From Feeder,Fuel From Floor,Fuel From Hopper,Fuel High,Fuel Low,Gear Cycle,Gears,Gears From Feeder,Gears From Floor,Hang,Hang Speed,Match Result,Penalty,Rotors Started,Shots Location\n")
         CoreDataStack.defaultStack.syncWithCompletion(nil)
         let fetchRequest = NSFetchRequest<MatchReport>(entityName: "MatchReport")
         let tournamentSort = NSSortDescriptor(key: "tournament", ascending: true)
@@ -45,7 +45,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         for match in matches {
-            mailString.append("\(match.tournament),\(match.matchNumber!),\(match.teamNumber!),\(match.autoCrossedLine),\(match.autoFuelHigh),\(match.autoFuelLow),\(match.autoScore),\(match.autoScoresGear),\(match.comments!),\(match.defenseFaced),\(match.fuelFromFeeder),\(match.fuelFromFloor),\(match.fuelFromHopper),\(match.fuelHigh),\(match.fuelLow),\(match.gearCycle),\(match.gears),\(match.gearsFromFeeder),\(match.gearsFromFloor),\(match.hang),\(match.hangSpeed),\(match.matchResult),\(match.penalty),\(match.rotorsStarted),\(match.shotsLocation),\(match.teleScore)\n")
+            mailString.append("\(match.tournament),\(match.matchNumber!),\(match.teamNumber!),\(match.autoCrossedLine),\(match.autoFuelHigh),\(match.autoFuelLow),\(match.autoScoresGear),\(match.comments!),\(match.defenseFaced),\(match.fuelFromFeeder),\(match.fuelFromFloor),\(match.fuelFromHopper),\(match.fuelHigh),\(match.fuelLow),\(match.gearCycle),\(match.gears),\(match.gearsFromFeeder),\(match.gearsFromFloor),\(match.hang),\(match.hangSpeed),\(match.matchResult),\(match.penalty),\(match.rotorsStarted),\(match.shotsLocation)\n")
         }
         let data = mailString.data(using: String.Encoding.utf8.rawValue, allowLossyConversion: false)
         return data!
