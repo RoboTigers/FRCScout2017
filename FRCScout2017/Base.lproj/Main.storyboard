@@ -117,8 +117,7 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oMl-Kt-grD">
                                 <rect key="frame" x="179" y="72" width="411" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="411" id="D9R-T8-L9l"/>
-                                    <constraint firstAttribute="height" constant="28" id="GAz-qn-Shk"/>
+                                    <constraint firstAttribute="width" constant="411" id="yYA-e7-8dU"/>
                                 </constraints>
                                 <segments>
                                     <segment title="Hudson Valley"/>
@@ -127,11 +126,11 @@
                                 </segments>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bc6-vd-AOf">
-                                <rect key="frame" x="245" y="383" width="318" height="74"/>
+                                <rect key="frame" x="206" y="561" width="396" height="74"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="74" id="jGs-ms-Zws"/>
+                                    <constraint firstAttribute="height" constant="74" id="Jsa-IH-tfh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <state key="normal" title="Cheese-caking Possibilities">
                                     <color key="titleColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -139,20 +138,26 @@
                                     <segue destination="KyL-RX-tcC" kind="show" identifier="cheesecakeSegue" id="Hvy-Zk-ngC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giW-Q1-01l">
-                                <rect key="frame" x="257" y="484" width="294" height="74"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <state key="normal" title="Penalties/Fouls">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMx-qc-ltU">
+                                <rect key="frame" x="257" y="373" width="294" height="74"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="74" id="iAb-ZA-arR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="Best By Result">
                                     <color key="titleColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="kAk-Lt-pvR" kind="show" identifier="ShowWinningSegue" id="ryV-Hp-OtK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLz-vX-9eI">
-                                <rect key="frame" x="257" y="186" width="294" height="74"/>
+                                <rect key="frame" x="257" y="180" width="294" height="74"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="74" id="goY-Yd-wc0"/>
-                                    <constraint firstAttribute="width" constant="294" id="y6J-1K-59p"/>
+                                    <constraint firstAttribute="height" constant="74" id="Pzc-SD-lf0"/>
+                                    <constraint firstAttribute="width" constant="294" id="wNy-pn-oKB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <state key="normal" title="Best By Skill">
                                     <color key="titleColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -160,35 +165,25 @@
                                     <segue destination="dQk-PI-ex9" kind="show" identifier="ShowBestAtSegue" id="kmw-jM-EJW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMx-qc-ltU">
-                                <rect key="frame" x="257" y="275" width="294" height="74"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="74" id="iBW-XB-dgZ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <state key="normal" title="Winning / Scoring">
-                                    <color key="titleColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="kAk-Lt-pvR" kind="show" identifier="ShowWinningSegue" id="ryV-Hp-OtK"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="giW-Q1-01l" firstAttribute="top" secondItem="bc6-vd-AOf" secondAttribute="bottom" constant="27" id="2WE-2c-Ue8"/>
-                            <constraint firstItem="oMl-Kt-grD" firstAttribute="centerX" secondItem="4AP-pQ-Cd8" secondAttribute="centerX" id="7D1-J7-st2"/>
-                            <constraint firstItem="RMx-qc-ltU" firstAttribute="leading" secondItem="giW-Q1-01l" secondAttribute="leading" id="Jrp-Ak-XP0"/>
-                            <constraint firstItem="RMx-qc-ltU" firstAttribute="top" secondItem="iLz-vX-9eI" secondAttribute="bottom" constant="15" id="MCr-Zt-mjR"/>
-                            <constraint firstItem="bc6-vd-AOf" firstAttribute="leading" secondItem="4AP-pQ-Cd8" secondAttribute="leading" constant="245" id="O2o-oq-9fG"/>
-                            <constraint firstItem="bc6-vd-AOf" firstAttribute="top" secondItem="RMx-qc-ltU" secondAttribute="bottom" constant="34" id="U5G-yE-qYm"/>
-                            <constraint firstItem="oMl-Kt-grD" firstAttribute="top" secondItem="ZiN-d6-Lmp" secondAttribute="bottom" constant="8" symbolic="YES" id="VQE-hQ-Jca"/>
-                            <constraint firstItem="iLz-vX-9eI" firstAttribute="trailing" secondItem="RMx-qc-ltU" secondAttribute="trailing" id="VuM-I0-xb2"/>
-                            <constraint firstItem="RMx-qc-ltU" firstAttribute="trailing" secondItem="giW-Q1-01l" secondAttribute="trailing" id="lod-rg-Nkr"/>
-                            <constraint firstItem="iLz-vX-9eI" firstAttribute="top" secondItem="oMl-Kt-grD" secondAttribute="bottom" constant="86" id="oPx-jH-saB"/>
-                            <constraint firstItem="bc6-vd-AOf" firstAttribute="centerX" secondItem="giW-Q1-01l" secondAttribute="centerX" id="rjh-6u-Vhc"/>
-                            <constraint firstItem="Yfn-wd-fyF" firstAttribute="top" secondItem="giW-Q1-01l" secondAttribute="bottom" constant="466" id="s9x-6j-qus"/>
-                            <constraint firstItem="iLz-vX-9eI" firstAttribute="leading" secondItem="RMx-qc-ltU" secondAttribute="leading" id="vWf-yd-wnn"/>
+                            <constraint firstItem="bc6-vd-AOf" firstAttribute="top" secondItem="ZiN-d6-Lmp" secondAttribute="bottom" constant="497" id="0GD-QA-ltM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iLz-vX-9eI" secondAttribute="trailing" constant="197" id="3ne-9a-GOg"/>
+                            <constraint firstItem="oMl-Kt-grD" firstAttribute="centerX" secondItem="4AP-pQ-Cd8" secondAttribute="centerX" id="5yD-UA-Y1V"/>
+                            <constraint firstItem="iLz-vX-9eI" firstAttribute="trailing" secondItem="RMx-qc-ltU" secondAttribute="trailing" id="Gvn-Fw-MlK"/>
+                            <constraint firstItem="bc6-vd-AOf" firstAttribute="leading" secondItem="4AP-pQ-Cd8" secondAttribute="leadingMargin" constant="186" id="HMm-oN-IhQ"/>
+                            <constraint firstItem="bc6-vd-AOf" firstAttribute="leading" secondItem="4AP-pQ-Cd8" secondAttribute="leading" constant="206" id="JxK-XM-Gez"/>
+                            <constraint firstItem="RMx-qc-ltU" firstAttribute="top" secondItem="4AP-pQ-Cd8" secondAttribute="top" constant="373" id="KDc-tK-7qL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bc6-vd-AOf" secondAttribute="trailing" constant="146" id="Rrc-yW-7M2"/>
+                            <constraint firstItem="RMx-qc-ltU" firstAttribute="leading" secondItem="4AP-pQ-Cd8" secondAttribute="leadingMargin" constant="237" id="WDj-5j-dYq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RMx-qc-ltU" secondAttribute="trailing" constant="197" id="Wba-Le-kXb"/>
+                            <constraint firstItem="oMl-Kt-grD" firstAttribute="top" secondItem="ZiN-d6-Lmp" secondAttribute="bottom" constant="8" symbolic="YES" id="YVb-eG-rDu"/>
+                            <constraint firstItem="RMx-qc-ltU" firstAttribute="top" secondItem="ZiN-d6-Lmp" secondAttribute="bottom" constant="309" id="cLd-uI-fBK"/>
+                            <constraint firstItem="RMx-qc-ltU" firstAttribute="centerX" secondItem="bc6-vd-AOf" secondAttribute="centerX" id="cVn-ba-9Oa"/>
+                            <constraint firstItem="iLz-vX-9eI" firstAttribute="leading" secondItem="4AP-pQ-Cd8" secondAttribute="leadingMargin" constant="237" id="fVo-D3-2QN"/>
+                            <constraint firstItem="iLz-vX-9eI" firstAttribute="leading" secondItem="RMx-qc-ltU" secondAttribute="leading" id="hwY-rl-j74"/>
+                            <constraint firstItem="iLz-vX-9eI" firstAttribute="top" secondItem="oMl-Kt-grD" secondAttribute="bottom" constant="80" id="otA-9L-VBO"/>
                         </constraints>
                     </view>
                     <connections>
@@ -281,8 +276,8 @@
                                 <rect key="frame" x="20" y="64" width="728" height="29"/>
                                 <segments>
                                     <segment title="Winning"/>
-                                    <segment title="Auto Scoring"/>
-                                    <segment title="Teleop Scoring"/>
+                                    <segment title="Defense"/>
+                                    <segment title="Penalty"/>
                                 </segments>
                                 <connections>
                                     <action selector="segAction:" destination="kAk-Lt-pvR" eventType="valueChanged" id="4gg-Mm-KXq"/>
@@ -2554,10 +2549,10 @@ behind the alliance wall diamond plate.</string>
         <image name="zones.png" width="1262" height="619"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ySV-Vz-BEB"/>
         <segue reference="hXp-F7-htF"/>
-        <segue reference="wgR-fJ-2EH"/>
+        <segue reference="ySV-Vz-BEB"/>
         <segue reference="LNi-xh-vMH"/>
-        <segue reference="iGf-Cj-QV5"/>
+        <segue reference="Hvy-Zk-ngC"/>
+        <segue reference="c96-Bb-LaR"/>
     </inferredMetricsTieBreakers>
 </document>
