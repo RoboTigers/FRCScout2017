@@ -42,7 +42,8 @@ class WinningViewController: UIViewController, UITableViewDataSource, UITableVie
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WinningCell", for: indexPath)
         let formattedWinningPercentage = String(format: "%.1f", teamArray[indexPath.row].winningPercentage * 100)
-        cell.textLabel?.text = "Team \(teamArray[indexPath.row].teamNumber)    Winning: \(formattedWinningPercentage)% "
+        let formattedPenaltyPercentage = String(format: "%.1f", teamArray[indexPath.row].averagePenalty * 100)
+        cell.textLabel?.text = "Team \(teamArray[indexPath.row].teamNumber)    Win Percentage: \(formattedWinningPercentage)% Defensive Ability: \(teamArray[indexPath.row].averageWeightedDefensePlayedAndEffective)  Penalty Percentage: \(formattedPenaltyPercentage)%"
         return cell
     }
     
@@ -80,6 +81,13 @@ class WinningViewController: UIViewController, UITableViewDataSource, UITableVie
                     teamFromDictionary?.numberWins = (teamFromDictionary?.numberWins)! + 1
                 }
                 teamFromDictionary?.winningPercentage = Double((teamFromDictionary?.numberWins)!) / Double((teamFromDictionary?.numberOfMatchesPlayed)!)
+                teamFromDictionary?.totalWeightedDefensePlayedAndEffective = (teamFromDictionary?.totalWeightedDefensePlayedAndEffective)! +  calculateWeightedDefenseValue(playedValue: match.defensePlayed, playedWeight: match.defensePlayedLevel)
+                teamFromDictionary?.averageWeightedDefensePlayedAndEffective = Double((teamFromDictionary?.totalWeightedDefensePlayedAndEffective)!) / Double((teamFromDictionary?.numberOfMatchesPlayed)!)
+                if match.penalty {
+                    teamFromDictionary?.totalPenalty = (teamFromDictionary?.totalPenalty)! + 1
+                }
+                teamFromDictionary?.averagePenalty = Double((teamFromDictionary?.totalPenalty)!) / Double((teamFromDictionary?.numberOfMatchesPlayed)!)
+
 
             } else {
                 print("create new key in dictionary")
@@ -92,6 +100,14 @@ class WinningViewController: UIViewController, UITableViewDataSource, UITableVie
                     newTeam.numberWins = 0
                 }
                 newTeam.winningPercentage = Double(newTeam.numberWins)
+                newTeam.totalWeightedDefensePlayedAndEffective = calculateWeightedDefenseValue(playedValue: match.defensePlayed, playedWeight: match.defensePlayedLevel)
+                newTeam.averageWeightedDefensePlayedAndEffective = Double(newTeam.totalWeightedDefensePlayedAndEffective)
+                if match.penalty {
+                    newTeam.totalPenalty = 1
+                } else {
+                    newTeam.totalPenalty = 0
+                }
+                newTeam.averagePenalty = Double(newTeam.totalPenalty)
                 teamDictionary.updateValue(newTeam, forKey: match.teamNumber!)
             }
         }
@@ -126,6 +142,25 @@ class WinningViewController: UIViewController, UITableViewDataSource, UITableVie
         // Finally we reload the table view so that it displays its rows based on the above newly
         // calculated teams array
         tableView.reloadData()
+    }
+    
+    /*
+     * Calculate a value to indicate how much and how well a team played defense during a match.
+     * Since segmented control index values start at 0 the weighted value of any defense which is
+     * defined as "None" or as "Ineffective" will be 0. That is, no "points" are awarded for 
+     * ineffective defense. The effectiveness of the played defense acts as a weight factor 
+     * doubling the playedValue if that defense played was excellent.
+     *    Played: 
+     *      None = 0
+     *      Some = 1
+     *      A lot = 2
+     *    Effectiveness:
+     *      Ineffective = 0
+     *      Average = 1
+     *      Excellent = 2
+     */
+    func calculateWeightedDefenseValue(playedValue: Int16, playedWeight: Int16) -> Int16 {
+        return (playedValue * playedWeight)
     }
     
     
