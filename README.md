@@ -38,12 +38,18 @@ The app can provide analytics on the pit and match data. You can quickly get a l
 <img src="https://cloud.githubusercontent.com/assets/16652800/23657776/cbef23be-030d-11e7-9dd4-107abdd9e259.png" align="center" height="450">
 </p>
 
-<p align="center">
-<img src="https://cloud.githubusercontent.com/assets/16652800/23657778/cf1d7266-030d-11e7-969b-1b3a2db66f6c.png" align="center" height="550">
+<p> 
 </p>
 
 <p align="center">
-<img src="https://cloud.githubusercontent.com/assets/16652800/23657787/d205ff7a-030d-11e7-9f81-e77124bd13c2.png" align="center" height="550">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23657778/cf1d7266-030d-11e7-969b-1b3a2db66f6c.png" align="center" height="350">
+</p>
+
+<p> 
+</p>
+
+<p align="center">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23657787/d205ff7a-030d-11e7-9f81-e77124bd13c2.png" align="center" height="350">
 </p>
 
 # Export
