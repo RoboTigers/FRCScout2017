@@ -36,11 +36,11 @@ The app can provide analytics on the pit and match data. You can quickly get a l
 </p>
 
 <p align="center">
-<img src="https://cloud.githubusercontent.com/assets/16652800/23657635/0f019fca-030d-11e7-92eb-add3c63035d2.png" align="center" height="450">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23657635/0f019fca-030d-11e7-92eb-add3c63035d2.png" align="center" height="550">
 </p>
 
 <p align="center">
-<img src="https://cloud.githubusercontent.com/assets/16652800/23657639/1205c502-030d-11e7-8f84-998c60c5b452.png" align="center" height="450">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23657639/1205c502-030d-11e7-8f84-998c60c5b452.png" align="center" height="550">
 </p>
 
 # Export
