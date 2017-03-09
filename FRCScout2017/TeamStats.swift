@@ -32,5 +32,7 @@ class TeamStats {
     var numberTies: Int = 0
     
     var winningPercentage: Double = 0.0
+    
+    var penalties: Int16 = 0
 
 }

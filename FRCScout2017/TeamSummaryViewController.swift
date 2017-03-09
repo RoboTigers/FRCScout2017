@@ -43,6 +43,7 @@ class TeamSummaryViewController: UIViewController{
     @IBOutlet weak var trendFuelPickup: UILabel!
     @IBOutlet weak var trendGearPickup: UILabel!
     @IBOutlet weak var trendShootingLocation: UILabel!
+    @IBOutlet weak var penaltyPerMatch: UILabel!
     @IBOutlet weak var penalties: UILabel!
    
     @IBAction func selectedTournament(_ sender: UISegmentedControl) {
@@ -81,6 +82,8 @@ class TeamSummaryViewController: UIViewController{
         avgHighFuel.text = formattedHighFuel
         let formattedLowFuel = String(format: "%.1f", summary.avergeNumberFuelLow)
         avgLowFuel.text = formattedLowFuel
+        penaltyPerMatch.text = NSNumber(value: summary.averagePenalty).stringValue
+        penalties.text = NSNumber(value: summary.totalPenalty).stringValue
         successfulClimbs.text = NSNumber(value: summary.totalNumberClimbs).stringValue
         
 
@@ -189,6 +192,15 @@ class TeamSummaryViewController: UIViewController{
             summary.averageNumberFuelHigh = Double(summary.totalNumberFuelHigh) / Double(summary.numberOfMatchesPlayed)
             summary.averageNumberGears = Double(summary.totalNumberGears) / Double(summary.numberOfMatchesPlayed)
             summary.averageNumberClimbs = Double(summary.totalNumberClimbs) / Double(summary.numberOfMatchesPlayed)
+            summary.averagePenalty = Double(summary.totalPenalty) / Double(summary.numberOfMatchesPlayed)
+            if match.penalty == true {
+                summary.totalPenalty = summary.penalties + 1
+            }else {
+                summary.totalPenalty = summary.penalties + 0
+            }
+            if match.penalty == true {
+                summary.penalties = summary.penalties + 1
+            }
             switch(match.matchResult) {
             case 0:
                 summary.numberWins = summary.numberWins + 1
