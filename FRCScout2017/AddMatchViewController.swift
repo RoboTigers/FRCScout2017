@@ -283,17 +283,17 @@ class AddMatchViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-//    func textViewDidEndEditing(_ textView: UITextView) {
-//        print("textViewDidEndEditing")
-//        if textView == comments {
-//            print("ending lower field editing")
-//            lowerFieldBeingEdited = false
-//        }
-//        if moved == true {
-//            self.animateViewMoving(up: false, moveValue: moveValue )
-//            moved = false
-//        }
-//    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        print("textViewDidEndEditing")
+        if textView == comments {
+            print("ending lower field editing")
+            lowerFieldBeingEdited = false
+        }
+        if moved == true {
+            self.animateViewMoving(up: false, moveValue: moveValue )
+            moved = false
+        }
+    }
     
     
     
