@@ -17,7 +17,6 @@ class TeamChoicesViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var selectedTeam = ""
     
     override func viewDidLoad() {
-        print("in viewDidLoad")
         super.viewDidLoad()
         teamPicker.dataSource = self
         teamPicker.delegate = self
@@ -25,7 +24,6 @@ class TeamChoicesViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        print("in viewWillAppear")
         refreshTeams()
         teamPicker.reloadAllComponents()
     }
