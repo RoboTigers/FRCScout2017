@@ -56,9 +56,14 @@ class PItReportTableViewController: UITableViewController {
         CoreDataStack.defaultStack.syncWithCompletion(nil)
         let fetchRequest = NSFetchRequest<PitReport>(entityName: "PitReport")
         if sortByWeight {
-            let weightSort = NSSortDescriptor(key: "robotWeight", ascending:true)
+            let weightSort = NSSortDescriptor(key: "robotWeight", ascending: true, selector: #selector(NSString.localizedStandardCompare(_:)))
             var sortsArray: [NSSortDescriptor] = []
             sortsArray.append(weightSort)
+            fetchRequest.sortDescriptors = sortsArray
+        } else {
+            let teamSort = NSSortDescriptor(key: "teamNumber", ascending: true, selector: #selector(NSString.localizedStandardCompare(_:)))
+            var sortsArray: [NSSortDescriptor] = []
+            sortsArray.append(teamSort)
             fetchRequest.sortDescriptors = sortsArray
         }
         do {
@@ -133,6 +138,7 @@ class PItReportTableViewController: UITableViewController {
                         print("Could not save the skelaton pit report. \(error), \(error.userInfo)")
                     }
                     self.pitReports.append(skelatonPitRecord)
+                    self.refreshPitReports()
                     self.tableView.reloadData()
                 }
             } else {

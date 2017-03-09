@@ -195,7 +195,7 @@ class MatchesViewController: UIViewController, UITableViewDataSource, UITableVie
         } else {
             fetchRequest.predicate = NSPredicate(format: "tournament == \(tournamentSegmentedControl.selectedSegmentIndex) AND teamNumber == \(selectedTeamNumber)")
         }
-        let teamSort = NSSortDescriptor(key: "teamNumber", ascending:true)
+        let teamSort = NSSortDescriptor(key: "teamNumber", ascending: true, selector: #selector(NSString.localizedStandardCompare(_:)))
         var sortsArray: [NSSortDescriptor] = []
         let matchSort = NSSortDescriptor(key: "matchNumber", ascending:true)
         sortsArray.append(matchSort)

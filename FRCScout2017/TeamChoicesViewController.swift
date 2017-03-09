@@ -17,6 +17,7 @@ class TeamChoicesViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var selectedTeam = ""
     
     override func viewDidLoad() {
+        print("in viewDidLoad")
         super.viewDidLoad()
         teamPicker.dataSource = self
         teamPicker.delegate = self
@@ -24,6 +25,7 @@ class TeamChoicesViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        print("in viewWillAppear")
         refreshTeams()
         teamPicker.reloadAllComponents()
     }
@@ -143,15 +145,27 @@ class TeamChoicesViewController: UIViewController, UIPickerViewDelegate, UIPicke
         do {
             pitReports = try CoreDataStack.defaultStack.managedObjectContext.fetch(fetchRequest)
             print("Retrieved \(pitReports.count) pitReports for picker")
-            teams.removeAll()
+            
+            
+            var unsortedTeamNumbers: [String] = []
+            
+            
             for report in pitReports {
-                teams.append(report.teamNumber!)
+                unsortedTeamNumbers.append(report.teamNumber!)
             }
+            
+            teams.removeAll()
+            
+            teams = unsortedTeamNumbers.sorted {
+                (s1, s2) -> Bool in return s1.localizedStandardCompare(s2) == .orderedAscending
+            }
+            
+            
+            
             teams.append("New Team")
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
-        teams.sort()
     }
 
 }
