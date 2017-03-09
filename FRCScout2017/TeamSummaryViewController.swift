@@ -86,7 +86,31 @@ class TeamSummaryViewController: UIViewController{
         penaltyPerMatch.text = String(format: "%.1f", summary.averagePenalty)
         penalties.text = NSNumber(value: summary.totalPenalty).stringValue
         successfulClimbs.text = NSNumber(value: summary.totalNumberClimbs).stringValue
-        
+        let maxFuel = max(max(summary.totalFuelFromFloor, summary.totalFuelFromFeeder), summary.totalFuelFromHopper)
+        var fuelTrendString = "- "
+        if (summary.totalFuelFromFloor == maxFuel) {
+            fuelTrendString.append("Floor, ")
+        }
+        print("appended Floor")
+        if (summary.totalFuelFromHopper == maxFuel) {
+            fuelTrendString.append("Hopper, ")
+        }
+        print("appended Hopper")
+        if (summary.totalFuelFromFeeder == maxFuel) {
+            fuelTrendString.append("Feeder -")
+        }
+        print("appended Feeder")
+        trendFuelPickup.text = fuelTrendString
+        let maxGears = max(summary.totalGearsFromFeeder, summary.totalGearsFromFloor)
+        var gearTrendString = "- "
+                if (summary.totalGearsFromFloor == maxGears) {
+            gearTrendString.append(" Floor, ")
+        }
+        print("appended Feeder")
+        if (summary.totalGearsFromFeeder == maxGears) {
+            gearTrendString.append("Feeder -")
+        }
+        trendGearPickup.text = gearTrendString
 
         
         
@@ -195,6 +219,21 @@ class TeamSummaryViewController: UIViewController{
             summary.averageNumberGears = Double(summary.totalNumberGears) / Double(summary.numberOfMatchesPlayed)
             summary.averageNumberClimbs = Double(summary.totalNumberClimbs) / Double(summary.numberOfMatchesPlayed)
             summary.averagePenalty = Double(summary.totalPenalty) / Double(summary.numberOfMatchesPlayed)
+            if match.fuelFromHopper == true {
+                summary.totalFuelFromHopper = summary.fuelFromTheHopper + 1
+            }
+            if match.fuelFromFeeder == true {
+                summary.totalFuelFromFeeder = summary.fuelFromTheFeeder + 1
+            }
+            if match.fuelFromFloor == true {
+                summary.totalFuelFromFloor = summary.fuelFromTheFloor + 1
+            }
+            if match.gearsFromFloor == true {
+            summary.totalGearsFromFloor = summary.gearsFromTheFloor + 1
+            }
+            if match.gearsFromFeeder == true {
+                summary.totalGearsFromFeeder = summary.gearsFromTheFeeder + 1
+            }
             if match.penalty == true {
                 summary.totalPenalty = summary.penalties + 1
             }else {

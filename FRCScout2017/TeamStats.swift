@@ -27,6 +27,13 @@ class TeamStats {
     var totalNumberClimbs: Int16 = 0
     var totalWeightedDefensePlayedAndEffective: Int16 = 0
     var totalPenalty: Int16 = 0
+    var totalFuelFromHopper: Int16 = 0
+    var totalFuelFromFeeder: Int16 = 0
+    var totalFuelFromFloor: Int16 = 0
+    var totalGearsFromHopper: Int16 = 0
+    var totalGearsFromFeeder: Int16 = 0
+    var totalGearsFromFloor: Int16 = 0
+    var totalShootLocations: Int16 = 0
     
     var numberWins: Int = 0
     var numberLoses: Int = 0
@@ -35,5 +42,12 @@ class TeamStats {
     var winningPercentage: Double = 0.0
     
     var penalties: Int16 = 0
+    var fuelFromTheHopper: Int16 = 0
+    var fuelFromTheFeeder: Int16 = 0
+    var fuelFromTheFloor: Int16 = 0
+    var gearsFromTheHopper: Int16 = 0
+    var gearsFromTheFeeder: Int16 = 0
+    var gearsFromTheFloor: Int16 = 0
+    var shootLocation: Int16 = 0
 
 }
