@@ -21,6 +21,7 @@ class PItReportTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         title = "Team Pit Reports"
         refreshPitReports()
+        self.tableView.reloadData()
     }
     
     func displayErrorAlertWithOk(_ msg: String) {
@@ -46,6 +47,7 @@ class PItReportTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pitReports.count
     }
+    
     private func refreshPitReports() {
 //        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
 //            return
