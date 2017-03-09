@@ -74,4 +74,6 @@ The app can provide analytics on the pit and match data. You can quickly get a l
 
 Data may be exported from the home screen using the icon on the top left.
 
-
+<p align="center">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23748024/e066f0b4-048f-11e7-98a4-3b6694065cad.png" align="center" height="100">
+</p>
