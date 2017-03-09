@@ -29,7 +29,7 @@ class BestViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewWillAppear(_ animated: Bool) {
         print("selectedTournament = \(selectedTournament)")
-        title = "Best At Skill"
+        title = "Best By Skill"
         refreshData()
     }
     
