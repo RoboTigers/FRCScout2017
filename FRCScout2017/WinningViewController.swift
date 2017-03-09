@@ -30,7 +30,7 @@ class WinningViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        title = "Best Winners / Scorers"
+        title = "Best By Result"
     }
     
     // MARK: - Table view data source
