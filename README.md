@@ -19,7 +19,7 @@ Screens are provided for adding pit reports and match reports. There is one pit 
 ### View Pit Reports
 
 <p align="center">
-<img src="https://cloud.githubusercontent.com/assets/16652800/23747421/9424645e-048d-11e7-919b-a1f2a5c8f8fb.png" align="center" height="350">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23747421/9424645e-048d-11e7-919b-a1f2a5c8f8fb.png" align="center" height="150">
 </p>
 
 ### Add/Update Pit Reports
@@ -33,7 +33,7 @@ Screens are provided for adding pit reports and match reports. There is one pit 
 ### View Match Reports
 
 <p align="center">
-<img src="https://cloud.githubusercontent.com/assets/16652800/23747060/5630b11c-048c-11e7-8b54-0007195c8195.png" align="center" height="350">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23747060/5630b11c-048c-11e7-8b54-0007195c8195.png" align="center" height="550">
 </p>
 
 ### Add/Update Match Reports
