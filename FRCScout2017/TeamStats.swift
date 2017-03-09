@@ -13,6 +13,7 @@ class TeamStats {
     var teamNumber: String = ""
     
     var numberOfMatchesPlayed: Int = 0
+    
     var avergeNumberFuelLow: Double = 0.0
     var averageNumberFuelHigh: Double = 0.0
     var averageNumberGears: Double = 0.0
@@ -32,5 +33,7 @@ class TeamStats {
     var numberTies: Int = 0
     
     var winningPercentage: Double = 0.0
+    
+    var penalties: Int16 = 0
 
 }

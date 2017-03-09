@@ -26,7 +26,6 @@ class TeamSummaryViewController: UIViewController{
     @IBOutlet weak var driveTrainsType: UILabel!
     @IBOutlet weak var motorType: UILabel!
     @IBOutlet weak var motorNumber: UILabel!
-    @IBOutlet weak var overallSpeed: UILabel!
     @IBOutlet weak var robotWeightt: UILabel!
     @IBOutlet weak var cheesecake: UILabel!
     @IBOutlet weak var storageVolume: UILabel!
@@ -37,14 +36,16 @@ class TeamSummaryViewController: UIViewController{
     @IBOutlet weak var matchesTied: UILabel!
     @IBOutlet weak var avgGears: UILabel!
     @IBOutlet weak var avgHighFuel: UILabel!
-    @IBOutlet weak var avgClimbRate: UILabel!
-    @IBOutlet weak var avgClimbSpeed: UILabel!
     @IBOutlet weak var avgLowFuel: UILabel!
-    @IBOutlet weak var avgAutoScore: UILabel!
-    @IBOutlet weak var avgTeleScore: UILabel!
     @IBOutlet weak var successfulClimbs: UILabel!
     @IBOutlet weak var allComments: UILabel!
     @IBOutlet weak var myImageView: UIImageView!
+    @IBOutlet weak var trendFuelPickup: UILabel!
+    @IBOutlet weak var trendGearPickup: UILabel!
+    @IBOutlet weak var trendShootingLocation: UILabel!
+    @IBOutlet weak var penaltyPerMatch: UILabel!
+    @IBOutlet weak var penalties: UILabel!
+    @IBOutlet weak var defensiveRobot: UILabel!
    
     @IBAction func selectedTournament(_ sender: UISegmentedControl) {
         view.setNeedsDisplay()
@@ -82,8 +83,8 @@ class TeamSummaryViewController: UIViewController{
         avgHighFuel.text = formattedHighFuel
         let formattedLowFuel = String(format: "%.1f", summary.avergeNumberFuelLow)
         avgLowFuel.text = formattedLowFuel
-        //avgClimbRate
-        //avgClimbSpeed
+        penaltyPerMatch.text = String(format: "%.1f", summary.averagePenalty)
+        penalties.text = NSNumber(value: summary.totalPenalty).stringValue
         successfulClimbs.text = NSNumber(value: summary.totalNumberClimbs).stringValue
         
 
@@ -98,6 +99,7 @@ class TeamSummaryViewController: UIViewController{
             pitReports = try CoreDataStack.defaultStack.managedObjectContext.fetch(fetchRequest)
             if pitReports.count > 0 {
                 let existingPitReport = pitReports[0]
+                teamNum.text = existingPitReport.teamNumber
                 contactName.text = existingPitReport.contactName
                 driveCoachName.text = existingPitReport.driveCoach
                 driveTrainsType.text = existingPitReport.driveTrainType
@@ -192,6 +194,15 @@ class TeamSummaryViewController: UIViewController{
             summary.averageNumberFuelHigh = Double(summary.totalNumberFuelHigh) / Double(summary.numberOfMatchesPlayed)
             summary.averageNumberGears = Double(summary.totalNumberGears) / Double(summary.numberOfMatchesPlayed)
             summary.averageNumberClimbs = Double(summary.totalNumberClimbs) / Double(summary.numberOfMatchesPlayed)
+            summary.averagePenalty = Double(summary.totalPenalty) / Double(summary.numberOfMatchesPlayed)
+            if match.penalty == true {
+                summary.totalPenalty = summary.penalties + 1
+            }else {
+                summary.totalPenalty = summary.penalties + 0
+            }
+            if match.penalty == true {
+                summary.penalties = summary.penalties + 1
+            }
             switch(match.matchResult) {
             case 0:
                 summary.numberWins = summary.numberWins + 1
