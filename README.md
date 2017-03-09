@@ -16,7 +16,27 @@ Screens are provided for adding pit reports and match reports. There is one pit 
 
 ## Pit Report
 
+### View Pit Reports
+
+<p align="center">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23747421/9424645e-048d-11e7-919b-a1f2a5c8f8fb.png" align="center" height="150">
+</p>
+
+### Add/Update Pit Reports
+
+<p align="center">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23747062/5cf54a4e-048c-11e7-8cfe-d450ca2afa51.png" align="center" height="550">
+</p>
+
 ## Match Report
+
+### View Match Reports
+
+<p align="center">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23747060/5630b11c-048c-11e7-8b54-0007195c8195.png" align="center" height="550">
+</p>
+
+### Add/Update Match Reports
 
 <p align="center">
 <img src="https://cloud.githubusercontent.com/assets/16652800/23657091/75ed50ec-030a-11e7-870a-774caf4a74af.png" align="center" height="550">
@@ -54,4 +74,6 @@ The app can provide analytics on the pit and match data. You can quickly get a l
 
 Data may be exported from the home screen using the icon on the top left.
 
-
+<p align="center">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23748024/e066f0b4-048f-11e7-98a4-3b6694065cad.png" align="center" height="100">
+</p>
