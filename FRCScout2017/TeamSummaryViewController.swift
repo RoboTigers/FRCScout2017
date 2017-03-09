@@ -45,6 +45,7 @@ class TeamSummaryViewController: UIViewController{
     @IBOutlet weak var trendShootingLocation: UILabel!
     @IBOutlet weak var penaltyPerMatch: UILabel!
     @IBOutlet weak var penalties: UILabel!
+    @IBOutlet weak var defensiveRobot: UILabel!
    
     @IBAction func selectedTournament(_ sender: UISegmentedControl) {
         view.setNeedsDisplay()
@@ -82,7 +83,7 @@ class TeamSummaryViewController: UIViewController{
         avgHighFuel.text = formattedHighFuel
         let formattedLowFuel = String(format: "%.1f", summary.avergeNumberFuelLow)
         avgLowFuel.text = formattedLowFuel
-        penaltyPerMatch.text = NSNumber(value: summary.averagePenalty).stringValue
+        penaltyPerMatch.text = String(format: "%.1f", summary.averagePenalty)
         penalties.text = NSNumber(value: summary.totalPenalty).stringValue
         successfulClimbs.text = NSNumber(value: summary.totalNumberClimbs).stringValue
         
@@ -98,6 +99,7 @@ class TeamSummaryViewController: UIViewController{
             pitReports = try CoreDataStack.defaultStack.managedObjectContext.fetch(fetchRequest)
             if pitReports.count > 0 {
                 let existingPitReport = pitReports[0]
+                teamNum.text = existingPitReport.teamNumber
                 contactName.text = existingPitReport.contactName
                 driveCoachName.text = existingPitReport.driveCoach
                 driveTrainsType.text = existingPitReport.driveTrainType
