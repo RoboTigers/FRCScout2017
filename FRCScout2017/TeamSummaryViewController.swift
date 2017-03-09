@@ -26,7 +26,6 @@ class TeamSummaryViewController: UIViewController{
     @IBOutlet weak var driveTrainsType: UILabel!
     @IBOutlet weak var motorType: UILabel!
     @IBOutlet weak var motorNumber: UILabel!
-    @IBOutlet weak var overallSpeed: UILabel!
     @IBOutlet weak var robotWeightt: UILabel!
     @IBOutlet weak var cheesecake: UILabel!
     @IBOutlet weak var storageVolume: UILabel!
@@ -37,14 +36,14 @@ class TeamSummaryViewController: UIViewController{
     @IBOutlet weak var matchesTied: UILabel!
     @IBOutlet weak var avgGears: UILabel!
     @IBOutlet weak var avgHighFuel: UILabel!
-    @IBOutlet weak var avgClimbRate: UILabel!
-    @IBOutlet weak var avgClimbSpeed: UILabel!
     @IBOutlet weak var avgLowFuel: UILabel!
-    @IBOutlet weak var avgAutoScore: UILabel!
-    @IBOutlet weak var avgTeleScore: UILabel!
     @IBOutlet weak var successfulClimbs: UILabel!
     @IBOutlet weak var allComments: UILabel!
     @IBOutlet weak var myImageView: UIImageView!
+    @IBOutlet weak var trendFuelPickup: UILabel!
+    @IBOutlet weak var trendGearPickup: UILabel!
+    @IBOutlet weak var trendShootingLocation: UILabel!
+    @IBOutlet weak var penalties: UILabel!
    
     @IBAction func selectedTournament(_ sender: UISegmentedControl) {
         view.setNeedsDisplay()
@@ -82,8 +81,6 @@ class TeamSummaryViewController: UIViewController{
         avgHighFuel.text = formattedHighFuel
         let formattedLowFuel = String(format: "%.1f", summary.avergeNumberFuelLow)
         avgLowFuel.text = formattedLowFuel
-        //avgClimbRate
-        //avgClimbSpeed
         successfulClimbs.text = NSNumber(value: summary.totalNumberClimbs).stringValue
         
 
