@@ -1,13 +1,12 @@
 # FRCScout2017
 
-[STILL UNDER DEVELOPMENT]
 
 # Overview
 
 This app has been built by the RoboTigers (Team 1796) for FIRST FRC Scouting for the 2017 Steamworks season. It provides screens for collecting Pit and Match data as well as Summary and Analytics screens. It is best used on an iPad. Data is stored locally in the iPad as well as in the iCloud account of the iPad user. Data sychronization between multiple iPads is provided via iCloud. The typical use case is for a scouting team to have one iPad per scout with each iPad logged in to the same team iCloud account. Synchronization is automatic. Data export is also provided via email csv files.
 
 <p align="center">
-<img src="https://cloud.githubusercontent.com/assets/16652800/23657073/694051c8-030a-11e7-83da-2f2b8e42501f.png" align="center" height="450">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23657073/694051c8-030a-11e7-83da-2f2b8e42501f.png" align="center" height="550">
 </p>
 
 # Scouting Data
@@ -25,7 +24,7 @@ Screens are provided for adding pit reports and match reports. There is one pit 
 ### Add/Update Pit Reports
 
 <p align="center">
-<img src="https://cloud.githubusercontent.com/assets/16652800/23747062/5cf54a4e-048c-11e7-8cfe-d450ca2afa51.png" align="center" height="550">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23747062/5cf54a4e-048c-11e7-8cfe-d450ca2afa51.png" align="center" height="650">
 </p>
 
 ## Match Report
@@ -39,7 +38,7 @@ Screens are provided for adding pit reports and match reports. There is one pit 
 ### Add/Update Match Reports
 
 <p align="center">
-<img src="https://cloud.githubusercontent.com/assets/16652800/23657091/75ed50ec-030a-11e7-870a-774caf4a74af.png" align="center" height="550">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23657091/75ed50ec-030a-11e7-870a-774caf4a74af.png" align="center" height="650">
 </p>
 
 # Team Summary
@@ -50,8 +49,7 @@ From each analytics report table and from the Team Page you may select a team an
 <img src="https://cloud.githubusercontent.com/assets/16652800/23657788/d4d06542-030d-11e7-970d-e84add96eba4.png" align="center" height="450">
 </p>
 
-<p>
-</p>
+The Team Summary page is also reachable from any Analytics table.
 
 <p align="center">
 <img src="https://cloud.githubusercontent.com/assets/16652800/23776259/2cf55e78-04fb-11e7-8514-2d391d0fe3df.png" align="center" height="550">
