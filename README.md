@@ -50,8 +50,11 @@ From each analytics report table and from the Team Page you may select a team an
 <img src="https://cloud.githubusercontent.com/assets/16652800/23657788/d4d06542-030d-11e7-970d-e84add96eba4.png" align="center" height="450">
 </p>
 
+<p>
+</p>
+
 <p align="center">
-<img src="https://cloud.githubusercontent.com/assets/16652800/23776132/4b8f33aa-04fa-11e7-971a-213c5632fb2e.png" align="center" height="450">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23776259/2cf55e78-04fb-11e7-8514-2d391d0fe3df.png" align="center" height="450">
 </p>
 
 # Analytics
