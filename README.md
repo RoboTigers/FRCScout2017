@@ -19,7 +19,7 @@ Screens are provided for adding pit reports and match reports. There is one pit 
 ### View Pit Reports
 
 <p align="center">
-<img src="https://cloud.githubusercontent.com/assets/16652800/23747421/9424645e-048d-11e7-919b-a1f2a5c8f8fb.png" align="center" height="150">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23747421/9424645e-048d-11e7-919b-a1f2a5c8f8fb.png" align="center" height="250">
 </p>
 
 ### Add/Update Pit Reports
@@ -39,7 +39,7 @@ Screens are provided for adding pit reports and match reports. There is one pit 
 ### Add/Update Match Reports
 
 <p align="center">
-<img src="https://cloud.githubusercontent.com/assets/16652800/23657091/75ed50ec-030a-11e7-870a-774caf4a74af.png" align="center" height="550">
+<img src="https://cloud.githubusercontent.com/assets/16652800/23657091/75ed50ec-030a-11e7-870a-774caf4a74af.png" align="center" height="650">
 </p>
 
 # Team Summary
@@ -50,8 +50,7 @@ From each analytics report table and from the Team Page you may select a team an
 <img src="https://cloud.githubusercontent.com/assets/16652800/23657788/d4d06542-030d-11e7-970d-e84add96eba4.png" align="center" height="450">
 </p>
 
-<p>
-</p>
+The Team Summary page is also reachable from any Analytics table.
 
 <p align="center">
 <img src="https://cloud.githubusercontent.com/assets/16652800/23776259/2cf55e78-04fb-11e7-8514-2d391d0fe3df.png" align="center" height="550">
