@@ -168,6 +168,8 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                     autoFuelLow.text = NSNumber(value: (existingPitReport?.autoFuelLow)!).stringValue
                     autoFuelHigh.text = NSNumber(value: (existingPitReport?.autoFuelHigh)!).stringValue
                     practiceSegControl.selectedSegmentIndex = (Int((existingPitReport?.practiceAmount)!))
+                    fuelFloorPickupSpeed.selectedSegmentIndex = Int((existingPitReport?.fuelFloorPickupSpeed)!)
+                    estimatedTimeToHang.selectedSegmentIndex = Int((existingPitReport?.estimatedTimeToHang)!)
                 }
             } catch let error as NSError {
                 print("Could not fetch. \(error), \(error.userInfo)")
