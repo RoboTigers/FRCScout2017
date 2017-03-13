@@ -286,9 +286,9 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         newImageView.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
         newImageView.addGestureRecognizer(tap)
-        let scaleImage = UIPinchGestureRecognizer(target: self,action:
-            #selector(pinchImage))
-        newImageView.addGestureRecognizer(scaleImage)
+//        let scaleImage = UIPinchGestureRecognizer(target: self,action:
+//            #selector(pinchImage))
+//        newImageView.addGestureRecognizer(scaleImage)
        
 
         self.view.addSubview(newImageView)
@@ -297,10 +297,10 @@ class PitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
         sender.view?.removeFromSuperview()
     }
-    func pinchImage(_ sender: UIPinchGestureRecognizer) {
-        self.view.transform = self.view.transform.scaledBy(x: sender.scale, y: sender.scale)
-        sender.scale = 1
-    }
+//    func pinchImage(_ sender: UIPinchGestureRecognizer) {
+//        self.view.transform = self.view.transform.scaledBy(x: sender.scale, y: sender.scale)
+//        sender.scale = 1
+//    }
     // MARK: - Picker
     // Keep image in the orienatation it was taken in 
     
