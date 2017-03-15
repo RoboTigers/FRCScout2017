@@ -95,7 +95,7 @@ class AddMatchViewController: UIViewController, UITextViewDelegate {
         CoreDataStack.defaultStack.syncWithCompletion(nil)
         let fetchRequest = NSFetchRequest<MatchReport>(entityName: "MatchReport")
         if selectedTournament != -1 && selectedMatchNumber != "" && selectedTeamNumber != "" {
-            fetchRequest.predicate = NSPredicate(format: "tournament == \(selectedTournament) AND matchNumber == \(selectedMatchNumber) AND teamNumber == \(selectedTeamNumber)")
+            fetchRequest.predicate = NSPredicate(format: "tournament == \(selectedTournament) AND matchNumber == '\(selectedMatchNumber)' AND teamNumber == \(selectedTeamNumber)")
             var existingMatches: [MatchReport] = []
             do {
                 existingMatches = try CoreDataStack.defaultStack.managedObjectContext.fetch(fetchRequest)
